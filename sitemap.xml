@@ -9,7 +9,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Halaman Utama Lainnya -->
+  <!-- Halaman Music -->
   <url>
     <loc>https://sairootsmusic.github.io/music.html</loc>
     <lastmod>2026-04-09</lastmod>
@@ -17,6 +17,7 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Halaman Daftar Lirik -->
   <url>
     <loc>https://sairootsmusic.github.io/lyric.html</loc>
     <lastmod>2026-04-09</lastmod>
@@ -24,6 +25,7 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Halaman Tentang -->
   <url>
     <loc>https://sairootsmusic.github.io/tentang.html</loc>
     <lastmod>2026-04-09</lastmod>
