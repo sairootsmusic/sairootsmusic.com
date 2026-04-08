@@ -1,134 +1,219 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Album & Single - SAI Roots</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-:root { --accent: #1db954; --bg: #0a0a0a; }
-body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; padding-bottom: 220px; }
-.container { max-width: 450px; margin: auto; padding: 20px; }
-.header-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; }
-.section-title-line { font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 2px; margin: 30px 0 10px; border-bottom: 1px solid #1a1a1a; padding-bottom: 8px; }
-.song-item { display: flex; align-items: center; padding: 12px 15px; background: rgba(255,255,255,0.02); border-radius: 12px; margin-bottom: 6px; cursor: pointer; transition: 0.2s; border: 1px solid transparent; }
-.song-item:hover { background: rgba(255,255,255,0.07); }
-.song-item.active { background: rgba(29,185,84,0.1); border-color: var(--accent); }
-.song-item i { width: 30px; color: #444; }
-.song-item.active i { color: var(--accent); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discography SAI Roots Music | Album & Single Reggae Rap Indie</title>
+    <meta name="description" content="Daftar lengkap album dan single SAI Roots Music (Ahmad Supembri). Drama Klenik, Senandung Manis, Babylon Burn, Critical Fire, Reborn Riddim dan lagu reggae rap indie lainnya.">
+    <meta name="keywords" content="SAI Roots discography, album SAI Roots, Critical Fire, Reborn Riddim, Drama Klenik, Babylon Burn, lagu reggae rap Indonesia">
+    <link rel="canonical" href="https://sairootsmusic.github.io/music">
 
-.section-title { font-size: 10px; font-weight: 800; color: #444; letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-top: 40px; margin-bottom: 15px; }
-.social-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 15px; }
-.social-links a, .social-links span { color: #fff; font-size: 22px; opacity: 0.5; transition: 0.3s; cursor: pointer; text-decoration: none; }
-.social-links a:hover, .social-links span:hover { opacity: 1; color: var(--accent); transform: translateY(-2px); }
+    <!-- Open Graph -->
+    <meta property="og:title" content="Discography SAI Roots Music - Album & Single">
+    <meta property="og:description" content="Daftar lengkap album dan single reggae rap indie SAI Roots Music">
+    <meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
+    <meta property="og:url" content="https://sairootsmusic.github.io/music">
+    <meta property="og:type" content="music.album">
 
-.player-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #000; border-top: 1px solid #222; padding: 20px; z-index: 1000; text-align: center; box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
-audio { width: 100%; height: 35px; filter: invert(1); margin-top: 10px; }
-.footer-copy { text-align: center; font-size: 11px; color: #333; margin-top: 40px; padding-bottom: 20px; }
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Discography SAI Roots Music">
+    <meta name="twitter:description" content="Album & Single SAI Roots Music">
 
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1100; }
-.modal-content { background: #111; width: 85%; max-width: 350px; padding: 25px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); text-align: center; animation: popUp 0.3s ease-out; }
-@keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-.modal-btn { display: block; padding: 14px; margin-bottom: 10px; border-radius: 12px; text-decoration: none; color: #fff; font-weight: 600; font-size: 14px; background: rgba(255,255,255,0.05); transition: 0.3s; }
-.modal-btn:hover { background: var(--accent); color: #000; }
-</style>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root { --accent: #1db954; --bg: #0a0a0a; }
+        body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; padding-bottom: 220px; }
+        .container { max-width: 450px; margin: auto; padding: 20px; }
+        .header-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; }
+        .section-title-line { font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 2px; margin: 30px 0 10px; border-bottom: 1px solid #1a1a1a; padding-bottom: 8px; }
+        .song-item { display: flex; align-items: center; padding: 12px 15px; background: rgba(255,255,255,0.02); border-radius: 12px; margin-bottom: 6px; cursor: pointer; transition: 0.2s; border: 1px solid transparent; }
+        .song-item:hover { background: rgba(255,255,255,0.07); }
+        .song-item.active { background: rgba(29,185,84,0.1); border-color: var(--accent); }
+        .song-item i { width: 30px; color: #444; }
+        .song-item.active i { color: var(--accent); }
+        .section-title { font-size: 10px; font-weight: 800; color: #444; letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-top: 40px; margin-bottom: 15px; }
+        .social-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 15px; }
+        .social-links a, .social-links span { color: #fff; font-size: 22px; opacity: 0.5; transition: 0.3s; cursor: pointer; text-decoration: none; }
+        .social-links a:hover, .social-links span:hover { opacity: 1; color: var(--accent); transform: translateY(-2px); }
+        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #000; border-top: 1px solid #222; padding: 20px; z-index: 1000; text-align: center; box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
+        audio { width: 100%; height: 35px; filter: invert(1); margin-top: 10px; }
+        .footer-copy { text-align: center; font-size: 11px; color: #333; margin-top: 40px; padding-bottom: 20px; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1100; }
+        .modal-content { background: #111; width: 85%; max-width: 350px; padding: 25px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); text-align: center; animation: popUp 0.3s ease-out; }
+        @keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-btn { display: block; padding: 14px; margin-bottom: 10px; border-radius: 12px; text-decoration: none; color: #fff; font-weight: 600; font-size: 14px; background: rgba(255,255,255,0.05); transition: 0.3s; }
+        .modal-btn:hover { background: var(--accent); color: #000; }
+    </style>
 </head>
 <body>
 <div class="container">
-  <div class="header-nav"><a href="index" style="color:var(--accent); text-decoration:none; font-size:14px;"><i class="fa fa-arrow-left"></i> Home</a></div>
-  <h1 style="font-size:36px; font-weight:800; margin-bottom:10px;">Discography</h1>
+    <div class="header-nav">
+        <a href="index.html" style="color:var(--accent); text-decoration:none; font-size:14px;">
+            <i class="fa fa-arrow-left"></i> Home
+        </a>
+    </div>
 
-  <div class="section-title-line">Single</div>
-  <div class="song-item" data-title="Drama Klenik"><i class="fas fa-play"></i>Drama Klenik</div>
-  <div class="song-item" data-title="Senandung Manis"><i class="fas fa-play"></i>Senandung Manis</div>
-  <div class="song-item" data-title="Eksploitasi"><i class="fas fa-play"></i>Eksploitasi</div>
-  <div class="song-item" data-title="Jurus Liar"><i class="fas fa-play"></i>Jurus Liar</div>
-  <div class="song-item" data-title="Dari Jauh"><i class="fas fa-play"></i>Dari Jauh</div>
-  <div class="song-item" data-title="Kasih Mengalun"><i class="fas fa-play"></i>Kasih Mengalun</div>
-  <div class="song-item" data-title="Genjer Hijau"><i class="fas fa-play"></i>Genjer Hijau</div>
+    <h1 style="font-size:36px; font-weight:800; margin-bottom:10px;">Discography</h1>
+    <p style="color:#888; margin-bottom:30px;">SAI Roots Music — Ahmad Supembri</p>
 
-  <div class="section-title-line">Album: Critical Fire</div>
-  <div class="song-item" data-title="Babylon Burn"><i class="fas fa-play"></i>Babylon Burn</div>
-  <div class="song-item" data-title="Bayang Singgasana"><i class="fas fa-play"></i>Bayang Singgasana</div>
-  <div class="song-item" data-title="Blaze It Up"><i class="fas fa-play"></i>Blaze It Up</div>
-  <div class="song-item" data-title="Evaluasi Lagi"><i class="fas fa-play"></i>Evaluasi Lagi</div>
-  <div class="song-item" data-title="Irama Hidup"><i class="fas fa-play"></i>Irama Hidup</div>
-  <div class="song-item" data-title="Jamaican Sound"><i class="fas fa-play"></i>Jamaican Sound</div>
-  <div class="song-item" data-title="Ormas Tipu-tipu"><i class="fas fa-play"></i>Ormas Tipu-tipu</div>
-  <div class="song-item" data-title="Propaganda"><i class="fas fa-play"></i>Propaganda</div>
-  <div class="song-item" data-title="Roots Medication"><i class="fas fa-play"></i>Roots Medication</div>
-  <div class="song-item" data-title="Skank Patrol"><i class="fas fa-play"></i>Skank Patrol</div>
+    <div class="section-title-line">Single</div>
+    <div class="song-item" data-title="Drama Klenik"><i class="fas fa-play"></i>Drama Klenik</div>
+    <div class="song-item" data-title="Senandung Manis"><i class="fas fa-play"></i>Senandung Manis</div>
+    <div class="song-item" data-title="Eksploitasi"><i class="fas fa-play"></i>Eksploitasi</div>
+    <div class="song-item" data-title="Jurus Liar"><i class="fas fa-play"></i>Jurus Liar</div>
+    <div class="song-item" data-title="Dari Jauh"><i class="fas fa-play"></i>Dari Jauh</div>
+    <div class="song-item" data-title="Kasih Mengalun"><i class="fas fa-play"></i>Kasih Mengalun</div>
+    <div class="song-item" data-title="Genjer Hijau"><i class="fas fa-play"></i>Genjer Hijau</div>
 
-  <div class="section-title-line">Album: Reborn Riddim</div>
-  <div class="song-item" data-title="Reborn Riddim"><i class="fas fa-play"></i>Reborn Riddim</div>
-  <div class="song-item" data-title="Autopsi Mic"><i class="fas fa-play"></i>Autopsi Mic</div>
-  <div class="song-item" data-title="Salam Dari Timur"><i class="fas fa-play"></i>Salam Dari Timur</div>
-  <div class="song-item" data-title="Mantra Malam"><i class="fas fa-play"></i>Mantra Malam</div>
-  <div class="song-item" data-title="Magic Mushroom"><i class="fas fa-play"></i>Magic Mushroom</div>
-  <div class="song-item" data-title="Rastaman"><i class="fas fa-play"></i>Rastaman</div>
-  <div class="song-item" data-title="Melayang Pelan"><i class="fas fa-play"></i>Melayang Pelan</div>
-  <div class="song-item" data-title="Tanah Hijau"><i class="fas fa-play"></i>Tanah Hijau</div>
-  <div class="song-item" data-title="BBM Busuk"><i class="fas fa-play"></i>BBM Busuk</div>
-  <div class="song-item" data-title="Kabur Saja Dulu"><i class="fas fa-play"></i>Kabur Saja Dulu</div>
+    <div class="section-title-line">Album: Critical Fire</div>
+    <div class="song-item" data-title="Babylon Burn"><i class="fas fa-play"></i>Babylon Burn</div>
+    <div class="song-item" data-title="Bayang Singgasana"><i class="fas fa-play"></i>Bayang Singgasana</div>
+    <div class="song-item" data-title="Blaze It Up"><i class="fas fa-play"></i>Blaze It Up</div>
+    <div class="song-item" data-title="Evaluasi Lagi"><i class="fas fa-play"></i>Evaluasi Lagi</div>
+    <div class="song-item" data-title="Irama Hidup"><i class="fas fa-play"></i>Irama Hidup</div>
+    <div class="song-item" data-title="Jamaican Sound"><i class="fas fa-play"></i>Jamaican Sound</div>
+    <div class="song-item" data-title="Ormas Tipu-tipu"><i class="fas fa-play"></i>Ormas Tipu-tipu</div>
+    <div class="song-item" data-title="Propaganda"><i class="fas fa-play"></i>Propaganda</div>
+    <div class="song-item" data-title="Roots Medication"><i class="fas fa-play"></i>Roots Medication</div>
+    <div class="song-item" data-title="Skank Patrol"><i class="fas fa-play"></i>Skank Patrol</div>
 
-  <div class="section-title">Stream On</div>
-  <div class="social-links">
-    <span onclick="openModal('ytPopup')"><i class="fab fa-youtube"></i></span>
-    <span onclick="openModal('ytMusicPopup')"><i class="fa-solid fa-music"></i></span>
-    <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr?si=nxAN278ZQCy4A9reytgBVA" target="_blank"><i class="fab fa-spotify"></i></a>
-    <a href="https://m.soundcloud.com/sairoots" target="_blank"><i class="fab fa-soundcloud"></i></a>
-    <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank"><i class="fab fa-amazon"></i></a>
-  </div>
-  <div class="section-title">Social Media</div>
-  <div class="social-links">
-    <a href="https://instagram.com/ahmadsupembri" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://tiktok.com/@ahmadsupembri" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://facebook.com/ahmadsupembri" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://x.com/ahmadsupembri" target="_blank"><i class="fab fa-x-twitter"></i></a>
-  </div>
-  <div class="footer-copy">© 2026 SAI Roots Music. All Rights Reserved.</div>
+    <div class="section-title-line">Album: Reborn Riddim</div>
+    <div class="song-item" data-title="Reborn Riddim"><i class="fas fa-play"></i>Reborn Riddim</div>
+    <div class="song-item" data-title="Autopsi Mic"><i class="fas fa-play"></i>Autopsi Mic</div>
+    <div class="song-item" data-title="Salam Dari Timur"><i class="fas fa-play"></i>Salam Dari Timur</div>
+    <div class="song-item" data-title="Mantra Malam"><i class="fas fa-play"></i>Mantra Malam</div>
+    <div class="song-item" data-title="Magic Mushroom"><i class="fas fa-play"></i>Magic Mushroom</div>
+    <div class="song-item" data-title="Rastaman"><i class="fas fa-play"></i>Rastaman</div>
+    <div class="song-item" data-title="Melayang Pelan"><i class="fas fa-play"></i>Melayang Pelan</div>
+    <div class="song-item" data-title="Tanah Hijau"><i class="fas fa-play"></i>Tanah Hijau</div>
+    <div class="song-item" data-title="BBM Busuk"><i class="fas fa-play"></i>BBM Busuk</div>
+    <div class="song-item" data-title="Kabur Saja Dulu"><i class="fas fa-play"></i>Kabur Saja Dulu</div>
+
+    <div class="section-title">Stream On</div>
+    <div class="social-links">
+        <span onclick="openModal('ytPopup')"><i class="fab fa-youtube"></i></span>
+        <span onclick="openModal('ytMusicPopup')"><i class="fa-solid fa-music"></i></span>
+        <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank"><i class="fab fa-spotify"></i></a>
+        <a href="https://m.soundcloud.com/sairoots" target="_blank"><i class="fab fa-soundcloud"></i></a>
+        <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank"><i class="fab fa-amazon"></i></a>
+    </div>
+
+    <div class="section-title">Social Media</div>
+    <div class="social-links">
+        <a href="https://instagram.com/ahmadsupembri" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@ahmadsupembri" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://facebook.com/ahmadsupembri" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://x.com/ahmadsupembri" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    </div>
+
+    <div class="footer-copy">© 2026 SAI Roots Music. All Rights Reserved.</div>
 </div>
 
+<!-- Player Bar -->
 <div class="player-bar">
-  <div id="pTitle" style="font-size:12px; color:#666;">Pilih lagu untuk memutar</div>
-  <audio id="audio" controls controlsList="nodownload"></audio>
+    <div id="pTitle" style="font-size:12px; color:#666;">Pilih lagu untuk memutar</div>
+    <audio id="audio" controls controlsList="nodownload"></audio>
 </div>
 
+<!-- Modal -->
 <div class="modal-overlay" id="ytPopup" onclick="closeModal(event, 'ytPopup')">
     <div class="modal-content">
         <h3 style="margin-bottom:20px;">YouTube Channel</h3>
         <a href="https://www.youtube.com/@sairoots" target="_blank" class="modal-btn">SAI Roots (Official)</a>
-        <a href="https://youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA?si=jGKQM03zteq4SS1P" target="_blank" class="modal-btn">SAI Roots (Topic)</a>
+        <a href="https://youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA" target="_blank" class="modal-btn">SAI Roots (Topic)</a>
     </div>
 </div>
 <div class="modal-overlay" id="ytMusicPopup" onclick="closeModal(event, 'ytMusicPopup')">
     <div class="modal-content">
         <h3 style="margin-bottom:20px;">YouTube Music</h3>
-        <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ?si=aMWy5MEaQdC_Mlx-" target="_blank" class="modal-btn">SAI Roots (Official)</a>
-        <a href="https://music.youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA?si=DehHjqku-d4ftWUY" target="_blank" class="modal-btn">SAI Roots (Topic)</a>
+        <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" class="modal-btn">SAI Roots (Official)</a>
+        <a href="https://music.youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA" target="_blank" class="modal-btn">SAI Roots (Topic)</a>
     </div>
 </div>
 
 <script>
-  const audio = document.getElementById("audio");
-  const songs = document.querySelectorAll('.song-item');
-  const baseUrl = "https://github.com/pembri/SAI-Roots-Official/raw/refs/heads/main/";
-  let currentIdx = -1;
-  function playSong(idx) {
-    currentIdx = idx;
-    const song = songs[idx];
-    const title = song.dataset.title;
-    songs.forEach(s => s.classList.remove('active'));
-    song.classList.add('active');
-    audio.src = baseUrl + encodeURIComponent(title) + ".mp3";
-    audio.play();
-    document.getElementById("pTitle").innerText = "Playing: " + title;
-  }
-  songs.forEach((s, i) => { s.onclick = () => playSong(i); });
-  audio.onended = () => { if(currentIdx + 1 < songs.length) playSong(currentIdx + 1); };
-  function openModal(id) { document.getElementById(id).style.display = 'flex'; }
-  function closeModal(e, id) { if (e.target.id === id) { document.getElementById(id).style.display = 'none'; } }
+    const audio = document.getElementById("audio");
+    const songs = document.querySelectorAll('.song-item');
+    const baseUrl = "https://github.com/pembri/SAI-Roots-Official/raw/refs/heads/main/";
+    let currentIdx = -1;
+
+    function playSong(idx) {
+        currentIdx = idx;
+        const song = songs[idx];
+        const title = song.dataset.title;
+        songs.forEach(s => s.classList.remove('active'));
+        song.classList.add('active');
+        audio.src = baseUrl + encodeURIComponent(title) + ".mp3";
+        audio.play();
+        document.getElementById("pTitle").innerText = "Playing: " + title;
+    }
+
+    songs.forEach((s, i) => { s.onclick = () => playSong(i); });
+    audio.onended = () => { if(currentIdx + 1 < songs.length) playSong(currentIdx + 1); };
+
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(e, id) { if (e.target.id === id) { document.getElementById(id).style.display = 'none'; } }
 </script>
+
+<!-- Structured Data (Paling Penting untuk SEO Musik & YouTube) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "SAI Roots Music",
+  "alternateName": "Ahmad Supembri",
+  "url": "https://sairootsmusic.github.io",
+  "image": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
+  "genre": ["Reggae", "Rap", "Indie"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicAlbum",
+  "name": "Critical Fire",
+  "byArtist": {"@type": "MusicGroup", "name": "SAI Roots Music"},
+  "genre": ["Reggae", "Rap"],
+  "track": [
+    {"@type":"MusicRecording","name":"Babylon Burn"},
+    {"@type":"MusicRecording","name":"Bayang Singgasana"},
+    {"@type":"MusicRecording","name":"Blaze It Up"},
+    {"@type":"MusicRecording","name":"Evaluasi Lagi"},
+    {"@type":"MusicRecording","name":"Irama Hidup"},
+    {"@type":"MusicRecording","name":"Jamaican Sound"},
+    {"@type":"MusicRecording","name":"Ormas Tipu-tipu"},
+    {"@type":"MusicRecording","name":"Propaganda"},
+    {"@type":"MusicRecording","name":"Roots Medication"},
+    {"@type":"MusicRecording","name":"Skank Patrol"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicAlbum",
+  "name": "Reborn Riddim",
+  "byArtist": {"@type": "MusicGroup", "name": "SAI Roots Music"},
+  "genre": ["Reggae", "Rap"],
+  "track": [
+    {"@type":"MusicRecording","name":"Reborn Riddim"},
+    {"@type":"MusicRecording","name":"Autopsi Mic"},
+    {"@type":"MusicRecording","name":"Salam Dari Timur"},
+    {"@type":"MusicRecording","name":"Mantra Malam"},
+    {"@type":"MusicRecording","name":"Magic Mushroom"},
+    {"@type":"MusicRecording","name":"Rastaman"},
+    {"@type":"MusicRecording","name":"Melayang Pelan"},
+    {"@type":"MusicRecording","name":"Tanah Hijau"},
+    {"@type":"MusicRecording","name":"BBM Busuk"},
+    {"@type":"MusicRecording","name":"Kabur Saja Dulu"}
+  ]
+}
+</script>
+
 </body>
-</html>
+                                                                </html>
