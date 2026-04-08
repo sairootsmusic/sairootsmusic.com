@@ -1,117 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
   <loc>https://sairootsmusic.github.io/</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/music</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/tentang</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/index</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/dramaklenik</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/senandungmanis</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/eksploitasi</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/jurusliar</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/darijauh</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/kasihmengalun</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/babylonburn</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/propaganda</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/bayangsinggasana</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/blazeitup</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/evaluasilagi</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/iramahidup</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/jamaicansound</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/ormastiputipu</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/rootsmedication</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sairootsmusic.github.io/lyric/skankpatrol</loc>
-  <lastmod>2026-04-08T19:00:17+00:00</lastmod>
-  <priority>0.64</priority>
 </url>
 
+<url>
+  <loc>https://sairootsmusic.github.io/music.html</loc>
+</url>
+
+<url>
+  <loc>https://sairootsmusic.github.io/lyric.html</loc>
+</url>
+
+<url>
+  <loc>https://sairootsmusic.github.io/tentang.html</loc>
+</url>
+
+<!-- SEMUA LAGU KAMU (FIX) -->
+<url><loc>https://sairootsmusic.github.io/lyric/dramaklenik.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/senandungmanis.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/eksploitasi.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/jurusliar.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/darijauh.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/kasihmengalun.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/babylonburn.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/propaganda.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/bayangsinggasana.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/blazeitup.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/evaluasilagi.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/iramahidup.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/jamaicansound.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/ormastiputipu.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/rootsmedication.html</loc></url>
+<url><loc>https://sairootsmusic.github.io/lyric/skankpatrol.html</loc></url>
 
 </urlset>
