@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sairootsmusic.github.io/sitemap.xml
