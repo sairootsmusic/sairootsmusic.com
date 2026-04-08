@@ -7,102 +7,82 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-:root { --accent: #1db954; --bg: #000000; }
+:root { --accent: #1db954; --bg: #080808; }
 * { margin:0; padding:0; box-sizing:border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-body { background: var(--bg); color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 0; }
-
-.card { max-width: 420px; width: 100%; min-height: 100vh; background: var(--bg); position: relative; overflow: hidden; }
-
-/* Banner & Profil */
-.banner { height: 260px; background: url('https://raw.githubusercontent.com/pembri/SAI-Roots-Official/refs/heads/main/IMG_20260407_232759_337.jpg') center/cover no-repeat; position: relative; z-index: 1; }
-.banner::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background: linear-gradient(transparent, var(--bg)); }
-.profile { text-align: center; margin-top: -60px; position: relative; z-index: 10; padding: 0 20px; }
-.profile-img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; object-fit: cover; background: #000; box-shadow: 0 10px 20px rgba(0,0,0,0.8); }
-.profile h1 { font-size: 26px; font-weight: 800; margin-top: 15px; }
-.profile-subtitle { font-size: 11px; color: #888; letter-spacing: 2px; margin-top: 5px; }
-
-/* Main Links */
-.links { padding: 30px 25px 10px; }
-.link-box { display: flex; align-items: center; background: #111; padding: 16px 20px; border-radius: 15px; text-decoration: none; color: #fff; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+body { background: var(--bg); color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+.card { max-width: 420px; width: 100%; background: rgba(255,255,255,0.03); border-radius: 35px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(20px); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
+.banner { height: 180px; background: url('https://raw.githubusercontent.com/pembri/SAI-Roots-Official/refs/heads/main/IMG_20260407_232759_337.jpg') center/cover; position: relative; }
+.banner::after { content:''; position: absolute; inset:0; background: linear-gradient(transparent, var(--bg)); }
+.profile { text-align: center; margin-top: -65px; position: relative; z-index: 5; padding: 0 20px; }
+.profile-img { width: 125px; height: 125px; border-radius: 50%; border: 4px solid var(--bg); object-fit: cover; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.links { padding: 25px 25px 10px; }
+.link-box { display: flex; align-items: center; background: rgba(255,255,255,0.05); padding: 14px 20px; border-radius: 16px; text-decoration: none; color: #fff; margin-bottom: 10px; border: 1px solid transparent; transition: 0.3s; }
+.link-box:hover { background: rgba(255,255,255,0.1); border-color: var(--accent); transform: translateY(-3px); }
 .link-box i { width: 30px; font-size: 18px; color: var(--accent); }
 .link-box span { font-weight: 600; font-size: 14px; flex-grow: 1; }
-
-/* Social & Stream Sections */
-.section-title { font-size: 10px; font-weight: 800; color: #444; letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-top: 25px; margin-bottom: 12px; }
-.social-links { display: flex; justify-content: center; gap: 20px; padding: 0 25px 15px; flex-wrap: wrap; }
+.section-title { font-size: 10px; font-weight: 800; color: #444; letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-top: 20px; margin-bottom: 12px; }
+.social-links { display: flex; justify-content: center; gap: 20px; padding: 0 25px 10px; flex-wrap: wrap; }
 .social-links a, .social-links span { color: #fff; font-size: 22px; opacity: 0.6; transition: 0.3s; cursor: pointer; text-decoration: none; }
 .social-links a:hover, .social-links span:hover { opacity: 1; color: var(--accent); transform: translateY(-2px); }
-
-/* POPUP STYLE */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1000; }
 .modal-content { background: #111; width: 85%; max-width: 350px; padding: 25px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); text-align: center; animation: popUp 0.3s ease-out; }
 @keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-.modal-content h3 { font-size: 16px; margin-bottom: 20px; font-weight: 800; color: #fff; }
 .modal-btn { display: block; padding: 14px; margin-bottom: 10px; border-radius: 12px; text-decoration: none; color: #fff; font-weight: 600; font-size: 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
 .modal-btn:hover { background: var(--accent); color: #000; }
-.close-modal { margin-top: 15px; font-size: 11px; color: #555; cursor: pointer; display: inline-block; text-transform: uppercase; letter-spacing: 1px; }
-
-.footer-text { text-align: center; padding: 30px 20px 40px; font-size: 10px; color: #333; }
+.close-modal { margin-top: 15px; font-size: 11px; color: #555; cursor: pointer; display: inline-block; }
+.footer-text { text-align: center; padding: 25px; font-size: 11px; color: #444; }
 </style>
 </head>
 <body>
-
 <div class="card">
   <div class="banner"></div>
   <div class="profile">
     <img src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg" class="profile-img">
-    <h1>SAI Roots Music</h1>
-    <div class="profile-subtitle">OFFICIAL WEBSITE</div>
+    <h1 style="font-size: 26px; font-weight: 800; margin-top: 10px;">SAI Roots Music</h1>
+    <div style="font-size: 12px; color: #888; letter-spacing: 2px;">OFFICIAL WEBSITE</div>
   </div>
-
   <div class="links">
-    <a href="music.html" class="link-box"><i class="fa-solid fa-circle-play"></i><span>Album & Single</span></a>
-    <a href="lyric.html" class="link-box"><i class="fa-solid fa-file-lines"></i><span>Lirik Lagu</span></a>
-    <a href="tentang.html" class="link-box"><i class="fa-solid fa-circle-info"></i><span>Tentang</span></a>
+    <a href="music" class="link-box"><i class="fa-solid fa-record-vinyl"></i><span>Album & Single</span></a>
+    <a href="lyric" class="link-box"><i class="fa-solid fa-file-lines"></i><span>Lirik Lagu</span></a>
+    <a href="tentang" class="link-box"><i class="fa-solid fa-circle-info"></i><span>Tentang</span></a>
   </div>
-
   <div class="section-title">Stream On</div>
   <div class="social-links">
-    <span onclick="openModal('ytPopup')" title="YouTube"><i class="fab fa-youtube"></i></span>
-    <span onclick="openModal('ytMusicPopup')" title="YouTube Music"><i class="fa-solid fa-music"></i></span>
-    <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr?si=nxAN278ZQCy4A9reytgBVA" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
-    <a href="https://m.soundcloud.com/sairoots" target="_blank" title="SoundCloud"><i class="fab fa-soundcloud"></i></a>
-    <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank" title="Amazon Music"><i class="fab fa-amazon"></i></a>
+    <span onclick="openModal('ytPopup')"><i class="fab fa-youtube"></i></span>
+    <span onclick="openModal('ytMusicPopup')"><i class="fa-solid fa-music"></i></span>
+    <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr?si=nxAN278ZQCy4A9reytgBVA" target="_blank"><i class="fab fa-spotify"></i></a>
+    <a href="https://m.soundcloud.com/sairoots" target="_blank"><i class="fab fa-soundcloud"></i></a>
+    <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank"><i class="fab fa-amazon"></i></a>
   </div>
-
   <div class="section-title">Social Media</div>
   <div class="social-links">
-    <a href="https://instagram.com/ahmadsupembri" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://tiktok.com/@ahmadsupembri" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-    <a href="https://facebook.com/ahmadsupembri" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-    <a href="https://x.com/ahmadsupembri" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://instagram.com/ahmadsupembri" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/@ahmadsupembri" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://facebook.com/ahmadsupembri" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://x.com/ahmadsupembri" target="_blank"><i class="fab fa-x-twitter"></i></a>
   </div>
-
   <div class="footer-text">© 2026 SAI Roots Music. All Rights Reserved.</div>
 </div>
 
 <div class="modal-overlay" id="ytPopup" onclick="closeModal(event, 'ytPopup')">
     <div class="modal-content">
-        <h3>YouTube Channel</h3>
+        <h3 style="margin-bottom:20px;">YouTube Channel</h3>
         <a href="https://www.youtube.com/@sairoots" target="_blank" class="modal-btn">SAI Roots (Official)</a>
         <a href="https://youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA?si=jGKQM03zteq4SS1P" target="_blank" class="modal-btn">SAI Roots (Topic)</a>
         <div class="close-modal" onclick="document.getElementById('ytPopup').style.display='none'">Tutup</div>
     </div>
 </div>
-
 <div class="modal-overlay" id="ytMusicPopup" onclick="closeModal(event, 'ytMusicPopup')">
     <div class="modal-content">
-        <h3>YouTube Music</h3>
+        <h3 style="margin-bottom:20px;">YouTube Music</h3>
         <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ?si=aMWy5MEaQdC_Mlx-" target="_blank" class="modal-btn">SAI Roots (Official)</a>
         <a href="https://music.youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA?si=DehHjqku-d4ftWUY" target="_blank" class="modal-btn">SAI Roots (Topic)</a>
         <div class="close-modal" onclick="document.getElementById('ytMusicPopup').style.display='none'">Tutup</div>
     </div>
 </div>
-
 <script>
 function openModal(id) { document.getElementById(id).style.display = 'flex'; }
 function closeModal(e, id) { if (e.target.id === id) { document.getElementById(id).style.display = 'none'; } }
 </script>
-
 </body>
 </html>
