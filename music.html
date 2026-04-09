@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discography SAI Roots</title>
+    <title id="pageTitle">Discography SAI Roots</title>
     <link rel="icon" type="image/x-icon" href="https://sairootsmusic.github.io/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -21,6 +21,7 @@
         .song-item.active { background: #1f1f1f; border-left: 4px solid var(--accent); }
         .song-item i { margin-right: 16px; color: #888; width: 20px; }
 
+        /* PLAYER STYLES */
         .mini-player { position: fixed; bottom: 0; left: 0; width: 100%; background: #181818; border-top: 1px solid #282828; padding: 12px 16px; display: flex; align-items: center; gap: 12px; z-index: 100; cursor: pointer; }
         .mini-cover { width: 50px; height: 50px; border-radius: 8px; overflow: hidden; }
         .mini-info { flex: 1; overflow: hidden; }
@@ -31,7 +32,6 @@
         .np-header { padding: 20px 20px 10px; display: flex; justify-content: space-between; align-items: center; }
         .np-header i { font-size: 24px; cursor: pointer; }
         
-        /* CSS UNTUK COVER BULAT */
         .np-art { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
         .np-cover { width: 280px; height: 280px; border-radius: 50%; overflow: hidden; box-shadow: 0 15px 50px rgba(0,0,0,0.6); border: 4px solid #282828; cursor: pointer; }
         .np-cover img { width: 100%; height: 100%; object-fit: cover; }
@@ -49,12 +49,7 @@
         .np-controls button { background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; }
         .np-play-pause { width: 74px; height: 74px; background: #fff; color: #000; border-radius: 50%; font-size: 36px; display: flex; align-items: center; justify-content: center; }
 
-        /* POPUP FULL IMAGE */
-        #artPopup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 5000; display: none; align-items: center; justify-content: center; }
-        .art-full-container { position: relative; width: 90%; max-width: 400px; }
-        .art-full-container img { width: 100%; border-radius: 12px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-        .art-close { position: absolute; top: -50px; right: 0; color: #fff; font-size: 30px; cursor: pointer; }
-
+        /* MENU & POPUPS */
         #menuPopup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 3000; display: none; justify-content: center; align-items: flex-end; }
         .menu-content { background: #1f1f1f; width: 100%; max-width: 380px; border-radius: 16px 16px 0 0; padding: 10px 0; }
         .menu-item { padding: 16px 24px; font-size: 16px; display: flex; align-items: center; gap: 16px; cursor: pointer; }
@@ -113,13 +108,11 @@
 
 <div id="nowPlaying">
     <div class="np-header"><i class="fas fa-chevron-down" onclick="closeNowPlaying()"></i><div style="font-size:14px; font-weight:500;">SAI Roots</div><i class="fas fa-ellipsis-h" onclick="showMenu()" style="font-size:26px;"></i></div>
-    <div class="np-art"><div class="np-cover" onclick="openArtFull()"><img id="npCover" src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg"></div></div>
+    <div class="np-art"><div class="np-cover"><img id="npCover" src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg"></div></div>
     <div class="np-info"><div id="npTitle" class="np-title">Judul Lagu</div><div id="npArtist" class="np-artist">SAI Roots</div><div id="npType" class="np-type">Single</div></div>
     <div class="np-progress"><div class="progress-bar" id="npProgressBar"><div class="progress" id="npProgress"></div></div></div>
     <div class="np-controls"><button onclick="prevSong()"><i class="fas fa-step-backward"></i></button><button id="npPlayPauseBtn" class="np-play-pause" onclick="togglePlay()"><i class="fas fa-play"></i></button><button onclick="nextSong()"><i class="fas fa-step-forward"></i></button></div>
 </div>
-
-<div id="artPopup" onclick="closeArtFull()"><div class="art-full-container"><i class="fas fa-times art-close"></i><img id="artFullImg" src=""></div></div>
 
 <div id="menuPopup" onclick="if(event.target===this) hideMenu()">
     <div class="menu-content">
@@ -131,10 +124,10 @@
     </div>
 </div>
 
-<div id="creditPopup" onclick="this.style.display='none'">
-    <div class="menu-content" style="border-radius:16px; max-width:320px; padding:20px; margin: auto; position: relative; top: 50%; transform: translateY(-50%);">
-        <div id="creditText" style="font-size:14px; line-height:1.6;"></div>
-        <div class="menu-close">Tutup</div>
+<div id="creditPopup" onclick="hideCreditPopup()">
+    <div class="menu-content" style="border-radius:16px; max-width:320px; padding:20px; margin: auto; position: relative; top: 50%; transform: translateY(-50%); text-align: left;">
+        <div id="creditText" style="font-size:14px; line-height:1.6; color:#fff;"></div>
+        <div class="menu-close" style="border-top:none; padding-top:20px;">Tutup</div>
     </div>
 </div>
 
@@ -146,16 +139,15 @@
     const baseUrl = "https://github.com/pembri/SAI-Roots-Official/raw/refs/heads/main/";
     let currentIdx = -1;
     let currentTitle = "";
-    const OFFICIAL_DOMAIN = "https://sairootsmusic.github.io/music";
+    const originalPageTitle = "Discography SAI Roots";
 
-    function openFromHash() {
-        const hash = decodeURIComponent(window.location.hash.substring(1));
-        if (!hash) return;
+    function autoDetectSong() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetSlug = urlParams.get('song');
+        if (!targetSlug) return;
         for (let i = 0; i < songs.length; i++) {
-            if (songs[i].dataset.title.toLowerCase().replace(/\s+/g, '-') === hash) {
-                playSong(i);
-                break;
-            }
+            const slug = songs[i].dataset.title.toLowerCase().replace(/\s+/g, '-');
+            if (slug === targetSlug) { playSong(i); break; }
         }
     }
 
@@ -182,8 +174,8 @@
             document.getElementById("nowPlaying").classList.add('playing');
         }).catch(() => {});
         
-        document.getElementById("nowPlaying").style.display = 'flex';
-        window.history.replaceState(null, null, "#" + currentTitle.toLowerCase().replace(/\s+/g, '-'));
+        openNowPlaying();
+        window.history.replaceState(null, null, "?song=" + currentTitle.toLowerCase().replace(/\s+/g, '-'));
     }
 
     function togglePlay() {
@@ -196,10 +188,37 @@
 
     function nextSong() { if (currentIdx < songs.length - 1) playSong(currentIdx + 1); }
     function prevSong() { if (currentIdx > 0) playSong(currentIdx - 1); }
-    function openNowPlaying() { document.getElementById("nowPlaying").style.display = 'flex'; }
-    function closeNowPlaying() { document.getElementById("nowPlaying").style.display = 'none'; }
-    function openArtFull() { document.getElementById("artFullImg").src = document.getElementById("npCover").src; document.getElementById("artPopup").style.display = "flex"; }
-    function closeArtFull() { document.getElementById("artPopup").style.display = "none"; }
+
+    function openNowPlaying() { 
+        document.getElementById("nowPlaying").style.display = 'flex'; 
+        if (currentTitle) document.title = currentTitle + " - SAI Roots";
+    }
+
+    function closeNowPlaying() { 
+        document.getElementById("nowPlaying").style.display = 'none'; 
+        document.title = originalPageTitle; 
+    }
+
+    // MENU FUNCTIONS
+    function showMenu() { document.getElementById("menuPopup").style.display = "flex"; }
+    function hideMenu() { document.getElementById("menuPopup").style.display = "none"; }
+
+    function shareSong() {
+        hideMenu();
+        const songUrl = window.location.origin + window.location.pathname + "?song=" + currentTitle.toLowerCase().replace(/\s+/g, '-');
+        if (navigator.share) navigator.share({title: currentTitle + " - SAI Roots", url: songUrl});
+        else { navigator.clipboard.writeText(songUrl); alert("✅ Link disalin!"); }
+    }
+
+    function downloadSong() { window.open(audio.src, '_blank'); hideMenu(); }
+    function viewLyrics() { window.open(`https://sairootsmusic.github.io/lyric/${currentTitle.toLowerCase().replace(/\s+/g, '')}`, "_blank"); hideMenu(); }
+    
+    function showCreditPopup() {
+        hideMenu();
+        document.getElementById("creditText").innerHTML = `<strong>Judul</strong>: ${currentTitle}<br><strong>Artist</strong>: SAI Roots<br><strong>Penulis</strong>: Ahmad Supembri<br><br><small>© 2026 SAI Roots Music</small>`;
+        document.getElementById("creditPopup").style.display = "block";
+    }
+    function hideCreditPopup() { document.getElementById("creditPopup").style.display = "none"; }
 
     audio.addEventListener('timeupdate', () => {
         if (audio.duration) document.getElementById("npProgress").style.width = (audio.currentTime / audio.duration) * 100 + "%";
@@ -214,26 +233,7 @@
     songs.forEach((song, i) => song.addEventListener('click', () => playSong(i)));
     document.getElementById("miniPlayBtn").addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
 
-    async function shareSong() {
-        hideMenu();
-        const songUrl = OFFICIAL_DOMAIN + "#" + currentTitle.toLowerCase().replace(/\s+/g, '-');
-        if (navigator.share) await navigator.share({title: currentTitle + " - SAI Roots", url: songUrl});
-        else { navigator.clipboard.writeText(songUrl); alert("✅ Link disalin!"); }
-    }
-
-    function downloadSong() { window.open(audio.src, '_blank'); hideMenu(); }
-    function viewLyrics() { window.open(`https://sairootsmusic.github.io/lyric/${currentTitle.toLowerCase().replace(/\s+/g, '')}`, "_blank"); hideMenu(); }
-    function showMenu() { document.getElementById("menuPopup").style.display = "flex"; }
-    function hideMenu() { document.getElementById("menuPopup").style.display = "none"; }
-    
-    function showCreditPopup() {
-        hideMenu();
-        document.getElementById("creditText").innerHTML = `<strong>${currentTitle}</strong><br>Artist: SAI Roots<br>Penulis: Ahmad Supembri<br>© 2026 SAI Roots`;
-        document.getElementById("creditPopup").style.display = "block";
-    }
-
-    window.addEventListener('load', () => { setTimeout(openFromHash, 300); });
-    window.addEventListener('hashchange', openFromHash);
+    window.addEventListener('load', () => { setTimeout(autoDetectSong, 400); });
 </script>
 </body>
 </html>
