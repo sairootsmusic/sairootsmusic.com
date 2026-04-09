@@ -76,38 +76,23 @@
         .menu-item i { width: 24px; color: #b3b3b3; }
         .menu-close { text-align: center; padding: 16px; color: #1ed760; font-weight: 600; border-top: 1px solid #333; cursor: pointer; }
 
-        /* --- STYLES UNTUK FITUR SHARE BARU --- */
-        .share-overlay {
+        /* --- STYLES SHARE --- */
+        #sharePopup {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.92); z-index: 4000;
+            background: rgba(0,0,0,0.9); z-index: 4000;
             display: none; align-items: center; justify-content: center; padding: 20px;
         }
         .share-card {
             background: #121212; width: 100%; max-width: 360px;
-            border-radius: 16px; overflow: hidden; position: relative;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6); border: 1px solid #282828;
-            animation: slideUp 0.3s ease-out;
+            border-radius: 16px; overflow: hidden; border: 1px solid #282828;
         }
-        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .share-header { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #282828; }
-        .share-header p { font-weight: 600; font-size: 15px; }
-        .share-body { padding: 25px; display: flex; gap: 18px; align-items: center; }
-        .share-art-mini { width: 90px; height: 90px; border-radius: 8px; overflow: hidden; flex-shrink: 0; }
+        .share-body { padding: 20px; display: flex; gap: 15px; align-items: center; text-align: left; }
+        .share-art-mini { width: 80px; height: 80px; border-radius: 8px; overflow: hidden; }
         .share-art-mini img { width: 100%; height: 100%; object-fit: cover; }
-        .share-info-text { flex: 1; min-width: 0; }
-        .share-badge { font-size: 10px; font-weight: 800; color: #1ed760; text-transform: uppercase; letter-spacing: 1px; }
-        .share-info-text h2 { font-size: 18px; margin: 2px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .share-info-text p { font-size: 14px; color: #b3b3b3; }
-        .share-link-box { padding: 0 25px 20px; }
-        .share-link-box p { font-size: 12px; color: #888; margin-bottom: 6px; }
-        .link-display { background: #1f1f1f; padding: 12px; border-radius: 6px; font-size: 12px; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; border: 1px solid #333; }
+        .share-badge { font-size: 10px; font-weight: 800; color: #1ed760; }
         .share-actions { display: flex; justify-content: space-around; padding: 20px; background: #181818; }
-        .share-btn { width: 48px; height: 48px; background: #282828; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; text-decoration: none; transition: 0.2s; cursor: pointer; }
-        .share-btn:hover { background: #333; transform: scale(1.1); }
-        .share-btn.fb:hover { color: #1877F2; }
-        .share-btn.tw:hover { color: #1DA1F2; }
-        .share-btn.wa:hover { color: #25D366; }
-        .share-btn.copy:hover { color: #1ed760; }
+        .share-btn { width: 45px; height: 45px; background: #282828; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -165,21 +150,17 @@
         <div style="font-size:14px; font-weight:500;">SAI Roots</div>
         <i class="fas fa-ellipsis-h" onclick="showMenu()" style="font-size:26px;"></i>
     </div>
-
     <div class="np-art">
         <div class="np-cover"><img id="npCover" src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg" alt="Album Art"></div>
     </div>
-
     <div class="np-info">
         <div id="npTitle" class="np-title">Judul Lagu</div>
         <div id="npArtist" class="np-artist">SAI Roots</div>
         <div id="npType" class="np-type">Single</div>
     </div>
-
     <div class="np-progress">
         <div class="progress-bar" id="npProgressBar"><div class="progress" id="npProgress"></div></div>
     </div>
-
     <div class="np-controls">
         <button onclick="prevSong()"><i class="fas fa-step-backward"></i></button>
         <button id="npPlayPauseBtn" class="np-play-pause" onclick="togglePlay()"><i class="fas fa-play"></i></button>
@@ -197,40 +178,33 @@
     </div>
 </div>
 
-<div id="sharePopup" class="share-overlay" onclick="if(event.target===this) closeShare()">
+<div id="sharePopup" onclick="if(event.target===this) closeShare()">
     <div class="share-card">
         <div class="share-header">
-            <p>Bagikan lagu ini</p>
-            <i class="fas fa-times" onclick="closeShare()" style="cursor:pointer;"></i>
+            <p>Bagikan</p>
+            <i class="fas fa-times" onclick="closeShare()" style="cursor:pointer"></i>
         </div>
         <div class="share-body">
-            <div class="share-art-mini">
-                <img id="shareCoverImg" src="" alt="Cover">
-            </div>
-            <div class="share-info-text">
+            <div class="share-art-mini"><img id="shareCover" src="" alt="Art"></div>
+            <div>
                 <span class="share-badge">SONG</span>
-                <h2 id="shareTitleText">Judul Lagu</h2>
-                <p>SAI Roots</p>
+                <h2 id="shareTitle" style="font-size:18px">Judul</h2>
+                <p style="color:#888; font-size:14px">SAI Roots</p>
             </div>
-        </div>
-        <div class="share-link-box">
-            <p>Share link:</p>
-            <div class="link-display" id="shareUrlDisplay">https://...</div>
         </div>
         <div class="share-actions">
-            <a id="shareFB" href="#" target="_blank" class="share-btn fb"><i class="fab fa-facebook-f"></i></a>
-            <a id="shareTW" href="#" target="_blank" class="share-btn tw"><i class="fab fa-twitter"></i></a>
-            <a id="shareWA" href="#" target="_blank" class="share-btn wa"><i class="fab fa-whatsapp"></i></a>
-            <div class="share-btn copy" onclick="copyShareUrl()"><i class="fas fa-link"></i></div>
+            <a id="sFB" href="#" target="_blank" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+            <a id="sWA" href="#" target="_blank" class="share-btn"><i class="fab fa-whatsapp"></i></a>
+            <a id="sTW" href="#" target="_blank" class="share-btn"><i class="fab fa-twitter"></i></a>
+            <div onclick="copyLink()" class="share-btn" style="cursor:pointer"><i class="fas fa-link"></i></div>
         </div>
     </div>
 </div>
 
-<div id="creditPopup" class="share-overlay" onclick="if(event.target===this) hideCreditPopup()">
-    <div class="menu-content" style="border-radius:16px; max-width:320px; padding:25px; color:#fff;">
-        <h3 style="margin-bottom:15px; color:var(--accent);">Song Credit</h3>
-        <div id="creditText" style="line-height:1.6; font-size:14px;"></div>
-        <div class="menu-close" onclick="hideCreditPopup()" style="margin-top:20px; border:none;">Tutup</div>
+<div id="creditPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:5000; align-items:center; justify-content:center;">
+    <div class="menu-content" style="border-radius:16px; max-width:320px; padding:20px; position:relative;">
+        <div id="creditText" style="font-size:14px; line-height:1.6;"></div>
+        <div class="menu-close" onclick="document.getElementById('creditPopup').style.display='none'">Tutup</div>
     </div>
 </div>
 
@@ -240,54 +214,89 @@
     const audio = document.getElementById("audio");
     const songs = document.querySelectorAll('.song-item');
     const baseUrl = "https://github.com/pembri/SAI-Roots-Official/raw/refs/heads/main/";
-
     let currentIdx = -1;
     let currentTitle = "";
-
-    const defaultCover = "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg";
-    const criticalCover = "https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png";
-    const rebornCover = "https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg";
-
-    const miniCover = document.getElementById("miniCover");
-    const npCover = document.getElementById("npCover");
-    const miniTitle = document.getElementById("miniTitle");
-    const npTitle = document.getElementById("npTitle");
-    const npType = document.getElementById("npType");
-    const npProgress = document.getElementById("npProgress");
-    const npPlayPauseBtn = document.getElementById("npPlayPauseBtn");
-    const miniPlayBtn = document.getElementById("miniPlayBtn");
-
-    function openFromHash() {
-        const hash = window.location.hash.substring(1);
-        if (!hash) return;
-        for (let i = 0; i < songs.length; i++) {
-            const title = songs[i].dataset.title.toLowerCase().replace(/\s+/g, '-');
-            if (title === hash) {
-                playSong(i);
-                return;
-            }
-        }
-    }
+    const nowPlaying = document.getElementById("nowPlaying");
 
     function playSong(idx) {
         currentIdx = idx;
         const song = songs[idx];
         currentTitle = song.dataset.title;
         const type = song.dataset.type || "Single";
-        const cover = (type === "Critical Fire") ? criticalCover :
-                      (type === "Reborn Riddim") ? rebornCover : defaultCover;
+        const cover = song.dataset.cover || "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg";
 
         songs.forEach(s => s.classList.remove('active'));
         song.classList.add('active');
 
-        miniTitle.textContent = currentTitle;
-        npTitle.textContent = currentTitle;
-        npType.textContent = type === "Single" ? "Single" : `Album • ${type}`;
-
-        miniCover.src = cover;
-        npCover.src = cover;
+        document.getElementById("miniTitle").textContent = currentTitle;
+        document.getElementById("npTitle").textContent = currentTitle;
+        document.getElementById("npType").textContent = type === "Single" ? "Single" : `Album • ${type}`;
+        document.getElementById("miniCover").src = cover;
+        document.getElementById("npCover").src = cover;
 
         audio.src = baseUrl + encodeURIComponent(currentTitle) + ".mp3?raw=true";
         audio.play().then(() => {
-            npPlayPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            miniPlayBt
+            document.getElementById("npPlayPauseBtn").innerHTML = '<i class="fas fa-pause"></i>';
+            document.getElementById("miniPlayBtn").innerHTML = '<i class="fas fa-pause"></i>';
+            nowPlaying.classList.add('playing');
+        }).catch(e => console.log(e));
+        openNowPlaying();
+    }
+
+    function togglePlay() {
+        if (audio.paused) audio.play(); else audio.pause();
+        const icon = audio.paused ? '<i class="fas fa-play"></i>' : '<i class="fas fa-pause"></i>';
+        document.getElementById("npPlayPauseBtn").innerHTML = icon;
+        document.getElementById("miniPlayBtn").innerHTML = icon;
+        nowPlaying.classList.toggle('playing', !audio.paused);
+    }
+
+    function nextSong() { if (currentIdx < songs.length - 1) playSong(currentIdx + 1); }
+    function prevSong() { if (currentIdx > 0) playSong(currentIdx - 1); }
+    function openNowPlaying() { nowPlaying.style.display = 'flex'; }
+    function closeNowPlaying() { nowPlaying.style.display = 'none'; }
+
+    audio.addEventListener('timeupdate', () => {
+        if (audio.duration) document.getElementById("npProgress").style.width = (audio.currentTime / audio.duration) * 100 + "%";
+    });
+
+    document.getElementById("npProgressBar").addEventListener('click', (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+    });
+
+    audio.addEventListener('ended', nextSong);
+    songs.forEach((song, i) => song.addEventListener('click', () => playSong(i)));
+    document.getElementById("miniPlayBtn").addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
+
+    // --- FUNGSI SHARE ---
+    function shareSong() {
+        hideMenu();
+        const slug = currentTitle.toLowerCase().replace(/\s+/g, '-');
+        const url = window.location.origin + window.location.pathname + "#" + slug;
+        document.getElementById("shareTitle").textContent = currentTitle;
+        document.getElementById("shareCover").src = document.getElementById("npCover").src;
+        document.getElementById("sFB").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        document.getElementById("sWA").href = `https://api.whatsapp.com/send?text=${encodeURIComponent(currentTitle + " " + url)}`;
+        document.getElementById("sTW").href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`;
+        document.getElementById("sharePopup").style.display = "flex";
+    }
+    function closeShare() { document.getElementById("sharePopup").style.display = "none"; }
+    function copyLink() {
+        const slug = currentTitle.toLowerCase().replace(/\s+/g, '-');
+        navigator.clipboard.writeText(window.location.origin + window.location.pathname + "#" + slug);
+        alert("Link disalin!");
+    }
+
+    function hideMenu() { document.getElementById("menuPopup").style.display = "none"; }
+    function showMenu() { document.getElementById("menuPopup").style.display = "flex"; }
+    function downloadSong() { window.open(audio.src, '_blank'); }
+    function viewLyrics() { window.open(`https://sairootsmusic.github.io/lyric/${currentTitle.toLowerCase().replace(/\s+/g,'')}`, "_blank"); }
+    function showCreditPopup() {
+        hideMenu();
+        document.getElementById("creditText").innerHTML = `<strong>${currentTitle}</strong><br>SAI Roots<br>Ahmad Supembri<br>© 2026`;
+        document.getElementById("creditPopup").style.display = "flex";
+    }
+</script>
+</body>
+</html>
