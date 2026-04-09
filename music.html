@@ -76,23 +76,38 @@
         .menu-item i { width: 24px; color: #b3b3b3; }
         .menu-close { text-align: center; padding: 16px; color: #1ed760; font-weight: 600; border-top: 1px solid #333; cursor: pointer; }
 
-        /* --- STYLES SHARE --- */
-        #sharePopup {
+        /* CSS BARU UNTUK SHARE POPUP */
+        .share-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); z-index: 4000;
             display: none; align-items: center; justify-content: center; padding: 20px;
         }
         .share-card {
             background: #121212; width: 100%; max-width: 360px;
-            border-radius: 16px; overflow: hidden; border: 1px solid #282828;
+            border-radius: 16px; overflow: hidden; border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .share-header { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #282828; }
-        .share-body { padding: 20px; display: flex; gap: 15px; align-items: center; text-align: left; }
-        .share-art-mini { width: 80px; height: 80px; border-radius: 8px; overflow: hidden; }
+        .share-body { padding: 20px; display: flex; gap: 15px; align-items: center; }
+        .share-art-mini { width: 85px; height: 85px; border-radius: 8px; overflow: hidden; }
         .share-art-mini img { width: 100%; height: 100%; object-fit: cover; }
-        .share-badge { font-size: 10px; font-weight: 800; color: #1ed760; }
-        .share-actions { display: flex; justify-content: space-around; padding: 20px; background: #181818; }
-        .share-btn { width: 45px; height: 45px; background: #282828; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; }
+        .share-badge { font-size: 10px; font-weight: 800; color: #1ed760; text-transform: uppercase; }
+        .share-actions-grid { 
+            display: grid; grid-template-columns: repeat(4, 1fr); 
+            gap: 15px; padding: 20px; background: #181818; 
+        }
+        .share-btn { 
+            display: flex; flex-direction: column; align-items: center; 
+            text-decoration: none; color: #fff; font-size: 11px; gap: 8px;
+        }
+        .share-icon-circle {
+            width: 45px; height: 45px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            background: #282828; font-size: 20px; transition: 0.2s;
+        }
+        .share-btn:hover .share-icon-circle { background: #333; transform: scale(1.1); }
+        .share-link-box { padding: 0 20px 15px; }
+        .link-text { background: #1f1f1f; padding: 10px; border-radius: 6px; font-size: 12px; color: #888; border: 1px solid #333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     </style>
 </head>
 <body>
@@ -170,7 +185,7 @@
 
 <div id="menuPopup" onclick="if(event.target===this) hideMenu()">
     <div class="menu-content">
-        <div class="menu-item" onclick="shareSong()"><i class="fas fa-share-alt"></i> Bagikan</div>
+        <div class="menu-item" onclick="openShare()"><i class="fas fa-share-alt"></i> Bagikan</div>
         <div class="menu-item" onclick="downloadSong()"><i class="fas fa-download"></i> Download Lagu</div>
         <div class="menu-item" onclick="viewLyrics()"><i class="fas fa-book"></i> Lihat Lirik</div>
         <div class="menu-item" onclick="showCreditPopup()"><i class="fas fa-info-circle"></i> Credit Song</div>
@@ -178,25 +193,32 @@
     </div>
 </div>
 
-<div id="sharePopup" onclick="if(event.target===this) closeShare()">
+<div id="sharePopup" class="share-overlay" onclick="if(event.target===this) closeShare()">
     <div class="share-card">
         <div class="share-header">
-            <p>Bagikan</p>
+            <p>Bagikan Lagu</p>
             <i class="fas fa-times" onclick="closeShare()" style="cursor:pointer"></i>
         </div>
         <div class="share-body">
-            <div class="share-art-mini"><img id="shareCover" src="" alt="Art"></div>
+            <div class="share-art-mini"><img id="sCover" src="" alt="Art"></div>
             <div>
                 <span class="share-badge">SONG</span>
-                <h2 id="shareTitle" style="font-size:18px">Judul</h2>
-                <p style="color:#888; font-size:14px">SAI Roots</p>
+                <h2 id="sTitle" style="font-size:18px; margin:2px 0;">Judul</h2>
+                <p style="color:#888; font-size:13px">SAI Roots</p>
             </div>
         </div>
-        <div class="share-actions">
-            <a id="sFB" href="#" target="_blank" class="share-btn"><i class="fab fa-facebook-f"></i></a>
-            <a id="sWA" href="#" target="_blank" class="share-btn"><i class="fab fa-whatsapp"></i></a>
-            <a id="sTW" href="#" target="_blank" class="share-btn"><i class="fab fa-twitter"></i></a>
-            <div onclick="copyLink()" class="share-btn" style="cursor:pointer"><i class="fas fa-link"></i></div>
+        <div class="share-link-box">
+            <div class="link-text" id="sUrlDisplay">URL...</div>
+        </div>
+        <div class="share-actions-grid">
+            <a id="sWA" href="#" target="_blank" class="share-btn"><div class="share-icon-circle" style="color:#25D366"><i class="fab fa-whatsapp"></i></div>WhatsApp</a>
+            <a id="sFB" href="#" target="_blank" class="share-btn"><div class="share-icon-circle" style="color:#1877F2"><i class="fab fa-facebook-f"></i></div>Facebook</a>
+            <a id="sTG" href="#" target="_blank" class="share-btn"><div class="share-icon-circle" style="color:#0088cc"><i class="fab fa-telegram-plane"></i></div>Telegram</a>
+            <a id="sTW" href="#" target="_blank" class="share-btn"><div class="share-icon-circle" style="color:#1DA1F2"><i class="fab fa-twitter"></i></div>Twitter/X</a>
+            <a id="sIG" href="https://instagram.com" target="_blank" class="share-btn"><div class="share-icon-circle" style="color:#E4405F"><i class="fab fa-instagram"></i></div>Instagram</a>
+            <a id="sTT" href="https://tiktok.com" target="_blank" class="share-btn"><div class="share-icon-circle" style="color:#fff"><i class="fab fa-tiktok"></i></div>TikTok</a>
+            <a id="sTH" href="#" target="_blank" class="share-btn"><div class="share-icon-circle" style="color:#fff"><i class="fas fa-at"></i></div>Threads</a>
+            <div onclick="copyLink()" class="share-btn" style="cursor:pointer"><div class="share-icon-circle" style="color:#1ed760"><i class="fas fa-link"></i></div>Salin</div>
         </div>
     </div>
 </div>
@@ -269,23 +291,34 @@
     songs.forEach((song, i) => song.addEventListener('click', () => playSong(i)));
     document.getElementById("miniPlayBtn").addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
 
-    // --- FUNGSI SHARE ---
-    function shareSong() {
+    // FUNGSI SHARE BARU
+    function openShare() {
         hideMenu();
+        if(!currentTitle) return;
         const slug = currentTitle.toLowerCase().replace(/\s+/g, '-');
         const url = window.location.origin + window.location.pathname + "#" + slug;
-        document.getElementById("shareTitle").textContent = currentTitle;
-        document.getElementById("shareCover").src = document.getElementById("npCover").src;
+        const text = encodeURIComponent(`Dengarkan "${currentTitle}" oleh SAI Roots 🎵`);
+
+        document.getElementById("sTitle").textContent = currentTitle;
+        document.getElementById("sCover").src = document.getElementById("npCover").src;
+        document.getElementById("sUrlDisplay").textContent = url;
+
+        // Links
+        document.getElementById("sWA").href = `https://api.whatsapp.com/send?text=${text}%20${encodeURIComponent(url)}`;
         document.getElementById("sFB").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-        document.getElementById("sWA").href = `https://api.whatsapp.com/send?text=${encodeURIComponent(currentTitle + " " + url)}`;
-        document.getElementById("sTW").href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`;
+        document.getElementById("sTG").href = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${text}`;
+        document.getElementById("sTW").href = `https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(url)}`;
+        document.getElementById("sTH").href = `https://www.threads.net/intent/post?text=${text}%20${encodeURIComponent(url)}`;
+
         document.getElementById("sharePopup").style.display = "flex";
     }
+
     function closeShare() { document.getElementById("sharePopup").style.display = "none"; }
+    
     function copyLink() {
-        const slug = currentTitle.toLowerCase().replace(/\s+/g, '-');
-        navigator.clipboard.writeText(window.location.origin + window.location.pathname + "#" + slug);
-        alert("Link disalin!");
+        const url = document.getElementById("sUrlDisplay").textContent;
+        navigator.clipboard.writeText(url);
+        alert("✅ Link disalin ke papan klip!");
     }
 
     function hideMenu() { document.getElementById("menuPopup").style.display = "none"; }
