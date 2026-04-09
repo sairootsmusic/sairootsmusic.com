@@ -3,221 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discography SAI Roots | Album & Single</title>
-    <meta name="description" content="Daftar lengkap album dan single SAI Roots. Drama Klenik, Senandung Manis, Babylon Burn, Critical Fire, Reborn Riddim dan lagu reggae rap indie lainnya.">
-    <meta name="keywords" content="SAI Roots discography, album SAI Roots, Critical Fire, Reborn Riddim, Drama Klenik, Babylon Burn, lagu reggae rap Indonesia">
-    <link rel="canonical" href="https://sairootsmusic.github.io/music">
-
-    <!-- FAVICON -->
+    <title>Discography SAI Roots</title>
     <link rel="icon" type="image/x-icon" href="https://sairootsmusic.github.io/favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="https://sairootsmusic.github.io/favicon.ico">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Discography SAI Roots - Album & Single">
-    <meta property="og:description" content="Daftar lengkap album dan single reggae rap indie SAI Roots">
-    <meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
-    <meta property="og:url" content="https://sairootsmusic.github.io/music">
-    <meta property="og:type" content="music.album">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Discography SAI Roots">
-    <meta name="twitter:description" content="Album & Single SAI Roots">
-
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        :root { --accent: #1db954; --bg: #0a0a0a; }
-        body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; padding-bottom: 220px; }
-        .container { max-width: 450px; margin: auto; padding: 20px; }
-        .header-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; }
-        .section-title-line { font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 2px; margin: 30px 0 10px; border-bottom: 1px solid #1a1a1a; padding-bottom: 8px; }
-        .song-item { display: flex; align-items: center; padding: 12px 15px; background: rgba(255,255,255,0.02); border-radius: 12px; margin-bottom: 6px; cursor: pointer; transition: 0.2s; border: 1px solid transparent; }
-        .song-item:hover { background: rgba(255,255,255,0.07); }
-        .song-item.active { background: rgba(29,185,84,0.1); border-color: var(--accent); }
-        .song-item i { width: 30px; color: #444; }
-        .song-item.active i { color: var(--accent); }
-        .section-title { font-size: 10px; font-weight: 800; color: #444; letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-top: 40px; margin-bottom: 15px; }
-        .social-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 15px; }
-        .social-links a, .social-links span { color: #fff; font-size: 22px; opacity: 0.5; transition: 0.3s; cursor: pointer; text-decoration: none; }
-        .social-links a:hover, .social-links span:hover { opacity: 1; color: var(--accent); transform: translateY(-2px); }
-        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #000; border-top: 1px solid #222; padding: 20px; z-index: 1000; text-align: center; box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
-        audio { width: 100%; height: 35px; filter: invert(1); margin-top: 10px; }
-        .footer-copy { text-align: center; font-size: 11px; color: #333; margin-top: 40px; padding-bottom: 20px; }
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 1100; }
-        .modal-content { background: #111; width: 85%; max-width: 350px; padding: 25px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); text-align: center; animation: popUp 0.3s ease-out; }
-        @keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .modal-btn { display: block; padding: 14px; margin-bottom: 10px; border-radius: 12px; text-decoration: none; color: #fff; font-weight: 600; font-size: 14px; background: rgba(255,255,255,0.05); transition: 0.3s; }
-        .modal-btn:hover { background: var(--accent); color: #000; }
+        :root { --accent: #1ed760; --bg: #121212; --card: #181818; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding-bottom: 110px;
+        }
+        .container { max-width: 480px; margin: auto; padding: 20px; }
+
+        h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; }
+        .subtitle { color: #b3b3b3; margin-bottom: 30px; }
+
+        .section-title-line {
+            font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1.5px;
+            margin: 35px 0 12px; border-bottom: 1px solid #282828; padding-bottom: 6px;
+        }
+        .song-item {
+            display: flex; align-items: center; padding: 12px 16px;
+            background: var(--card); border-radius: 8px; margin-bottom: 8px;
+            cursor: pointer; transition: 0.2s;
+        }
+        .song-item:hover { background: #282828; }
+        .song-item.active { background: #1f1f1f; border-left: 4px solid var(--accent); }
+        .song-item i { margin-right: 16px; color: #888; width: 20px; }
+
+        /* Mini Player */
+        .mini-player {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: #181818; border-top: 1px solid #282828;
+            padding: 12px 16px; display: flex; align-items: center; gap: 12px;
+            z-index: 100; cursor: pointer;
+        }
+        .mini-cover { width: 48px; height: 48px; border-radius: 6px; overflow: hidden; }
+        .mini-info { flex: 1; overflow: hidden; }
+        .mini-title { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .mini-artist { font-size: 12px; color: #b3b3b3; }
+
+        /* Full Now Playing */
+        #nowPlaying {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(#1f1f1f, #121212); z-index: 2000;
+            display: none; flex-direction: column;
+        }
+        .np-header {
+            padding: 20px 20px 10px; display: flex; justify-content: space-between; align-items: center;
+        }
+        .np-header i { font-size: 24px; cursor: pointer; }
+
+        .np-art { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .np-cover {
+            width: 280px; height: 280px; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+        }
+        .np-cover img { width: 100%; height: 100%; object-fit: cover; }
+        .playing .np-cover img { animation: rotate 28s linear infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .np-info { text-align: center; padding: 0 30px 20px; }
+        .np-title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .np-artist { font-size: 16px; color: #b3b3b3; }
+        .np-type { font-size: 13px; color: var(--accent); font-weight: 500; }
+
+        .np-progress { padding: 0 30px; margin: 20px 0; }
+        .progress-bar { height: 4px; background: #535353; border-radius: 999px; position: relative; cursor: pointer; }
+        .progress { height: 100%; background: var(--accent); width: 0%; border-radius: 999px; }
+
+        .np-controls {
+            display: flex; justify-content: center; align-items: center; gap: 40px; padding: 30px 0;
+        }
+        .np-controls button { background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; }
+        .np-play-pause {
+            width: 72px; height: 72px; background: #fff; color: #000;
+            border-radius: 50%; font-size: 34px; display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Menu & Credit */
+        #menuPopup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 3000; display: none; justify-content: center; align-items: flex-end; }
+        .menu-content { background: #1f1f1f; width: 100%; max-width: 380px; border-radius: 16px 16px 0 0; padding: 8px 0; }
+        .menu-item { padding: 16px 24px; font-size: 16px; display: flex; align-items: center; gap: 16px; cursor: pointer; }
+        .menu-item:hover { background: #2a2a2a; }
+        .menu-item i { width: 24px; color: #b3b3b3; }
+        .menu-close { text-align: center; padding: 16px; color: #1ed760; font-weight: 600; border-top: 1px solid #333; cursor: pointer; }
+
+        #creditPopup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3100; display: none; justify-content: center; align-items: center; }
+        .credit-content { background: #1f1f1f; width: 90%; max-width: 340px; border-radius: 16px; padding: 24px; text-align: center; }
+        .credit-content h3 { margin-bottom: 16px; color: var(--accent); }
+        .credit-info { text-align: left; line-height: 1.8; margin: 16px 0; }
+        .close-btn { margin-top: 20px; padding: 12px 32px; background: var(--accent); color: #000; border: none; border-radius: 999px; font-weight: 600; cursor: pointer; }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="header-nav">
-        <a href="index" style="color:var(--accent); text-decoration:none; font-size:14px;">
-            <i class="fa fa-arrow-left"></i> Home
-        </a>
-    </div>
 
-    <h1 style="font-size:36px; font-weight:800; margin-bottom:10px;">Discography</h1>
-    <p style="color:#888; margin-bottom:30px;">SAI Roots</p>
+<div class="container">
+    <h1>Discography</h1>
+    <p class="subtitle">SAI Roots</p>
 
     <div class="section-title-line">Single</div>
-    <div class="song-item" data-title="Drama Klenik"><i class="fas fa-play"></i>Drama Klenik</div>
-    <div class="song-item" data-title="Senandung Manis"><i class="fas fa-play"></i>Senandung Manis</div>
-    <div class="song-item" data-title="Eksploitasi"><i class="fas fa-play"></i>Eksploitasi</div>
-    <div class="song-item" data-title="Jurus Liar"><i class="fas fa-play"></i>Jurus Liar</div>
-    <div class="song-item" data-title="Dari Jauh"><i class="fas fa-play"></i>Dari Jauh</div>
-    <div class="song-item" data-title="Kasih Mengalun"><i class="fas fa-play"></i>Kasih Mengalun</div>
-    <div class="song-item" data-title="Genjer Hijau"><i class="fas fa-play"></i>Genjer Hijau</div>
+    <div class="song-item" data-title="Drama Klenik" data-type="Single"><i class="fas fa-play"></i>Drama Klenik</div>
+    <div class="song-item" data-title="Senandung Manis" data-type="Single"><i class="fas fa-play"></i>Senandung Manis</div>
+    <div class="song-item" data-title="Eksploitasi" data-type="Single"><i class="fas fa-play"></i>Eksploitasi</div>
+    <div class="song-item" data-title="Jurus Liar" data-type="Single"><i class="fas fa-play"></i>Jurus Liar</div>
+    <div class="song-item" data-title="Dari Jauh" data-type="Single"><i class="fas fa-play"></i>Dari Jauh</div>
+    <div class="song-item" data-title="Kasih Mengalun" data-type="Single"><i class="fas fa-play"></i>Kasih Mengalun</div>
+    <div class="song-item" data-title="Genjer Hijau" data-type="Single"><i class="fas fa-play"></i>Genjer Hijau</div>
 
     <div class="section-title-line">Album: Critical Fire</div>
-    <div class="song-item" data-title="Babylon Burn"><i class="fas fa-play"></i>Babylon Burn</div>
-    <div class="song-item" data-title="Bayang Singgasana"><i class="fas fa-play"></i>Bayang Singgasana</div>
-    <div class="song-item" data-title="Blaze It Up"><i class="fas fa-play"></i>Blaze It Up</div>
-    <div class="song-item" data-title="Evaluasi Lagi"><i class="fas fa-play"></i>Evaluasi Lagi</div>
-    <div class="song-item" data-title="Irama Hidup"><i class="fas fa-play"></i>Irama Hidup</div>
-    <div class="song-item" data-title="Jamaican Sound"><i class="fas fa-play"></i>Jamaican Sound</div>
-    <div class="song-item" data-title="Ormas Tipu-tipu"><i class="fas fa-play"></i>Ormas Tipu-tipu</div>
-    <div class="song-item" data-title="Propaganda"><i class="fas fa-play"></i>Propaganda</div>
-    <div class="song-item" data-title="Roots Medication"><i class="fas fa-play"></i>Roots Medication</div>
-    <div class="song-item" data-title="Skank Patrol"><i class="fas fa-play"></i>Skank Patrol</div>
+    <div class="song-item" data-title="Babylon Burn" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Babylon Burn</div>
+    <div class="song-item" data-title="Bayang Singgasana" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Bayang Singgasana</div>
+    <div class="song-item" data-title="Blaze It Up" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Blaze It Up</div>
+    <div class="song-item" data-title="Evaluasi Lagi" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Evaluasi Lagi</div>
+    <div class="song-item" data-title="Irama Hidup" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Irama Hidup</div>
+    <div class="song-item" data-title="Jamaican Sound" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Jamaican Sound</div>
+    <div class="song-item" data-title="Ormas Tipu-tipu" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Ormas Tipu-tipu</div>
+    <div class="song-item" data-title="Propaganda" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Propaganda</div>
+    <div class="song-item" data-title="Roots Medication" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Roots Medication</div>
+    <div class="song-item" data-title="Skank Patrol" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Skank Patrol</div>
 
     <div class="section-title-line">Album: Reborn Riddim</div>
-    <div class="song-item" data-title="Reborn Riddim"><i class="fas fa-play"></i>Reborn Riddim</div>
-    <div class="song-item" data-title="Autopsi Mic"><i class="fas fa-play"></i>Autopsi Mic</div>
-    <div class="song-item" data-title="Salam Dari Timur"><i class="fas fa-play"></i>Salam Dari Timur</div>
-    <div class="song-item" data-title="Mantra Malam"><i class="fas fa-play"></i>Mantra Malam</div>
-    <div class="song-item" data-title="Magic Mushroom"><i class="fas fa-play"></i>Magic Mushroom</div>
-    <div class="song-item" data-title="Rastaman"><i class="fas fa-play"></i>Rastaman</div>
-    <div class="song-item" data-title="Melayang Pelan"><i class="fas fa-play"></i>Melayang Pelan</div>
-    <div class="song-item" data-title="Tanah Hijau"><i class="fas fa-play"></i>Tanah Hijau</div>
-    <div class="song-item" data-title="BBM Busuk"><i class="fas fa-play"></i>BBM Busuk</div>
-    <div class="song-item" data-title="Kabur Saja Dulu"><i class="fas fa-play"></i>Kabur Saja Dulu</div>
-
-    <div class="section-title">Stream On</div>
-    <div class="social-links">
-        <span onclick="openModal('ytPopup')"><i class="fab fa-youtube"></i></span>
-        <span onclick="openModal('ytMusicPopup')"><i class="fa-solid fa-music"></i></span>
-        <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank"><i class="fab fa-spotify"></i></a>
-        <a href="https://m.soundcloud.com/sairoots" target="_blank"><i class="fab fa-soundcloud"></i></a>
-        <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank"><i class="fab fa-amazon"></i></a>
-    </div>
-
-    <div class="section-title">Social Media</div>
-    <div class="social-links">
-        <a href="https://instagram.com/ahmadsupembri" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://tiktok.com/@ahmadsupembri" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://facebook.com/ahmadsupembri" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://x.com/ahmadsupembri" target="_blank"><i class="fab fa-x-twitter"></i></a>
-    </div>
-
-    <div class="footer-copy">© 2026 SAI Roots Music. All Rights Reserved.</div>
+    <div class="song-item" data-title="Reborn Riddim" data-type="Reborn Riddim" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg"><i class="fas fa-play"></i>Reborn Riddim</div>
+    <div class="song-item" data-title="Autopsi Mic" data-type="Reborn Riddim" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg"><i class="fas fa-play"></i>Autopsi Mic</div>
+    <div class="song-item" data-title="Salam Dari Timur" data-type="Reborn Riddim" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg"><i class="fas fa-play"></i>Salam Dari Timur</div>
+    <div class="song-item" data-title="Mantra Malam" data-type="Reborn Riddim" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg"><i class="fas fa-play"></i>Mantra Malam</div>
+    <div class="song-item" data-title="Magic Mushroom" data-type="Reborn Riddim" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg"><i class="fas fa-play"></i>Magic Mushroom</div>
+    <div class="song-item" data-title="Rastaman" data-type="Reborn Riddim" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg"><i class="fas fa-play"></i>Rastaman</div>
+    <div class="song-item" data-title="Melayang Pelan" data-type="Reborn Riddim" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg"><i class="fas fa-play"></i>Melayang Pelan</div>
+    <div class="song-item" data-title="Tanah Hijau" data-type="Reborn Riddim" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg"><i class="fas fa-play"></i>Tanah Hijau</div>
+    <div class="song-item" data-title="BBM Busuk" data-type="Reborn Riddim" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg"><i class="fas fa-play"></i>BBM Busuk</div>
+    <div class="song-item" data-title="Kabur Saja Dulu" data-type="Reborn Riddim" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg"><i class="fas fa-play"></i>Kabur Saja Dulu</div>
 </div>
 
-<!-- Player Bar -->
-<div class="player-bar">
-    <div id="pTitle" style="font-size:12px; color:#666;">Pilih lagu untuk memutar</div>
-    <audio id="audio" controls controlsList="nodownload"></audio>
+<!-- Mini Player -->
+<div class="mini-player" id="miniPlayer" onclick="openNowPlaying()">
+    <div class="mini-cover">
+        <img id="miniCover" src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg" alt="Cover">
+    </div>
+    <div class="mini-info">
+        <div id="miniTitle" class="mini-title">Pilih lagu untuk memutar</div>
+        <div id="miniArtist" class="mini-artist">SAI Roots</div>
+    </div>
+    <button id="miniPlayBtn" style="background:none;border:none;color:#fff;font-size:24px;">
+        <i class="fas fa-play"></i>
+    </button>
 </div>
 
-<!-- Modal -->
-<div class="modal-overlay" id="ytPopup" onclick="closeModal(event, 'ytPopup')">
-    <div class="modal-content">
-        <h3 style="margin-bottom:20px;">YouTube Channel</h3>
-        <a href="https://www.youtube.com/@sairoots" target="_blank" class="modal-btn">SAI Roots (Official)</a>
-        <a href="https://youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA" target="_blank" class="modal-btn">SAI Roots (Topic)</a>
+<!-- Full Now Playing -->
+<div id="nowPlaying">
+    <div class="np-header">
+        <i class="fas fa-chevron-down" onclick="closeNowPlaying()"></i>
+        <div style="font-size:14px; font-weight:500;">SAI Roots</div>
+        <i class="fas fa-ellipsis-h" onclick="showMenu()" style="font-size:26px;"></i>
+    </div>
+
+    <div class="np-art">
+        <div class="np-cover">
+            <img id="npCover" src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg" alt="Album Art">
+        </div>
+    </div>
+
+    <div class="np-info">
+        <div id="npTitle" class="np-title">Judul Lagu</div>
+        <div id="npArtist" class="np-artist">SAI Roots</div>
+        <div id="npType" class="np-type">Single</div>
+    </div>
+
+    <div class="np-progress">
+        <div class="progress-bar" id="npProgressBar">
+            <div class="progress" id="npProgress"></div>
+        </div>
+    </div>
+
+    <div class="np-controls">
+        <button onclick="prevSong()"><i class="fas fa-step-backward"></i></button>
+        <button id="npPlayPauseBtn" class="np-play-pause" onclick="togglePlay()"><i class="fas fa-play"></i></button>
+        <button onclick="nextSong()"><i class="fas fa-step-forward"></i></button>
     </div>
 </div>
-<div class="modal-overlay" id="ytMusicPopup" onclick="closeModal(event, 'ytMusicPopup')">
-    <div class="modal-content">
-        <h3 style="margin-bottom:20px;">YouTube Music</h3>
-        <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" class="modal-btn">SAI Roots (Official)</a>
-        <a href="https://music.youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA" target="_blank" class="modal-btn">SAI Roots (Topic)</a>
+
+<!-- Menu Pop-up -->
+<div id="menuPopup" onclick="if(event.target===this) hideMenu()">
+    <div class="menu-content">
+        <div class="menu-item" onclick="shareSong()"><i class="fas fa-share-alt"></i> Bagikan</div>
+        <div class="menu-item" onclick="downloadSong()"><i class="fas fa-download"></i> Download Lagu</div>
+        <div class="menu-item" onclick="viewLyrics()"><i class="fas fa-book"></i> Lihat Lirik</div>
+        <div class="menu-item" onclick="showCreditPopup()"><i class="fas fa-info-circle"></i> Credit Song</div>
+        <div class="menu-close" onclick="hideMenu()">Tutup</div>
     </div>
 </div>
+
+<!-- Credit Pop-up -->
+<div id="creditPopup" onclick="if(event.target===this) hideCreditPopup()">
+    <div class="credit-content">
+        <h3>Credit Song</h3>
+        <div class="credit-info" id="creditText"></div>
+        <button class="close-btn" onclick="hideCreditPopup()">Tutup</button>
+    </div>
+</div>
+
+<audio id="audio" style="display:none;"></audio>
 
 <script>
     const audio = document.getElementById("audio");
     const songs = document.querySelectorAll('.song-item');
     const baseUrl = "https://github.com/pembri/SAI-Roots-Official/raw/refs/heads/main/";
+
     let currentIdx = -1;
+    let currentTitle = "";
+    let currentCover = "";
+
+    const defaultCover = "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg";
+    const criticalCover = "https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/IMG_20260321_173252_172.png";
+    const rebornCover = "https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.github.io/refs/heads/main/1775230743-rrborn.jpg";
+
+    const miniCover = document.getElementById("miniCover");
+    const npCover = document.getElementById("npCover");
+    const miniTitle = document.getElementById("miniTitle");
+    const npTitle = document.getElementById("npTitle");
+    const npType = document.getElementById("npType");
+    const npProgress = document.getElementById("npProgress");
+    const npPlayPauseBtn = document.getElementById("npPlayPauseBtn");
+    const miniPlayBtn = document.getElementById("miniPlayBtn");
 
     function playSong(idx) {
         currentIdx = idx;
         const song = songs[idx];
-        const title = song.dataset.title;
+        currentTitle = song.dataset.title;
+        const type = song.dataset.type || "Single";
+
+        if (type === "Critical Fire") currentCover = criticalCover;
+        else if (type === "Reborn Riddim") currentCover = rebornCover;
+        else currentCover = defaultCover;
+
         songs.forEach(s => s.classList.remove('active'));
         song.classList.add('active');
-        audio.src = baseUrl + encodeURIComponent(title) + ".mp3";
-        audio.play();
-        document.getElementById("pTitle").innerText = "Playing: " + title;
+
+        miniTitle.textContent = currentTitle;
+        npTitle.textContent = currentTitle;
+        npType.textContent = type === "Single" ? "Single" : `Album • ${type}`;
+
+        miniCover.src = currentCover;
+        npCover.src = currentCover;
+
+        audio.src = baseUrl + encodeURIComponent(currentTitle) + ".mp3";
+        audio.play().then(() => {
+            npPlayPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            miniPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            nowPlaying.classList.add('playing');
+        });
+
+        // Update URL dengan hash (ini yang penting untuk share)
+        window.location.hash = currentTitle.toLowerCase().replace(/\s+/g, '-');
+
+        openNowPlaying();
     }
 
-    songs.forEach((s, i) => { s.onclick = () => playSong(i); });
-    audio.onended = () => { if(currentIdx + 1 < songs.length) playSong(currentIdx + 1); };
+    function togglePlay() {
+        if (audio.paused) {
+            audio.play();
+            npPlayPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            miniPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            nowPlaying.classList.add('playing');
+        } else {
+            audio.pause();
+            npPlayPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            miniPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+            nowPlaying.classList.remove('playing');
+        }
+    }
 
-    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
-    function closeModal(e, id) { if (e.target.id === id) { document.getElementById(id).style.display = 'none'; } }
-</script>
+    function nextSong() { if (currentIdx < songs.length - 1) playSong(currentIdx + 1); }
+    function prevSong() { if (currentIdx > 0) playSong(currentIdx - 1); }
 
-<!-- Structured Data (Paling Penting untuk SEO Musik & YouTube) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MusicGroup",
-  "name": "SAI Roots",
-  "alternateName": "SAI Roots Music",
-  "url": "https://sairootsmusic.github.io",
-  "image": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
-  "genre": ["Reggae", "Rap", "Indie"]
-}
-</script>
+    function openNowPlaying() { if (currentIdx !== -1) nowPlaying.style.display = 'flex'; }
+    function closeNowPlaying() { nowPlaying.style.display = 'none'; }
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MusicAlbum",
-  "name": "Critical Fire",
-  "byArtist": {"@type": "MusicGroup", "name": "SAI Roots"},
-  "genre": ["Reggae", "Rap"],
-  "track": [
-    {"@type":"MusicRecording","name":"Babylon Burn"},
-    {"@type":"MusicRecording","name":"Bayang Singgasana"},
-    {"@type":"MusicRecording","name":"Blaze It Up"},
-    {"@type":"MusicRecording","name":"Evaluasi Lagi"},
-    {"@type":"MusicRecording","name":"Irama Hidup"},
-    {"@type":"MusicRecording","name":"Jamaican Sound"},
-    {"@type":"MusicRecording","name":"Ormas Tipu-tipu"},
-    {"@type":"MusicRecording","name":"Propaganda"},
-    {"@type":"MusicRecording","name":"Roots Medication"},
-    {"@type":"MusicRecording","name":"Skank Patrol"}
-  ]
-}
-</script>
+    audio.addEventListener('timeupdate', () => {
+        if (audio.duration) npProgress.style.width = (audio.currentTime / audio.duration) * 100 + "%";
+    });
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MusicAlbum",
-  "name": "Reborn Riddim",
-  "byArtist": {"@type": "MusicGroup", "name": "SAI Roots Music"},
-  "genre": ["Reggae", "Rap"],
-  "track": [
-    {"@type":"MusicRecording","name":"Reborn Riddim"},
-    {"@type":"MusicRecording","name":"Autopsi Mic"},
-    {"@type":"MusicRecording","name":"Salam Dari Timur"},
-    {"@type":"MusicRecording","name":"Mantra Malam"},
-    {"@type":"MusicRecording","name":"Magic Mushroom"},
-    {"@type":"MusicRecording","name":"Rastaman"},
-    {"@type":"MusicRecording","name":"Melayang Pelan"},
-    {"@type":"MusicRecording","name":"Tanah Hijau"},
-    {"@type":"MusicRecording","name":"BBM Busuk"},
-    {"@type":"MusicRecording","name":"Kabur Saja Dulu"}
-  ]
-}
-</script>
+    document.getElementById("npProgressBar").addEventListener('click', (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const pos = (e.clientX - rect.left) / rect.width;
+        if (audio.duration) audio.currentTime = pos * audio.duration;
+    });
 
-</body>
-                                                                </html>
+    audio.addEventListener('ended', () => { nextSong(); });
+
+    songs.forEach((song, i) => song.addEventListener('click', () => playSong(i)));
+    miniPlayBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
+
+    // ==================== SHARE PER LAGU ====================
+    async function shareSong() {
+        hideMenu();
+        const slug = currentTitle.toLowerCase().replace(/\s+/g, '-');
+        const songUrl = window.location.origin + window.location.pathname + "#" + slug;
+
+        const shareData = {
+            title: currentTitle + " - SAI Roots",
+            text: `Dengar "${currentTitle}" oleh SAI Roots`,
+            url: songUrl
+        };
+
+        try {
+            if (navigator.share) {
+                await navigator.share(shareData);
+            } else {
+                await navigator.clipboard.writeText(songUrl);
+                alert("✅ Link lagu telah disalin!\n\n" + songUrl);
+            }
+        } catch (err) {
+            if (!err.toString().includes("Abort")) {
+                await navigator.clipboard.writeText(songUrl);
+                alert("✅ Link lagu telah disalin!");
+            }
+        }
+    }
+
+    function downloadSong() {
+        if (!currentTitle) return;
+        const a = document.createElement("a");
+        a.href = baseUrl + encodeURIComponent(currentTitle) + ".mp3";
+        a.download = currentTitle + ".mp3";
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        hideMenu();
+    }
+
+    function viewLyrics() {
+        if (!currentTitle) return;
+        const slug = currentTitle.toLowerCase().replace(/\s+/g, '');
+        window.open(`https://sairootsmusic.github.io/lyric/${slug}`, "_blan
