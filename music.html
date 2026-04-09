@@ -9,13 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        :root { --accent: #1ed760; --bg: #121212; --card: #181818; }
+        :root {
+            --accent: #1ed760;
+            --bg: #121212;
+            --card: #181818;
+        }
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
             background: var(--bg);
             color: #fff;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            padding-bottom: 110px;
+            padding-bottom: 120px;
+            overflow-x: hidden;
         }
         .container { max-width: 480px; margin: auto; padding: 20px; }
 
@@ -27,13 +32,13 @@
             margin: 35px 0 12px; border-bottom: 1px solid #282828; padding-bottom: 6px;
         }
         .song-item {
-            display: flex; align-items: center; padding: 12px 16px;
-            background: var(--card); border-radius: 8px; margin-bottom: 8px;
+            display: flex; align-items: center; padding: 13px 16px;
+            background: var(--card); border-radius: 10px; margin-bottom: 8px;
             cursor: pointer; transition: 0.2s;
         }
         .song-item:hover { background: #282828; }
         .song-item.active { background: #1f1f1f; border-left: 4px solid var(--accent); }
-        .song-item i { margin-right: 16px; color: #888; width: 20px; }
+        .song-item i { margin-right: 16px; color: #888; width: 20px; font-size: 18px; }
 
         /* Mini Player */
         .mini-player {
@@ -42,12 +47,12 @@
             padding: 12px 16px; display: flex; align-items: center; gap: 12px;
             z-index: 100; cursor: pointer;
         }
-        .mini-cover { width: 48px; height: 48px; border-radius: 6px; overflow: hidden; }
-        .mini-info { flex: 1; overflow: hidden; }
-        .mini-title { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .mini-cover { width: 50px; height: 50px; border-radius: 8px; overflow: hidden; flex-shrink: 0; }
+        .mini-info { flex: 1; min-width: 0; }
+        .mini-title { font-size: 14.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .mini-artist { font-size: 12px; color: #b3b3b3; }
 
-        /* Full Now Playing */
+        /* Full Player */
         #nowPlaying {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(#1f1f1f, #121212); z-index: 2000;
@@ -56,48 +61,55 @@
         .np-header {
             padding: 20px 20px 10px; display: flex; justify-content: space-between; align-items: center;
         }
-        .np-header i { font-size: 24px; cursor: pointer; }
+        .np-header i { font-size: 26px; cursor: pointer; }
 
         .np-art { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
         .np-cover {
-            width: 280px; height: 280px; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+            width: 280px; height: 280px; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.8);
         }
         .np-cover img { width: 100%; height: 100%; object-fit: cover; }
         .playing .np-cover img { animation: rotate 28s linear infinite; }
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         .np-info { text-align: center; padding: 0 30px 20px; }
-        .np-title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .np-title { font-size: 23px; font-weight: 700; margin-bottom: 6px; }
         .np-artist { font-size: 16px; color: #b3b3b3; }
         .np-type { font-size: 13px; color: var(--accent); font-weight: 500; }
 
-        .np-progress { padding: 0 30px; margin: 20px 0; }
-        .progress-bar { height: 4px; background: #535353; border-radius: 999px; position: relative; cursor: pointer; }
+        .np-progress { padding: 0 30px; margin: 15px 0 25px; }
+        .progress-bar { height: 5px; background: #535353; border-radius: 999px; cursor: pointer; }
         .progress { height: 100%; background: var(--accent); width: 0%; border-radius: 999px; }
 
         .np-controls {
-            display: flex; justify-content: center; align-items: center; gap: 40px; padding: 30px 0;
+            display: flex; justify-content: center; align-items: center; gap: 40px; padding-bottom: 30px;
         }
-        .np-controls button { background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; }
+        .np-controls button { background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; }
         .np-play-pause {
-            width: 72px; height: 72px; background: #fff; color: #000;
-            border-radius: 50%; font-size: 34px; display: flex; align-items: center; justify-content: center;
+            width: 74px; height: 74px; background: #fff; color: #000;
+            border-radius: 50%; font-size: 36px; display: flex; align-items: center; justify-content: center;
         }
 
-        /* Menu & Credit */
-        #menuPopup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 3000; display: none; justify-content: center; align-items: flex-end; }
-        .menu-content { background: #1f1f1f; width: 100%; max-width: 380px; border-radius: 16px 16px 0 0; padding: 8px 0; }
-        .menu-item { padding: 16px 24px; font-size: 16px; display: flex; align-items: center; gap: 16px; cursor: pointer; }
+        /* Menu */
+        #menuPopup {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.88); z-index: 3000;
+            display: none; justify-content: center; align-items: flex-end;
+        }
+        .menu-content {
+            background: #1f1f1f; width: 100%; max-width: 380px;
+            border-radius: 16px 16px 0 0; padding: 10px 0;
+        }
+        .menu-item {
+            padding: 16px 24px; font-size: 16px; display: flex; align-items: center; gap: 16px;
+            cursor: pointer;
+        }
         .menu-item:hover { background: #2a2a2a; }
         .menu-item i { width: 24px; color: #b3b3b3; }
-        .menu-close { text-align: center; padding: 16px; color: #1ed760; font-weight: 600; border-top: 1px solid #333; cursor: pointer; }
-
-        #creditPopup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3100; display: none; justify-content: center; align-items: center; }
-        .credit-content { background: #1f1f1f; width: 90%; max-width: 340px; border-radius: 16px; padding: 24px; text-align: center; }
-        .credit-content h3 { margin-bottom: 16px; color: var(--accent); }
-        .credit-info { text-align: left; line-height: 1.8; margin: 16px 0; }
-        .close-btn { margin-top: 20px; padding: 12px 32px; background: var(--accent); color: #000; border: none; border-radius: 999px; font-weight: 600; cursor: pointer; }
+        .menu-close {
+            text-align: center; padding: 16px; color: #1ed760; font-weight: 600;
+            border-top: 1px solid #333; cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -187,7 +199,7 @@
     </div>
 </div>
 
-<!-- Menu Pop-up -->
+<!-- Menu -->
 <div id="menuPopup" onclick="if(event.target===this) hideMenu()">
     <div class="menu-content">
         <div class="menu-item" onclick="shareSong()"><i class="fas fa-share-alt"></i> Bagikan</div>
@@ -195,15 +207,6 @@
         <div class="menu-item" onclick="viewLyrics()"><i class="fas fa-book"></i> Lihat Lirik</div>
         <div class="menu-item" onclick="showCreditPopup()"><i class="fas fa-info-circle"></i> Credit Song</div>
         <div class="menu-close" onclick="hideMenu()">Tutup</div>
-    </div>
-</div>
-
-<!-- Credit Pop-up -->
-<div id="creditPopup" onclick="if(event.target===this) hideCreditPopup()">
-    <div class="credit-content">
-        <h3>Credit Song</h3>
-        <div class="credit-info" id="creditText"></div>
-        <button class="close-btn" onclick="hideCreditPopup()">Tutup</button>
     </div>
 </div>
 
@@ -251,15 +254,13 @@
         miniCover.src = currentCover;
         npCover.src = currentCover;
 
-        audio.src = baseUrl + encodeURIComponent(currentTitle) + ".mp3";
+        audio.src = baseUrl + encodeURIComponent(currentTitle) + ".mp3?raw=true";
+
         audio.play().then(() => {
             npPlayPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
             miniPlayBtn.innerHTML = '<i class="fas fa-pause"></i>';
             nowPlaying.classList.add('playing');
-        });
-
-        // Update URL dengan hash (ini yang penting untuk share)
-        window.location.hash = currentTitle.toLowerCase().replace(/\s+/g, '-');
+        }).catch(() => alert("Gagal memutar lagu. Coba refresh halaman."));
 
         openNowPlaying();
     }
@@ -299,37 +300,30 @@
     songs.forEach((song, i) => song.addEventListener('click', () => playSong(i)));
     miniPlayBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
 
-    // ==================== SHARE PER LAGU ====================
+    // Menu
+    function showMenu() { document.getElementById("menuPopup").style.display = "flex"; }
+    function hideMenu() { document.getElementById("menuPopup").style.display = "none"; }
+
     async function shareSong() {
         hideMenu();
         const slug = currentTitle.toLowerCase().replace(/\s+/g, '-');
-        const songUrl = window.location.origin + window.location.pathname + "#" + slug;
-
-        const shareData = {
-            title: currentTitle + " - SAI Roots",
-            text: `Dengar "${currentTitle}" oleh SAI Roots`,
-            url: songUrl
-        };
-
+        const songUrl = window.location.href.split('#')[0] + "#" + slug;
         try {
-            if (navigator.share) {
-                await navigator.share(shareData);
-            } else {
-                await navigator.clipboard.writeText(songUrl);
-                alert("✅ Link lagu telah disalin!\n\n" + songUrl);
-            }
-        } catch (err) {
-            if (!err.toString().includes("Abort")) {
+            if (navigator.share) await navigator.share({title: currentTitle + " - SAI Roots", url: songUrl});
+            else {
                 await navigator.clipboard.writeText(songUrl);
                 alert("✅ Link lagu telah disalin!");
             }
+        } catch (err) {
+            await navigator.clipboard.writeText(songUrl);
+            alert("✅ Link lagu telah disalin!");
         }
     }
 
     function downloadSong() {
         if (!currentTitle) return;
         const a = document.createElement("a");
-        a.href = baseUrl + encodeURIComponent(currentTitle) + ".mp3";
+        a.href = baseUrl + encodeURIComponent(currentTitle) + ".mp3?raw=true";
         a.download = currentTitle + ".mp3";
         document.body.appendChild(a); a.click(); document.body.removeChild(a);
         hideMenu();
@@ -338,4 +332,24 @@
     function viewLyrics() {
         if (!currentTitle) return;
         const slug = currentTitle.toLowerCase().replace(/\s+/g, '');
-        window.open(`https://sairootsmusic.github.io/lyric/${slug}`, "_blan
+        window.open(`https://sairootsmusic.github.io/lyric/${slug}`, "_blank");
+        hideMenu();
+    }
+
+    function showCreditPopup() {
+        hideMenu();
+        const typeText = npType.textContent;
+        document.getElementById("creditText").innerHTML = `
+            <strong>Judul</strong> : ${currentTitle}<br>
+            <strong>Artist</strong> : SAI Roots<br>
+            <strong>${typeText.includes('Album') ? 'Album' : 'Single'}</strong> : ${typeText}<br>
+            <strong>Penulis</strong> : Ahmad Supembri<br><br>
+            <small>All Rights Reserved © 2026 SAI Roots Music</small>
+        `;
+        document.getElementById("creditPopup").style.display = "flex";
+    }
+
+    function hideCreditPopup() { document.getElementById("creditPopup").style.display = "none"; }
+</script>
+</body>
+</html>
