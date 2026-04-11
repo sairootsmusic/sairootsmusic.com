@@ -16,17 +16,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang SAI Roots | Reggae Rap Indie Indonesia</title>
     <meta name="description" content="SAI Roots adalah musisi indie Indonesia yang menghadirkan perpaduan genre reggae dan rap. Ekspresi jujur tentang kehidupan, perlawanan, dan kebebasan bermusik.">
-    <meta name="keywords" content="SAI Roots, tentang SAI Roots, musisi reggae rap Indonesia, biografi SAI Roots">
+    <meta name="keywords" content="SAI Roots, tentang SAI Roots, musisi reggae rap Indonesia, biografi SAI Roots, Ahmad Supembri">
     <link rel="canonical" href="https://sairootsmusic.github.io/tentang">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Tentang SAI Roots">
     <meta property="og:description" content="Musisi reggae rap indie Indonesia yang menyajikan lagu-lagu dengan nuansa emosional dan perlawanan.">
     <meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
     <meta property="og:url" content="https://sairootsmusic.github.io/tentang">
     <meta property="og:type" content="music.artist">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tentang SAI Roots">
     <meta name="twitter:description" content="Perpaduan reggae dan rap dari SAI Roots">
@@ -43,9 +41,17 @@
         .social-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 15px; }
         .social-links a, .social-links span { color: #fff; font-size: 22px; opacity: 0.4; cursor: pointer; text-decoration: none; transition: 0.3s; }
         .social-links a:hover, .social-links span:hover { opacity: 1; color: #1db954; transform: translateY(-2px); }
+        
+        /* Contact Form Styles */
+        .contact-form { margin-top: 20px; text-align: left; }
+        .contact-form input, .contact-form textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px; color: #fff; margin-bottom: 12px; font-family: inherit; font-size: 14px; }
+        .contact-form textarea { height: 100px; resize: none; }
+        .contact-form button { width: 100%; background: #1db954; color: #000; border: none; padding: 15px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 14px; }
+        .contact-form button:hover { background: #1ed760; transform: scale(1.02); }
+
         .footer { font-size: 11px; color: #333; margin-top: 25px; }
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: #111; padding: 25px; border-radius: 25px; width: 85%; max-width: 350px; border: 1px solid rgba(255,255,255,0.1); }
+        .modal-content { background: #111; padding: 25px; border-radius: 25px; width: 85%; max-width: 350px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
         .modal-btn { display: block; padding: 14px; margin-bottom: 10px; border-radius: 12px; text-decoration: none; color: #fff; font-weight: 600; background: rgba(255,255,255,0.05); }
     </style>
 </head>
@@ -71,11 +77,18 @@
         <a href="https://x.com/ahmadsupembri" target="_blank"><i class="fab fa-x-twitter"></i></a>
     </div>
 
-    <a href="index" style="color:#555; text-decoration:none; font-size:12px; display:block; margin-top:20px;">← KEMBALI KE BERANDA</a>
+    <div class="section-title">Hubungi Kami</div>
+    <form action="https://formspree.io/f/pembriahmad526@gmail.com" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Nama Kamu" required>
+        <input type="email" name="_replyto" placeholder="Email Kamu" required>
+        <textarea name="message" placeholder="Tulis pesan untuk SAI Roots..." required></textarea>
+        <button type="submit">Kirim Pesan</button>
+    </form>
+
+    <a href="index" style="color:#555; text-decoration:none; font-size:12px; display:block; margin-top:30px;">← KEMBALI KE BERANDA</a>
     <div class="footer">© 2026 SAI Roots Music. All Rights Reserved.</div>
 </div>
 
-<!-- Modal -->
 <div class="modal-overlay" id="ytPopup" onclick="closeModal(event, 'ytPopup')">
     <div class="modal-content">
         <h3>YouTube Channel</h3>
@@ -97,23 +110,25 @@ function openModal(id) { document.getElementById(id).style.display = 'flex'; }
 function closeModal(e, id) { if (e.target.id === id) { document.getElementById(id).style.display = 'none'; } }
 </script>
 
-<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MusicGroup",
+  "@type": "MusicArtist",
   "name": "SAI Roots",
-  "alternateName": "SAI Roots Music",
   "url": "https://sairootsmusic.github.io",
   "image": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
   "genre": ["Reggae", "Rap", "Indie"],
-  "description": "Musisi indie Indonesia yang menghadirkan perpaduan reggae dan rap sebagai bentuk ekspresi jujur tentang kehidupan dan perlawanan.",
+  "description": "Musisi indie Indonesia bentukan Ahmad Supembri yang menghadirkan perpaduan reggae dan rap.",
   "sameAs": [
     "https://www.youtube.com/@sairoots",
-    "https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ",
-    "https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr",
-    "https://instagram.com/ahmadsupembri"
-  ]
+    "https://instagram.com/ahmadsupembri",
+    "https://tiktok.com/@ahmadsupembri"
+  ],
+  "member": {
+    "@type": "Person",
+    "name": "Ahmad Supembri",
+    "jobTitle": "Founder & Musician"
+  }
 }
 </script>
 
