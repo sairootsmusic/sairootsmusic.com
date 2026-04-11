@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-     <script type="application/ld+json">
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "SAI Roots Music",
-      "url": "https://sairootsmusic.github.io"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "SAI Roots Music",
+          "url": "https://sairootsmusic.github.io"
+        },
+        {
+          "@type": "Organization",
+          "name": "SAI Roots Music",
+          "url": "https://sairootsmusic.github.io",
+          "logo": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
+          "founder": {
+            "@type": "Person",
+            "name": "Ahmad Supembri"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Ahmad Supembri",
+          "url": "https://instagram.com/ahmadsupembri",
+          "sameAs": [
+            "https://facebook.com/ahmadsupembri",
+            "https://tiktok.com/@ahmadsupembri",
+            "https://x.com/ahmadsupembri"
+          ],
+          "jobTitle": "Owner, Producer & Founder of SAI Roots Music"
+        }
+      ]
     }
     </script>
     <link rel="icon" type="image/x-icon" href="https://sairootsmusic.github.io/favicon.ico">
@@ -15,11 +40,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAI Roots | Official Website</title>
-    <meta name="description" content="Official Website SAI Roots Music. Dengarkan lagu reggae rap indie terbaru, baca lirik lengkap, dan streaming di Spotify, YouTube Music, SoundCloud, serta Amazon Music.">
-    <meta name="keywords" content="SAI Roots Music, SAI Roots, lagu reggae rap, musik indie Indonesia, lirik SAI Roots, reggae Indonesia">
+    <meta name="description" content="Official Website SAI Roots Music. Dengarkan lagu reggae rap indie terbaru oleh Ahmad Supembri, baca lirik lengkap, dan streaming di Spotify, YouTube Music, SoundCloud, serta Amazon Music.">
+    <meta name="keywords" content="SAI Roots Music, Ahmad Supembri, SAI Roots, lagu reggae rap, musik indie Indonesia, lirik SAI Roots, reggae Indonesia">
     <link rel="canonical" href="https://sairootsmusic.github.io">
 
-    <!-- Open Graph (penting untuk YouTube & Social Media) -->
     <meta property="og:title" content="SAI Roots - Official Website">
     <meta property="og:description" content="Musisi reggae rap indie Indonesia. Streaming lagu, lirik lengkap, dan info terbaru SAI Roots.">
     <meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
@@ -27,7 +51,6 @@
     <meta property="og:type" content="music.artist">
     <meta property="og:site_name" content="SAI Roots">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SAI Roots Music - Official Website">
     <meta name="twitter:description" content="Reggae Rap Indie dari SAI Roots">
@@ -99,7 +122,6 @@
     <div class="footer-text">© 2026 SAI Roots Music. All Rights Reserved.</div>
 </div>
 
-<!-- Modal YouTube -->
 <div class="modal-overlay" id="ytPopup" onclick="closeModal(event, 'ytPopup')">
     <div class="modal-content">
         <h3 style="margin-bottom:20px;">YouTube Channel</h3>
@@ -109,7 +131,6 @@
     </div>
 </div>
 
-<!-- Modal YouTube Music -->
 <div class="modal-overlay" id="ytMusicPopup" onclick="closeModal(event, 'ytMusicPopup')">
     <div class="modal-content">
         <h3 style="margin-bottom:20px;">YouTube Music</h3>
@@ -124,7 +145,6 @@ function openModal(id) { document.getElementById(id).style.display = 'flex'; }
 function closeModal(e, id) { if (e.target.id === id) { document.getElementById(id).style.display = 'none'; } }
 </script>
 
-<!-- Structured Data untuk Google & YouTube Algorithm -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
