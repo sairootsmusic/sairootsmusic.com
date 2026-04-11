@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi SAI Roots | Kontak</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body { background: #080808; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; margin: 0; }
+        .card { max-width: 420px; width: 100%; background: rgba(255,255,255,0.03); padding: 40px 25px; border-radius: 35px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+        h1 { color: #1db954; font-weight: 800; margin-bottom: 10px; }
+        p { color: #888; font-size: 14px; margin-bottom: 30px; }
+        
+        /* Form Styling */
+        .contact-form { text-align: left; }
+        .contact-form input, .contact-form textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px; color: #fff; margin-bottom: 12px; font-family: inherit; font-size: 14px; box-sizing: border-box; }
+        .contact-form textarea { height: 120px; resize: none; }
+        .contact-form button { width: 100%; background: #1db954; color: #000; border: none; padding: 15px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 14px; }
+        .contact-form button:hover { background: #1ed760; transform: scale(1.02); }
+        .contact-form button:disabled { background: #444; cursor: not-allowed; }
+
+        /* Section Styling (Sama dengan Tentang) */
+        .section-title { font-size: 10px; font-weight: 800; color: #444; letter-spacing: 2px; text-transform: uppercase; margin-top: 25px; margin-bottom: 12px; }
+        .social-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 15px; }
+        .social-links a, .social-links span { color: #fff; font-size: 22px; opacity: 0.4; cursor: pointer; text-decoration: none; transition: 0.3s; }
+        .social-links a:hover, .social-links span:hover { opacity: 1; color: #1db954; transform: translateY(-2px); }
+
+        .back-link { display: block; margin-top: 25px; color: #555; text-decoration: none; font-size: 12px; transition: 0.3s; }
+        .back-link:hover { color: #1db954; }
+        .footer { font-size: 11px; color: #333; margin-top: 25px; }
+
+        /* Modal & Popup */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: #111; padding: 30px; border-radius: 25px; width: 85%; max-width: 320px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+        .modal-content i { font-size: 50px; color: #1db954; margin-bottom: 15px; display: block; }
+        .modal-btn { display: block; padding: 14px; margin-bottom: 10px; border-radius: 12px; text-decoration: none; color: #fff; font-weight: 600; background: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Hubungi Kami</h1>
+    <p>Punya tawaran gig atau kolaborasi? Kirim pesan lo di sini.</p>
+
+    <form id="contactForm" action="https://formspree.io/f/xgopgrbl" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Nama Kamu" required>
+        <input type="email" name="email" placeholder="Email Kamu" required>
+        <textarea name="message" placeholder="Tulis pesan..." required></textarea>
+        <button type="submit" id="submitBtn">Kirim Pesan</button>
+    </form>
+
+    <div class="section-title">Stream On</div>
+    <div class="social-links">
+        <span onclick="openModal('ytPopup')"><i class="fab fa-youtube"></i></span>
+        <span onclick="openModal('ytMusicPopup')"><i class="fa-solid fa-music"></i></span>
+        <a href="https://spotify.com" target="_blank"><i class="fab fa-spotify"></i></a>
+        <a href="https://m.soundcloud.com/sairoots" target="_blank"><i class="fab fa-soundcloud"></i></a>
+    </div>
+
+    <div class="section-title">Social Media</div>
+    <div class="social-links">
+        <a href="https://instagram.com/ahmadsupembri" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@ahmadsupembri" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://facebook.com/ahmadsupembri" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+
+    <a href="index" class="back-link">← KEMBALI KE BERANDA</a>
+    <div class="footer">© 2026 SAI Roots Music. All Rights Reserved.</div>
+</div>
+
+<div class="modal-overlay" id="ytPopup" onclick="closeModal(event, 'ytPopup')">
+    <div class="modal-content">
+        <h3>YouTube Channel</h3>
+        <a href="https://www.youtube.com/@sairoots" target="_blank" class="modal-btn">SAI Roots (Official)</a>
+        <a href="https://youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA" target="_blank" class="modal-btn">SAI Roots (Topic)</a>
+    </div>
+</div>
+
+<div class="modal-overlay" id="ytMusicPopup" onclick="closeModal(event, 'ytMusicPopup')">
+    <div class="modal-content">
+        <h3>YouTube Music</h3>
+        <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" class="modal-btn">SAI Roots (Official)</a>
+    </div>
+</div>
+
+<div class="modal-overlay" id="successPopup">
+    <div class="modal-content">
+        <i class="fas fa-check-circle"></i>
+        <h3>Mantap!</h3>
+        <p style="color:#888; font-size:13px; margin-bottom:20px;">Pesan lo udah terkirim ke SAI Roots.</p>
+        <button onclick="document.getElementById('successPopup').style.display='none'" style="width:100%; padding:12px; border-radius:10px; border:none; background:#1db954; color:#000; font-weight:700; cursor:pointer;">OKE</button>
+    </div>
+</div>
+
+<script>
+function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+function closeModal(e, id) { if (e.target.id === id) { document.getElementById(id).style.display = 'none'; } }
+
+const form = document.getElementById("contactForm");
+const btn = document.getElementById("submitBtn");
+
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.innerHTML = "Mengirim...";
+
+    const data = new FormData(form);
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            document.getElementById("successPopup").style.display = "flex";
+            form.reset();
+        } else {
+            alert("Gagal kirim pesan.");
+        }
+    } catch (error) {
+        alert("Terjadi kesalahan koneksi.");
+    }
+    btn.disabled = false;
+    btn.innerHTML = "Kirim Pesan";
+});
+</script>
+
+</body>
+</html>
