@@ -100,7 +100,7 @@
     <div class="modal-content">
         <i class="fas fa-check-circle"></i>
         <h3>Thank You!</h3>
-        <p style="color:#888; font-size:13px; margin-bottom:20px;">Pesan lo udah terkirim ke SAI Roots.</p>
+        <p style="color:#888; font-size:13px; margin-bottom:20px;">message we have received | SAI Roots.</p>
         <button onclick="document.getElementById('successPopup').style.display='none'" style="width:100%; padding:12px; border-radius:10px; border:none; background:#1db954; color:#000; font-weight:700; cursor:pointer;">OKE</button>
     </div>
 </div>
@@ -115,7 +115,7 @@ const btn = document.getElementById("submitBtn");
 form.addEventListener("submit", async function(e) {
     e.preventDefault();
     btn.disabled = true;
-    btn.innerHTML = "Mengirim...";
+    btn.innerHTML = "Sending a message...";
 
     const data = new FormData(form);
     try {
@@ -129,13 +129,13 @@ form.addEventListener("submit", async function(e) {
             document.getElementById("successPopup").style.display = "flex";
             form.reset();
         } else {
-            alert("Gagal kirim pesan.");
+            alert("Failed to send message.");
         }
     } catch (error) {
-        alert("Terjadi kesalahan koneksi.");
+        alert("Connection error.");
     }
     btn.disabled = false;
-    btn.innerHTML = "Kirim Pesan";
+    btn.innerHTML = "Send Message";
 });
 </script>
 
