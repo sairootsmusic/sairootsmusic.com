@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copyright | SAI Roots</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body { background: #080808; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 40px 20px; margin: 0; box-sizing: border-box; }
+        
+        /* Tombol Home di pojok kiri atas */
+        .home-nav { position: absolute; top: 25px; left: 25px; }
+        .home-nav a { color: #555; text-decoration: none; font-size: 12px; font-weight: 800; letter-spacing: 1px; transition: 0.3s; }
+        .home-nav a:hover { color: #1db954; }
+
+        .card { max-width: 500px; width: 100%; background: rgba(255,255,255,0.03); padding: 40px 30px; border-radius: 35px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+        h1 { color: #1db954; font-weight: 800; margin-bottom: 25px; }
+        
+        /* Gaya Lisensi Full (Tanpa Scroll) */
+        .license-full { text-align: left; font-size: 14px; color: #888; line-height: 1.8; margin-bottom: 30px; }
+        .license-full h3 { color: #fff; font-size: 15px; margin-top: 25px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .license-full p { margin-bottom: 15px; }
+        .license-full ul { padding-left: 18px; margin-bottom: 15px; }
+        .license-full li { margin-bottom: 8px; }
+
+        /* Style Link Website di bagian kontak */
+        .contact-link { color: #1db954; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .contact-link:hover { text-decoration: underline; opacity: 0.8; }
+
+        .section-title { font-size: 10px; font-weight: 800; color: #444; letter-spacing: 2px; text-transform: uppercase; margin-top: 30px; margin-bottom: 15px; }
+        .social-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 15px; }
+        .social-links a, .social-links span { color: #fff; font-size: 22px; opacity: 0.4; cursor: pointer; text-decoration: none; transition: 0.3s; }
+        .social-links a:hover, .social-links span:hover { opacity: 1; color: #1db954; transform: translateY(-2px); }
+        
+        .footer { font-size: 11px; color: #333; margin-top: 35px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+        
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: #111; padding: 25px; border-radius: 25px; width: 85%; max-width: 350px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+        .modal-btn { display: block; padding: 14px; margin-bottom: 10px; border-radius: 12px; text-decoration: none; color: #fff; font-weight: 600; background: rgba(255,255,255,0.05); transition: 0.3s; }
+        .modal-btn:hover { background: rgba(29, 185, 84, 0.1); color: #1db954; }
+
+        @media (max-width: 480px) {
+            .home-nav { top: 15px; left: 15px; }
+            body { padding-top: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="home-nav">
+    <a href="index.html">← HOME</a>
+</nav>
+
+<div class="card">
+    <h1>Copyright</h1>
+    
+    <div class="license-full">
+        <p style="color:#fff; font-weight:800; text-align:center;">TERMS AND CONDITIONS OF USE AND COPYRIGHT LICENSE</p>
+        <p style="text-align:center; font-size:12px; margin-top: -10px;">PROPRIETARY RIGHTS NOTICE<br>Copyright (c) 2026 SAI Roots Music. All Rights Reserved.</p>
+
+        <h3>1. OWNERSHIP OF CONTENT</h3>
+        <p>All materials contained in this repository (sairootsmusic.github.io), including but not limited to source code (HTML, CSS, JavaScript, JSON-LD), images, photographs, lyrics, audio files, and musical compositions, are the exclusive property of SAI Roots Music and Ahmad Supembri.</p>
+
+        <h3>2. RESTRICTIONS ON USE</h3>
+        <p>You are strictly prohibited from:</p>
+        <ul>
+            <li>Copying, reproducing, or "cloning" the source code for any personal or commercial use.</li>
+            <li>Downloading, distributing, or re-uploading photographs and images (found in /photos/ or other directories) without prior written consent.</li>
+            <li>Using, modifying, or redistributing lyrics and musical assets for any purpose.</li>
+            <li>Removing or altering any copyright notices or branding from the materials.</li>
+        </ul>
+
+        <h3>3. NO IMPLIED LICENSE</h3>
+        <p>The public availability of this repository for hosting purposes on GitHub Pages does not constitute a license to use the materials for any other purpose. No rights are granted to you except the right to view the content through a web browser.</p>
+
+        <h3>4. ENFORCEMENT</h3>
+        <p>SAI Roots Music reserves the right to take legal action or issue DMCA Takedown notices against any individual or entity that violates these terms.</p>
+
+        <p style="margin-top: 20px; font-size: 12px; font-style: italic;">For licensing inquiries or permission requests, please contact us: Website: <a href="https://sairootsmusic.github.io" class="contact-link">https://sairootsmusic.github.io</a></p>
+    </div>
+
+    <div class="section-title">Stream On</div>
+    <div class="social-links">
+        <span onclick="openModal('ytPopup')"><i class="fab fa-youtube"></i></span>
+        <span onclick="openModal('ytMusicPopup')"><i class="fa-solid fa-music"></i></span>
+        <a href="https://open.spotify.com/artist/SAI_ROOTS_ID" target="_blank"><i class="fab fa-spotify"></i></a>
+        <a href="https://m.soundcloud.com/sairoots" target="_blank"><i class="fab fa-soundcloud"></i></a>
+    </div>
+
+    <div class="section-title">Social Media</div>
+    <div class="social-links">
+        <a href="https://instagram.com/ahmadsupembri" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@ahmadsupembri" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://facebook.com/ahmadsupembri" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+
+    <div class="footer">© 2026 SAI Roots Music. All Rights Reserved.</div>
+</div>
+
+<div class="modal-overlay" id="ytPopup" onclick="closeModal(event, 'ytPopup')">
+    <div class="modal-content">
+        <h3 style="color:#fff; margin-bottom:15px;">YouTube Channel</h3>
+        <a href="https://www.youtube.com/@sairoots" target="_blank" class="modal-btn">SAI Roots (Official)</a>
+        <a href="https://youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA" target="_blank" class="modal-btn">SAI Roots (Topic)</a>
+    </div>
+</div>
+
+<div class="modal-overlay" id="ytMusicPopup" onclick="closeModal(event, 'ytMusicPopup')">
+    <div class="modal-content">
+        <h3 style="color:#fff; margin-bottom:15px;">YouTube Music</h3>
+        <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" class="modal-btn">SAI Roots (Official)</a>
+    </div>
+</div>
+
+<script>
+function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+function closeModal(e, id) { if (e.target.id === id) { document.getElementById(id).style.display = 'none'; } }
+</script>
+
+</body>
+</html>
