@@ -1,4 +1,4 @@
-# SAI Roots | Official Website 🎸
+# SAI Roots | Official Website
 
 Selamat datang di repositori resmi **SAI Roots**. Ini adalah pusat data terstruktur dan aset digital untuk proyek musik solo SAI Roots yang dikelola oleh **SAI Roots Music**.
 
@@ -24,6 +24,8 @@ Pantau terus karya terbaru kami melalui platform berikut:
 * `index.html`: Kode utama website dengan optimasi JSON-LD Schema.
 * `music/`: Dokumentasi diskografi resmi.
 * `lyric/`: Library lirik lagu resmi.
+* `tentang/`: Info Tentang SAI Roots.
+* `kontak/`: Halaman Contact Us.
 
 ## ⚠️ PEMBERITAHUAN HAK CIPTA (COPYRIGHT)
 Seluruh konten dalam repositori ini, termasuk namun tidak terbatas pada **Kode Sumber (Source Code), Foto, Gambar, Lirik, dan Musik**, dilindungi secara hukum.
