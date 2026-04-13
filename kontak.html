@@ -139,40 +139,114 @@ form.addEventListener("submit", async function(e) {
 });
 </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "SAI Roots Music",
-  "url": "https://sairootsmusic.github.io",
-  "founder": {
-    "@type": "Person",
-    "name": "Ahmad Supembri"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MusicGroup",
-  "name": "SAI Roots",
-  "alternateName": "SAI Roots Music",
-  "url": "https://sairootsmusic.github.io",
-  "image": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
-  "genre": ["Reggae", "Rap", "Indie"],
-  "description": "Musisi reggae rap indie asal Indonesia yang menyajikan lagu-lagu dengan nuansa emosional dan perlawanan.",
-  "sameAs": [
-    "https://www.youtube.com/@sairoots",
-    "https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ",
-    "https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr",
-    "https://m.soundcloud.com/sairoots",
-    "https://instagram.com/ahmadsupembri",
-    "https://tiktok.com/@ahmadsupembri",
-    "https://x.com/ahmadsupembri"
-  ]
-}
-</script>
+‎<script type="application/ld+json">
+‎{
+‎  "@context": "https://schema.org",
+‎  "@graph": [
+‎    {
+‎      "@type": "MusicGroup",
+‎      "@id": "https://sairootsmusic.github.io/#artist",
+‎      "name": "SAI Roots",
+‎      "alternateName": ["Sairoots", "SAI Roots Official", "SAI Roots Music Artist"],
+‎      "description": "SAI Roots adalah artis solo (Solo Artist) beraliran Reggae, Rap, dan Indie asal Indonesia. Proyek musik tunggal ini dikenal melalui karya-karya bermuatan pesan emosional dan kritik sosial yang kuat, menjadikannya salah satu ikon musik independen baru di Indonesia.",
+‎      "url": "https://sairootsmusic.github.io",
+‎      "image": {
+‎        "@type": "ImageObject",
+‎        "url": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
+‎        "width": "1200",
+‎        "height": "1200"
+‎      },
+‎      "genre": [
+‎        "Reggae",
+‎        "Rap",
+‎        "Indie",
+‎        "Ska",
+‎        "Indonesian Hip Hop"
+‎      ],
+‎      "brand": {
+‎        "@id": "https://sairootsmusic.github.io/#label"
+‎      },
+‎      "originPlace": {
+‎        "@type": "Place",
+‎        "name": "Indonesia"
+‎      },
+‎      "sameAs": [
+‎        "https://www.youtube.com/@sairoots",
+‎        "https://youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA",
+‎        "https://music.youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA",
+‎        "https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr",
+‎        "https://music.apple.com/id/artist/sai-roots/1892187423",
+‎        "https://lyrics.lyricfind.com/artists/sai-roots",
+‎        "https://www.musixmatch.com/artist/SAI-Roots",
+‎        "https://genius.com/artists/Sai-roots",
+‎        "https://soundcloud.com/sairoots",
+‎        "https://instagram.com/ahmadsupembri",
+‎        "https://tiktok.com/@ahmadsupembri"
+‎      ],
+‎      "member": [
+‎        {
+‎          "@type": "OrganizationRole",
+‎          "member": {
+‎            "@id": "https://sairootsmusic.github.io/#producer"
+‎          },
+‎          "roleName": ["Solo Artist", "Vocalist"]
+‎        }
+‎      ],
+‎      "subjectOf": [
+‎        { "@id": "https://sairootsmusic.github.io/music" },
+‎        { "@id": "https://sairootsmusic.github.io/lyric" }
+‎      ]
+‎    },
+‎    {
+‎      "@type": "Organization",
+‎      "@id": "https://sairootsmusic.github.io/#label",
+‎      "name": "SAI Roots Music",
+‎      "legalName": "SAI Roots Music Records",
+‎      "url": "https://sairootsmusic.github.io",
+‎      "logo": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
+‎      "founder": {
+‎        "@id": "https://sairootsmusic.github.io/#producer"
+‎      },
+‎      "keywords": "Record Label, Music Production, Independent Label Indonesia"
+‎    },
+‎    {
+‎      "@type": "Person",
+‎      "@id": "https://sairootsmusic.github.io/#producer",
+‎      "name": "Ahmad Supembri",
+‎      "alternateName": "Pembri",
+‎      "description": "Ahmad Supembri adalah produser musik, penulis lagu, komposer, dan pendiri label SAI Roots Music. Ia merupakan otak kreatif di balik seluruh konsep dan produksi musik dari artis solo SAI Roots.",
+‎      "jobTitle": ["Founder", "Music Producer", "Songwriter", "Composer"],
+‎      "url": "https://instagram.com/ahmadsupembri",
+‎      "sameAs": [
+‎        "https://instagram.com/ahmadsupembri",
+‎        "https://tiktok.com/@ahmadsupembri"
+‎      ],
+‎      "worksFor": {
+‎        "@id": "https://sairootsmusic.github.io/#label"
+‎      }
+‎    },
+‎    {
+‎      "@type": "ItemList",
+‎      "@id": "https://sairootsmusic.github.io/music",
+‎      "name": "SAI Roots Discography",
+‎      "description": "Daftar otomatis rilis resmi, album, dan single SAI Roots. Data ini divalidasi oleh SAI Roots Music.",
+‎      "url": "https://sairootsmusic.github.io/music",
+‎      "numberOfItems": "100",
+‎      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+‎      "mainEntityOfPage": "https://sairootsmusic.github.io/music"
+‎    },
+‎    {
+‎      "@type": "ItemList",
+‎      "@id": "https://sairootsmusic.github.io/lyric",
+‎      "name": "SAI Roots Official Lyrics Library",
+‎      "description": "Kumpulan lirik lagu resmi SAI Roots yang ditulis oleh Ahmad Supembri.",
+‎      "url": "https://sairootsmusic.github.io/lyric",
+‎      "numberOfItems": "200",
+‎      "mainEntityOfPage": "https://sairootsmusic.github.io/lyric"
+‎    }
+‎  ]
+‎}
+‎</script>
 
 </body>
 </html>
