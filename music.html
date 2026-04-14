@@ -15,7 +15,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="pageTitle">Discography | Album & Single SAI Roots</title>
-    <link rel="icon" type="image/x-icon" href="https://sairootsmusic.github.io/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -25,7 +24,6 @@
         body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; padding-bottom: 120px; }
         .container { max-width: 480px; margin: auto; padding: 20px; }
         
-        /* Style Tombol Back */
         .back-btn { text-decoration:none; color:#555; font-size:13px; font-weight:600; display:inline-block; margin-bottom:20px; transition:0.3s; }
         .back-btn:hover { color: var(--accent); transform: translateX(-3px); }
 
@@ -64,7 +62,6 @@
         .np-controls button { background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; }
         .np-play-pause { width: 74px; height: 74px; background: #fff; color: #000; border-radius: 50%; font-size: 36px; display: flex; align-items: center; justify-content: center; }
 
-        /* MODAL GAMBAR FULL */
         #imgPopup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 6000; align-items: center; justify-content: center; }
         #imgPopup img { max-width: 90%; max-height: 80%; border-radius: 12px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
 
@@ -73,6 +70,7 @@
         .menu-item { padding: 16px 24px; font-size: 16px; display: flex; align-items: center; gap: 16px; cursor: pointer; color: #fff; }
         .menu-item i { width: 24px; color: #b3b3b3; }
         .menu-close { text-align: center; padding: 16px; color: #1ed760; font-weight: 600; border-top: 1px solid #333; cursor: pointer; }
+        
         #creditPopup { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:5000; align-items:center; justify-content:center; }
     </style>
 </head>
@@ -146,18 +144,17 @@
 
 <div id="menuPopup" onclick="if(event.target===this) hideMenu()">
     <div class="menu-content">
-        <div class="menu-item" onclick="shareSong()"><i class="fas fa-share-alt"></i> Bagikan</div>
-        <div class="menu-item" onclick="downloadSong()"><i class="fas fa-download"></i> Download</div>
-        <div class="menu-item" onclick="viewLyrics()"><i class="fas fa-book"></i> Lirik</div>
-        <div class="menu-item" onclick="showCreditPopup()"><i class="fas fa-info-circle"></i> Credit</div>
+        <div class="menu-item" onclick="shareSong()"><i class="fas fa-share-alt"></i> Share</div>
+        <div class="menu-item" onclick="viewLyrics()"><i class="fas fa-book"></i> Lyric</div>
+        <div class="menu-item" onclick="showCreditPopup()"><i class="fas fa-info-circle"></i> Credits Song</div>
         <div class="menu-close" onclick="hideMenu()">Tutup</div>
     </div>
 </div>
 
 <div id="creditPopup" onclick="hideCreditPopup()">
     <div class="menu-content" style="border-radius:16px; width:85%; max-width:320px; padding:25px; margin:auto; position:relative; top:50%; transform:translateY(-50%); text-align:left; background:#1f1f1f;">
-        <div id="creditText" style="line-height:1.6; font-size:14px; color:#fff;"></div>
-        <div class="menu-close" style="border:none; margin-top:15px;">Tutup</div>
+        <div id="creditText" style="line-height:1.8; font-size:14.5px; color:#fff;"></div>
+        <div class="menu-close" style="border:none; margin-top:20px; text-align:center;">Tutup</div>
     </div>
 </div>
 
@@ -248,8 +245,6 @@
         if (navigator.share) navigator.share({title: currentTitle, url: url});
         else { navigator.clipboard.writeText(url); alert("Link disalin!"); }
     }
-
-    function downloadSong() { window.open(audio.src, '_blank'); hideMenu(); }
     
     function viewLyrics() { 
         const slug = currentTitle.toLowerCase().replace(/\s+/g, '');
@@ -259,10 +254,18 @@
 
     function showCreditPopup() {
         hideMenu();
-        document.getElementById("creditText").innerHTML = `<strong>${currentTitle}</strong><br>Artist: SAI Roots<br>Penulis: Ahmad Supembri<br>© 2026 SAI Roots Music`;
+        document.getElementById("creditText").innerHTML = `
+            <strong>${currentTitle}</strong><br><br>
+            Artist: SAI Roots<br>
+            Penulis: <a href="/credits" style="color:#1ed760; text-decoration:underline;">Ahmad Supembri</a><br>
+            © 2026 SAI Roots Music
+        `;
         document.getElementById("creditPopup").style.display = "flex";
     }
-    function hideCreditPopup() { document.getElementById("creditPopup").style.display = "none"; }
+    
+    function hideCreditPopup() { 
+        document.getElementById("creditPopup").style.display = "none"; 
+    }
 
     audio.addEventListener('timeupdate', () => {
         if (audio.duration) document.getElementById("npProgress").style.width = (audio.currentTime / audio.duration) * 100 + "%";
@@ -280,7 +283,7 @@
     autoDetectSong();
 </script>
 
-‎<script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -297,104 +300,21 @@
         "width": "1200",
         "height": "1200"
       },
-      "genre": [
-        "Reggae",
-        "Rap",
-        "Indie",
-        "Ska",
-        "Indonesian Hip Hop"
-      ],
-      "brand": {
-        "@id": "https://sairootsmusic.github.io/#label"
-      },
-      "originPlace": {
-        "@type": "Place",
-        "name": "Indonesia"
-      },
+      "genre": ["Reggae", "Rap", "Indie", "Ska", "Indonesian Hip Hop"],
+      "brand": { "@id": "https://sairootsmusic.github.io/#label" },
+      "originPlace": { "@type": "Place", "name": "Indonesia" },
       "sameAs": [
         "https://www.youtube.com/@sairoots",
-        "https://youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA",
-        "https://music.youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA",
         "https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr",
         "https://music.apple.com/id/artist/sai-roots/1892187423",
-        "https://lyrics.lyricfind.com/artists/sai-roots",
-        "https://www.musixmatch.com/artist/SAI-Roots",
-        "https://genius.com/artists/Sai-roots",
         "https://soundcloud.com/sairoots",
         "https://instagram.com/ahmadsupembri",
         "https://tiktok.com/@ahmadsupembri"
-      ],
-      "member": [
-        {
-          "@type": "OrganizationRole",
-          "member": {
-            "@id": "https://sairootsmusic.github.io/#producer"
-          },
-          "roleName": ["Solo Artist", "Vocalist"]
-        }
-      ],
-      "subjectOf": [
-        { "@id": "https://sairootsmusic.github.io/music" },
-        { "@id": "https://sairootsmusic.github.io/lyric" }
       ]
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://sairootsmusic.github.io/#label",
-      "name": "SAI Roots Music",
-      "legalName": "SAI Roots Music Records",
-      "url": "https://sairootsmusic.github.io",
-      "logo": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
-      "founder": {
-        "@id": "https://sairootsmusic.github.io/#producer"
-      },
-      "keywords": "Record Label, Music Production, Independent Label Indonesia"
-    },
-    {
-      "@type": "Person",
-      "@id": "https://sairootsmusic.github.io/#producer",
-      "name": "Ahmad Supembri",
-      "alternateName": "Pembri",
-      "description": "Ahmad Supembri adalah produser musik, penulis lagu, komposer, dan pendiri label SAI Roots Music. Ia merupakan otak kreatif di balik seluruh konsep dan produksi musik dari artis solo SAI Roots.",
-      "jobTitle": ["Founder", "Music Producer", "Songwriter", "Composer"],
-      "url": "https://instagram.com/ahmadsupembri",
-      "image": [
-        "https://sairootsmusic.github.io/photos/IMG_0144.png",
-        "https://sairootsmusic.github.io/photos/IMG_0337.jpg",
-        "https://sairootsmusic.github.io/photos/IMG_0220.jpg"
-      ],
-      "sameAs": [
-        "https://instagram.com/ahmadsupembri",
-        "https://tiktok.com/@ahmadsupembri",
-        "https://facebook.com/ahmadsupembri",
-        "https://x.com/ahmadsupembri"
-      ],
-      "worksFor": {
-        "@id": "https://sairootsmusic.github.io/#label"
-      }
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://sairootsmusic.github.io/music",
-      "name": "SAI Roots Discography",
-      "description": "Daftar otomatis rilis resmi, album, dan single SAI Roots. Data ini divalidasi oleh SAI Roots Music.",
-      "url": "https://sairootsmusic.github.io/music",
-      "numberOfItems": "100",
-      "itemListOrder": "https://schema.org/ItemListOrderDescending",
-      "mainEntityOfPage": "https://sairootsmusic.github.io/music"
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://sairootsmusic.github.io/lyric",
-      "name": "SAI Roots Official Lyrics Library",
-      "description": "Kumpulan lirik lagu resmi SAI Roots yang ditulis oleh Ahmad Supembri.",
-      "url": "https://sairootsmusic.github.io/lyric",
-      "numberOfItems": "200",
-      "mainEntityOfPage": "https://sairootsmusic.github.io/lyric"
     }
   ]
 }
 </script>
-‎
+
 </body>
 </html>
