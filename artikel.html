@@ -52,7 +52,7 @@
                 if(!Array.isArray(files)) throw new Error();
 
                 list.innerHTML = "";
-                const htmlFiles = files.filter(f => f.name.endsWith('.html')).reverse();
+                const htmlFiles = files.filter(f => f.name.endsWith('')).reverse();
 
                 for (let file of htmlFiles) {
                     const fileRes = await fetch(file.download_url);
