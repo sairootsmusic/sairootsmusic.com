@@ -9,7 +9,7 @@
     <style>
         body { background-color: #0b0b0b; color: #e5e7eb; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
         .sai-card { background: #141414; border: 1px solid #222; border-radius: 12px; overflow: hidden; transition: 0.3s; }
-        .sai-card:hover { border-color: #3b82f6; }
+        .sai-card:hover { border-color: #3b82f6; transform: translateY(-2px); }
         .btn-home { color: #666; font-size: 14px; font-weight: 600; transition: 0.3s; }
         .btn-home:hover { color: #fff; }
         
@@ -25,6 +25,8 @@
             object-fit: cover; 
             display: block; 
         }
+        /* Skeleton loading sederhana */
+        .loading-state { color: #333; text-transform: uppercase; letter-spacing: 0.2em; font-size: 10px; font-weight: 900; }
     </style>
 </head>
 <body class="pb-10">
@@ -32,18 +34,18 @@
     <nav class="p-6 max-w-4xl mx-auto flex items-center justify-between w-full">
         <a href="/" class="btn-home"><i class="fa-solid fa-chevron-left mr-2"></i>Home</a>
         <div class="text-right">
-            <h1 class="text-2xl font-black uppercase italic tracking-tighter italic">LIST <span class="text-blue-500">ARTICLE</span></h1>
+            <h1 class="text-2xl font-black uppercase italic tracking-tighter">LIST <span class="text-blue-500">ARTICLE</span></h1>
         </div>
     </nav>
 
     <main class="max-w-4xl mx-auto px-4 mt-4 flex-grow w-full">
         <div id="article-list" class="space-y-8">
-            <div class="text-center py-20 text-zinc-700 animate-pulse uppercase tracking-widest text-xs">Loading Articles...</div>
+            <div class="text-center py-20 animate-pulse loading-state">Fetching Articles Data...</div>
         </div>
     </main>
 
-    <div class="footer-text" style="text-align: center; margin-top: 40px; padding-bottom: 20px;">
-        <a href="copyright" style="text-decoration: none; color: #333; font-size: 11px; display: inline-block; transition: 0.3s; letter-spacing: 0.5px;">
+    <div class="py-10 text-center">
+        <a href="#" class="text-[10px] text-zinc-800 font-bold uppercase tracking-widest no-underline transition hover:text-zinc-600">
             © 2026 SAI Roots Music. All Rights Reserved.
         </a>
     </div>
@@ -55,46 +57,69 @@
         async function init() {
             const list = document.getElementById('article-list');
             try {
-                const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FOLDER}`);
+                // Ambil daftar file dari GitHub API
+                const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FOLDER}?t=${Date.now()}`);
                 const files = await res.json();
                 
-                if(!Array.isArray(files)) throw new Error();
+                if(!Array.isArray(files)) throw new Error("Data not found");
 
-                list.innerHTML = "";
                 const htmlFiles = files.filter(f => f.name.endsWith('.html')).reverse();
+                
+                // PROSES PARALEL: Ambil semua isi file secara bersamaan (JAUH LEBIH CEPAT)
+                const articleData = await Promise.all(htmlFiles.map(async (file) => {
+                    try {
+                        const fileRes = await fetch(file.download_url);
+                        const htmlText = await fileRes.text();
+                        
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(htmlText, 'text/html');
+                        
+                        // Ekstraksi data dari file HTML artikel
+                        const title = doc.querySelector('h1')?.innerText || file.name.replace('.html', '').replace(/-/g, ' ');
+                        const img = doc.querySelector('img')?.src || '';
+                        const summary = doc.querySelector('.content')?.innerText.substring(0, 150) || 
+                                         doc.querySelector('body')?.innerText.substring(0, 150) || 
+                                         "Read more...";
 
-                for (let file of htmlFiles) {
-                    const fileRes = await fetch(file.download_url);
-                    const htmlText = await fileRes.text();
+                        return {
+                            title: title,
+                            img: img,
+                            summary: summary.replace(/\s+/g, ' ').trim() + '...',
+                            link: `artikel/${file.name}` // Link utuh dengan .html
+                        };
+                    } catch (e) {
+                        return null; // Skip file yang error
+                    }
+                }));
+
+                // Render semua artikel yang berhasil di-fetch
+                list.innerHTML = "";
+                articleData.forEach(art => {
+                    if(!art) return;
                     
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(htmlText, 'text/html');
-                    
-                    const title = doc.querySelector('h1')?.innerText || file.name.replace('.html', '').replace(/-/g, ' ');
-                    const img = doc.querySelector('img')?.src || '';
-                    const summary = doc.querySelector('div.content')?.innerText.substring(0, 150) + '...' || doc.querySelector('div')?.innerText.substring(0, 150) + '...' || 'Read more...';
-
-                    const imgHtml = img ? `<div class="img-container"><img src="${img}" alt="cover"></div>` : '';
-
-                    // LOGIKA CLEAN URL: Hapus .html dari nama file
-                    const cleanLink = `artikel/${file.name.replace('.html', '')}`;
+                    const imgHtml = art.img ? `<div class="img-container"><img src="${art.img}" alt="cover" loading="lazy"></div>` : '';
 
                     const card = `
                         <div class="sai-card shadow-2xl">
                             ${imgHtml}
                             <div class="p-6">
-                                <h2 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">${title}</h2>
-                                <p class="text-zinc-500 text-sm leading-relaxed mb-4">${summary}</p>
-                                <a href="${cleanLink}" class="text-blue-500 text-xs font-bold uppercase tracking-widest hover:text-white transition flex items-center">
+                                <h2 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">${art.title}</h2>
+                                <p class="text-zinc-500 text-sm leading-relaxed mb-4">${art.summary}</p>
+                                <a href="${art.link}" class="text-blue-500 text-xs font-bold uppercase tracking-widest hover:text-white transition flex items-center">
                                     Read Full Story <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </a>
                             </div>
                         </div>
                     `;
                     list.innerHTML += card;
+                });
+
+                if (articleData.filter(a => a !== null).length === 0) {
+                    list.innerHTML = `<p class="text-center text-zinc-700 py-20 uppercase text-xs tracking-widest">No articles published.</p>`;
                 }
+
             } catch (e) {
-                list.innerHTML = `<p class="text-center text-zinc-600 py-20">No articles found.</p>`;
+                list.innerHTML = `<p class="text-center text-red-900 py-20 uppercase text-xs font-black">Sync Error. Check Repository.</p>`;
             }
         }
 
