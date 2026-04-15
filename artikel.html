@@ -3,31 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artikel - SAI Roots</title>
+    <title>SAI ROOTS | Daftar Artikel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0a0a0a; color: #ffffff; font-family: sans-serif; }
-        .card { background-color: #1a1a1a; border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 1px solid #333; }
+        body { background-color: #050505; color: white; font-family: sans-serif; }
+        .art-card { background: #111; border: 1px solid #222; border-radius: 15px; overflow: hidden; transition: 0.3s; }
+        .art-card:hover { transform: translateY(-5px); border-color: #3b82f6; }
     </style>
 </head>
-<body class="p-4">
-    <nav class="mb-8">
-        <a href="/" class="bg-white text-black px-4 py-2 rounded font-bold transition hover:bg-gray-300">Home</a>
+<body class="p-6">
+
+    <nav class="max-w-4xl mx-auto mb-10">
+        <a href="/" class="bg-white text-black px-5 py-2 rounded-full font-bold text-sm uppercase">← Home</a>
     </nav>
 
-    <header class="text-center mb-10">
-        <h1 class="text-3xl font-bold uppercase tracking-widest">Daftar Artikel</h1>
+    <header class="text-center mb-12">
+        <h1 class="text-4xl font-black uppercase tracking-tighter italic">LATEST <span class="text-blue-500">ARTICLES</span></h1>
+        <p class="text-zinc-500 mt-2">Update terbaru dari SAI ROOTS MUSIC</p>
     </header>
 
-    <main id="article-list" class="max-w-md mx-auto">
-        <div class="card">
-            <img src="https://via.placeholder.com/400x200" alt="Cover" class="w-full h-48 object-cover">
-            <div class="p-5">
-                <h2 class="text-xl font-bold mb-2">Contoh Judul Artikel</h2>
-                <p class="text-gray-400 text-sm mb-4">Ringkasan singkat isi artikel...</p>
-                <a href="/artikel/contoh-slug.html" class="bg-red-500 text-white px-4 py-2 rounded text-sm inline-block">Read More</a>
-            </div>
-        </div>
+    <main id="list-container" class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <p class="text-zinc-600 italic col-span-2 text-center">Menghubungkan ke server...</p>
     </main>
+
+    <script>
+        const REPO = "sairootsmusic/sairootsmusic.github.io";
+        const FOLDER = "artikel";
+
+        async function fetchArticles() {
+            const container = document.getElementById('list-container');
+            try {
+                // Mengambil daftar file dari folder 'artikel' di GitHub
+                const response = await fetch(`https://api.github.com/repos/${REPO}/contents/${FOLDER}`);
+                const files = await response.json();
+
+                if (!Array.isArray(files)) {
+                    container.innerHTML = "<p class='text-center col-span-2'>Belum ada artikel.</p>";
+                    return;
+                }
+
+                container.innerHTML = ""; // Bersihkan loading text
+
+                // Loop setiap file yang berakhiran .html
+                files.filter(f => f.name.endsWith('.html')).forEach(file => {
+                    const title = file.name.replace(/-/g, ' ').replace('.html', '');
+                    
+                    const card = `
+                        <div class="art-card">
+                            <div class="p-6">
+                                <h2 class="text-xl font-bold uppercase mb-4">${title}</h2>
+                                <a href="/artikel/${file.name}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-bold text-sm transition">
+                                    READ ARTICLE
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += card;
+                });
+
+            } catch (error) {
+                container.innerHTML = "<p class='text-red-500'>Gagal memuat artikel.</p>";
+            }
+        }
+
+        // Jalankan fungsi saat halaman dibuka
+        fetchArticles();
+    </script>
 </body>
 </html>
