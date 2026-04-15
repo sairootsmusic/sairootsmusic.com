@@ -7,76 +7,142 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background-color: #0b0b0b; color: #e5e7eb; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
-        .sai-card { background: #141414; border: 1px solid #222; border-radius: 12px; overflow: hidden; transition: 0.2s; }
-        .sai-card:hover { border-color: #3b82f6; }
-        .btn-home { color: #666; font-size: 14px; font-weight: 600; transition: 0.3s; }
+        body { background-color: #0b0b0b; color: #e5e7eb; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; min-height: 100vh; margin: 0; }
+        
+        /* Nav & Footer Style dari Screenshot */
+        .btn-home { color: #666; font-size: 14px; font-weight: 600; transition: 0.3s; text-decoration: none; }
         .btn-home:hover { color: #fff; }
-        .img-placeholder { width: 100%; height: 180px; background: linear-gradient(45deg, #111, #1a1a1a); display: flex; items-center; justify-center; }
+        .list-article-title { text-align: right; }
+        
+        /* Card Style - Elegant Dark */
+        .sai-card { background: #141414; border: 1px solid #222; border-radius: 16px; overflow: hidden; transition: 0.3s; }
+        .sai-card:hover { border-color: #3b82f6; transform: translateY(-3px); }
+        
+        /* Image Container - Full & Gak Kepotong */
+        .img-container { 
+            width: 100%; 
+            height: auto; /* Biar ngikutin rasio asli */
+            max-height: 300px; /* Batasin biar gak kepanjangan di HP */
+            background: #000; 
+            overflow: hidden; 
+            border-bottom: 1px solid #222;
+        }
+        .img-container img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; /* Ini kuncinya biar GAK KEPOTONG */
+            display: block; 
+        }
+
+        /* Loading State */
+        .loading-text { color: #333; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3em; font-size: 10px; }
+        
+        footer { border-top: 1px solid #1a1a1a; margin-top: auto; }
     </style>
 </head>
 <body class="pb-10">
 
-    <nav class="p-6 max-w-4xl mx-auto flex items-center justify-between w-full">
+    <nav class="p-6 max-w-5xl mx-auto flex items-center justify-between w-full">
         <a href="/" class="btn-home"><i class="fa-solid fa-chevron-left mr-2"></i>Home</a>
-        <div class="text-right">
+        <div class="list-article-title">
             <h1 class="text-2xl font-black uppercase italic tracking-tighter">LIST <span class="text-blue-500">ARTICLE</span></h1>
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-4 mt-4 flex-grow w-full">
-        <div id="article-list" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="col-span-full text-center py-20 text-zinc-800 text-[10px] font-black uppercase tracking-[0.3em]">Loading Database...</div>
+    <main class="max-w-5xl mx-auto px-4 mt-6 flex-grow w-full">
+        <div id="article-list" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="col-span-full text-center py-24 animate-pulse loading-text">Syncing Database...</div>
         </div>
     </main>
 
     <footer class="py-10 text-center">
-        <p class="text-[10px] text-zinc-800 font-bold uppercase tracking-widest">© 2026 SAI Roots Music. All Rights Reserved.</p>
+        <a href="copyright" class="text-[10px] text-zinc-800 font-bold uppercase tracking-widest no-underline transition hover:text-zinc-600">
+            © 2026 SAI Roots Music. All Rights Reserved.
+        </a>
     </footer>
 
     <script>
         const REPO = "sairootsmusic/sairootsmusic.github.io";
         const FOLDER = "artikel";
 
+        // Fungsi Base64 Safe Anti-Blank
+        function b64DecodeUnicode(str) {
+            return decodeURIComponent(atob(str).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+        }
+
         async function init() {
             const list = document.getElementById('article-list');
             try {
-                // HANYA AMBIL DAFTAR FILE (SANGAT CEPAT)
-                const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FOLDER}`);
+                // 1. Ambil DAFTAR file (Cache Breaker aktif)
+                const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FOLDER}?t=${new Date().getTime()}`);
                 const files = await res.json();
                 
-                if(!Array.isArray(files)) throw new Error();
+                if(!Array.isArray(files)) throw new Error("Folder Kosong");
 
+                // Filter & Urutkan (Paling baru di atas)
                 const htmlFiles = files.filter(f => f.name.endsWith('.html')).reverse();
+
+                // 2. TEKNOLOGI PRO: Tarik SEMUA isi file serentak (Paralel Fetching)
+                // Ini JAUH lebih kenceng daripada fetch satu-satu di dalam loop.
+                const articleData = await Promise.all(htmlFiles.map(async (file) => {
+                    try {
+                        const fileRes = await fetch(file.download_url);
+                        const htmlText = await fileRes.text();
+                        
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(htmlText, 'text/html');
+                        
+                        // Ekstraksi data yang sinkron sama template CMS lo
+                        const title = doc.querySelector('h1')?.innerText || doc.querySelector('title')?.innerText.split('|')[0] || file.name;
+                        const img = doc.querySelector('img')?.src || ''; // Cari gambar apa aja
+                        const summaryNode = doc.querySelector('.content') || doc.querySelector('.art-cnt') || doc.querySelector('body');
+                        const summary = summaryNode?.innerText.substring(0, 140).replace(/\s+/g, ' ').trim() || "Read full story...";
+
+                        return {
+                            title: title,
+                            img: img,
+                            summary: summary + '...',
+                            link: `artikel/${file.name}` // Link utuh dengan .html biar aman di Github Pages
+                        };
+                    } catch (e) {
+                        return null; // Skip kalau satu file eror
+                    }
+                }));
+
+                // 3. Render ke HTML
                 list.innerHTML = "";
+                articleData.forEach(art => {
+                    if(!art) return; // Skip data kosong
+                    
+                    // Kalau gak ada foto, tampilin placeholder gelap
+                    const imgHtml = art.img ? 
+                        `<div class="img-container"><img src="${art.img}" alt="cover" loading="lazy"></div>` : 
+                        `<div class="img-container" style="height:220px; display:flex; items-center; justify-center;"><i class="fa-solid fa-newspaper text-zinc-800 text-5xl"></i></div>`;
 
-                htmlFiles.forEach(file => {
-                    // Judul diambil otomatis dari nama file biar instan
-                    // Contoh: 'album-critical-fire.html' -> 'ALBUM CRITICAL FIRE'
-                    const cleanTitle = file.name
-                        .replace('.html', '')
-                        .replace(/-/g, ' ')
-                        .toUpperCase();
-
-                    const card = `
-                        <a href="artikel/${file.name}" class="sai-card group block no-underline">
-                            <div class="img-placeholder">
-                                <i class="fa-solid fa-newspaper text-zinc-800 text-4xl group-hover:text-blue-500 transition-colors"></i>
+                    const cardHtml = `
+                        <div class="sai-card shadow-2xl flex flex-col">
+                            ${imgHtml}
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="text-[9px] text-blue-500 font-black tracking-widest uppercase mb-1">New Release</span>
+                                <h2 class="text-xl font-bold text-white mb-3 uppercase tracking-tight leading-tight">${art.title}</h2>
+                                <p class="text-zinc-500 text-sm leading-relaxed mb-6 flex-grow">${art.summary}</p>
+                                <a href="${art.link}" class="text-blue-500 text-xs font-bold uppercase tracking-widest hover:text-white transition flex items-center mt-auto">
+                                    Read Full Story <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                                </a>
                             </div>
-                            <div class="p-5">
-                                <span class="text-[9px] text-blue-500 font-black tracking-widest uppercase">Latest Post</span>
-                                <h2 class="text-lg font-bold text-white mt-1 leading-tight group-hover:text-blue-400 transition-colors">${cleanTitle}</h2>
-                                <div class="mt-4 flex items-center text-zinc-600 text-[10px] font-bold uppercase tracking-widest">
-                                    View Article <i class="fa-solid fa-arrow-right ml-2 text-[8px]"></i>
-                                </div>
-                            </div>
-                        </a>
+                        </div>
                     `;
-                    list.innerHTML += card;
+                    list.innerHTML += cardHtml;
                 });
 
+                if (list.innerHTML === "") {
+                    list.innerHTML = `<div class="col-span-full text-center py-20 text-zinc-700 uppercase text-xs tracking-widest">No articles found.</div>`;
+                }
+
             } catch (e) {
-                list.innerHTML = `<div class="col-span-full text-center py-20 text-red-900 font-black text-xs">DATABASE SYNC ERROR</div>`;
+                list.innerHTML = `<div class="col-span-full text-center text-red-900 py-20 uppercase text-xs font-black">Sync Error. Check Repository.</div>`;
             }
         }
 
