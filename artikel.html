@@ -61,7 +61,7 @@
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(htmlText, 'text/html');
                     
-                    const title = doc.querySelector('h1')?.innerText || file.name.replace('', '').replace(/-/g, ' ');
+                    const title = doc.querySelector('h1')?.innerText || file.name.replace('.html', '').replace(/-/g, ' ');
                     const img = doc.querySelector('img')?.src || '';
                     const summary = doc.querySelector('div')?.innerText.substring(0, 150) + '...' || 'Read more...';
 
