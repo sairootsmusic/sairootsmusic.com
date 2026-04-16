@@ -31,14 +31,17 @@
 <body>
 
     <nav class="p-5 flex items-center justify-between sticky top-0 bg-black/80 backdrop-blur-md z-50 border-b border-zinc-900">
-        <a href="/" class="text-zinc-400 hover:text-white flex items-center gap-1 font-medium">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> HOME
+        <a href="/" class="text-zinc-400 hover:text-white flex items-center gap-1 font-medium transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            <span class="text-sm tracking-wide uppercase">Home</span>
         </a>
+        
         <div class="text-xl font-black italic uppercase tracking-tighter">
             COVER <span class="text-green-500">COLLECTION</span>
         </div>
-        <div class="w-12"></div>
-    </nav>
+        <div class="w-16"></div> </nav>
 
     <div class="max-w-5xl mx-auto p-6">
         <input type="text" id="searchInput" placeholder="Cari koleksi video..." 
