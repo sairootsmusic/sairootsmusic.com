@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Cover | SAI Roots</title>
+    <meta name="description" content="Koleksi video cover musik dari SAI Roots Music.">
+    <style>
+        :root { --accent: #3b82f6; --bg: #0d0d0d; --card: #151515; }
+        body { background: var(--bg); color: white; font-family: sans-serif; margin: 0; padding: 20px; }
+        header { text-align: center; padding: 20px; }
+        h1 span { color: var(--accent); }
+        
+        .search-box { max-width: 500px; margin: 0 auto 30px; }
+        #search { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #333; background: #1a1a1a; color: white; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .card { background: var(--card); border-radius: 10px; cursor: pointer; transition: 0.3s; overflow: hidden; border: 1px solid #222; }
+        .card:hover { border-color: var(--accent); transform: scale(1.02); }
+        .thumb { width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; }
+        .info { padding: 15px; }
+        
+        /* Modal Style */
+        .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); z-index: 1000; overflow-y: auto; }
+        .modal-content { max-width: 800px; margin: 40px auto; background: #111; border-radius: 12px; overflow: hidden; position: relative; }
+        .close { position: absolute; right: 20px; top: 10px; font-size: 30px; cursor: pointer; color: white; z-index: 10; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-wrapper iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+        .details { padding: 20px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<header><h1>LIST <span>ARTICLE / VIDEO</span></h1></header>
+
+<div class="search-box">
+    <input type="text" id="search" placeholder="Cari judul lagu..." onkeyup="render()">
+</div>
+
+<div class="grid" id="videoGrid"></div>
+
+<div id="videoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="video-wrapper" id="modalVideo"></div>
+        <div class="details">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDesc" style="white-space: pre-wrap; color: #ccc;"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+// DATA VIDEO (Akan diupdate otomatis oleh Website Manager)
+// ---START_DATA---
+const videoData = [
+    {
+        id: "dQw4w9WgXcQ",
+        title: "Single Jurus Liar - SAI Roots",
+        desc: "Jurus Liar adalah single bergenre roots reggae dengan sentuhan rap..."
+    }
+];
+// ---END_DATA---
+
+function render() {
+    const term = document.getElementById('search').value.toLowerCase();
+    const grid = document.getElementById('videoGrid');
+    grid.innerHTML = '';
+
+    videoData.filter(v => v.title.toLowerCase().includes(term)).forEach((v, index) => {
+        grid.innerHTML += `
+            <div class="card" onclick="openModal('${v.id}', ${videoData.indexOf(v)})">
+                <div class="thumb" style="background-image:url('https://img.youtube.com/vi/${v.id}/mqdefault.jpg')"></div>
+                <div class="info">
+                    <small style="color:var(--accent)">VIDEO</small>
+                    <h3 style="margin:5px 0">${v.title}</h3>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function openModal(id, index) {
+    const v = videoData[index];
+    document.getElementById('modalVideo').innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allowfullscreen></iframe>`;
+    document.getElementById('modalTitle').innerText = v.title;
+    document.getElementById('modalDesc').innerText = v.desc;
+    document.getElementById('videoModal').style.display = 'block';
+    
+    // SEO & Indexing hint: Mengubah URL tanpa reload agar bisa di-crawl (opsional)
+    window.history.pushState(null, null, `?v=${id}`);
+}
+
+function closeModal() {
+    document.getElementById('videoModal').style.display = 'none';
+    document.getElementById('modalVideo').innerHTML = '';
+    window.history.pushState(null, null, window.location.pathname);
+}
+
+window.onclick = (e) => { if(e.target.className == 'modal') closeModal(); }
+render();
+</script>
+</body>
+</html>
