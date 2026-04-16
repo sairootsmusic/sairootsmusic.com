@@ -3,57 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Cover | SAI Roots Music</title>
+    <title>Video Collection | SAI Roots Music</title>
+    
+    <meta name="description" content="Koleksi video cover dan artikel musik terbaru dari SAI Roots Music.">
+    <meta name="author" content="SAI Roots">
+
     <style>
-        :root { --accent: #3b82f6; --bg: #0d0d0d; --card: #151515; }
-        body { background: var(--bg); color: white; font-family: sans-serif; margin: 0; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 20px auto; }
-        .card { background: var(--card); border-radius: 10px; cursor: pointer; border: 1px solid #222; overflow: hidden; }
-        .thumb { width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; }
-        .info { padding: 15px; }
-        .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); z-index: 1000; }
-        .modal-content { max-width: 800px; margin: 40px auto; background: #111; border-radius: 12px; position: relative; }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
-        .video-wrapper iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #151515;
+            --accent-blue: #3b82f6;
+            --text-main: #ffffff;
+            --text-dim: #cccccc;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header & Nav - Mengikuti screenshot */
+        header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #222;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        h1.title-page {
+            font-size: 24px;
+            font-weight: 900;
+            font-style: italic;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        h1.title-page span {
+            color: var(--accent-blue);
+        }
+
+        /* Search Bar */
+        .search-section {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 15px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        #searchInput:focus {
+            border-color: var(--accent-blue);
+        }
+
+        /* Video Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Card Style - Persis seperti Screenshot */
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #222;
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .thumbnail-box {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .badge {
+            background: var(--accent-blue);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .video-card h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            line-height: 1.3;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .video-card p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 13px;
+            margin-top: 15px;
+            display: block;
+            text-decoration: none;
+        }
+
+        /* Modal / Pop-up */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #111;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 11;
+        }
+
+        .video-player-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-player-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        .modal-details {
+            padding: 30px;
+        }
+
+        .modal-details h2 {
+            margin-top: 0;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+        }
+
+        .modal-details p {
+            line-height: 1.8;
+            color: var(--text-dim);
+            white-space: pre-wrap; /* Menjaga baris baru dari deskripsi */
+        }
+
+        @media (max-width: 600px) {
+            .video-grid { grid-template-columns: 1fr; }
+            .modal-content { margin: 0; border-radius: 0; min-height: 100vh; }
+        }
     </style>
 </head>
 <body>
-    <h1 style="text-align:center">LIST <span>VIDEO</span></h1>
-    <div class="grid" id="videoGrid"></div>
 
-    <div id="videoModal" class="modal" onclick="this.style.display='none'">
+    <header>
+        <a href="index.html" class="back-link"> &lt; HOME</a>
+        <h1 class="title-page">LIST <span>ARTICLE</span></h1>
+        <div style="width: 50px;"></div> </header>
+
+    <div class="search-section">
+        <input type="text" id="searchInput" placeholder="Cari video atau lagu..." onkeyup="filterVideos()">
+    </div>
+
+    <div class="video-grid" id="mainGrid">
+        </div>
+
+    <div id="videoModal" class="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="video-wrapper" id="modalVideo"></div>
-            <div style="padding:20px">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="video-player-container" id="playerTarget"></div>
+            <div class="modal-details">
                 <h2 id="modalTitle"></h2>
-                <p id="modalDesc" style="white-space: pre-wrap; color: #ccc;"></p>
+                <p id="modalDesc"></p>
             </div>
         </div>
     </div>
 
     <script>
-    // ---START_DATA---
-    const videoData = [];
-    // ---END_DATA---
+        // ---START_DATA---
+        const videoData = [];
+        // ---END_DATA---
 
-    function render() {
-        const grid = document.getElementById('videoGrid');
-        grid.innerHTML = videoData.map((v, i) => `
-            <div class="card" onclick="openModal(${i})">
-                <div class="thumb" style="background-image:url('https://img.youtube.com/vi/${v.id}/mqdefault.jpg')"></div>
-                <div class="info"><h3>${v.title}</h3></div>
-            </div>
-        `).join('');
-    }
+        function renderVideos(dataToRender) {
+            const grid = document.getElementById('mainGrid');
+            grid.innerHTML = '';
 
-    function openModal(i) {
-        const v = videoData[i];
-        document.getElementById('modalVideo').innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}?autoplay=1" allowfullscreen></iframe>`;
-        document.getElementById('modalTitle').innerText = v.title;
-        document.getElementById('modalDesc').innerText = v.desc;
-        document.getElementById('videoModal').style.display = 'block';
-    }
-    render();
+            if (dataToRender.length === 0) {
+                grid.innerHTML = '<p style="text-align:center; width:100%; color:#555;">Video tidak ditemukan.</p>';
+                return;
+            }
+
+            dataToRender.forEach((video, index) => {
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                card.onclick = () => openModal(video);
+
+                card.innerHTML = `
+                    <div class="thumbnail-box" style="background-image: url('https://img.youtube.com/vi/${video.id}/maxresdefault.jpg')"></div>
+                    <div class="video-info">
+                        <span class="badge">SAI ROOTS MUSIC</span>
+                        <h3>${video.title}</h3>
+                        <p>${video.desc}</p>
+                        <span class="read-more">READ FULL STORY →</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterVideos() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = videoData.filter(v => 
+                v.title.toLowerCase().includes(query) || 
+                v.desc.toLowerCase().includes(query)
+            );
+            renderVideos(filtered);
+        }
+
+        function openModal(video) {
+            document.getElementById('playerTarget').innerHTML = `
+                <iframe src="https://www.youtube.com/embed/${video.id}?autoplay=1" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>`;
+            document.getElementById('modalTitle').innerText = video.title;
+            document.getElementById('modalDesc').innerText = video.desc;
+            document.getElementById('videoModal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Stop scrolling background
+
+            // Tambahkan param URL agar bisa di-index google per video
+            window.history.pushState(null, null, `?v=${video.id}`);
+        }
+
+        function closeModal() {
+            document.getElementById('videoModal').style.display = 'none';
+            document.getElementById('playerTarget').innerHTML = '';
+            document.body.style.overflow = 'auto';
+            window.history.pushState(null, null, window.location.pathname);
+        }
+
+        // Cek jika ada ID video di URL saat pertama kali buka (untuk SEO)
+        window.onload = () => {
+            renderVideos(videoData);
+            const params = new URLSearchParams(window.location.search);
+            const vId = params.get('v');
+            if(vId) {
+                const video = videoData.find(v => v.id === vId);
+                if(video) openModal(video);
+            }
+        };
     </script>
 </body>
 </html>
