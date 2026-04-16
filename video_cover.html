@@ -6,104 +6,135 @@
     <title>Cover Collection by SAI Roots</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #000; color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .video-card { background: #111; border-radius: 12px; transition: 0.3s; cursor: pointer; }
-        .video-card:hover { transform: translateY(-5px); border: 1px solid #3b82f6; }
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 50; overflow-y: auto; }
-        .modal-content { max-width: 800px; margin: 40px auto; background: #111; padding: 20px; border-radius: 15px; }
+        body { background-color: #0d0d0d; color: #ffffff; font-family: sans-serif; }
+        .video-card { background: #1a1a1a; border-radius: 12px; overflow: hidden; transition: 0.3s; cursor: pointer; border: 1px solid #333; }
+        .video-card:hover { border-color: #3b82f6; transform: translateY(-3px); }
+        
+        /* Pop-up Styles */
+        #videoModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; overflow-y: auto; padding: 20px; }
+        #videoModal.minimized { 
+            inset: auto; right: 20px; bottom: 20px; width: 320px; height: auto; 
+            background: #1a1a1a; border: 2px solid #3b82f6; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); padding: 0;
+        }
+        .modal-content { max-width: 900px; margin: auto; background: #111; border-radius: 16px; overflow: hidden; }
+        #videoModal.minimized .modal-content { border-radius: 0; }
+        #videoModal.minimized .desc-box { display: none; }
+        #videoModal.minimized .close-btn { top: 5px; right: 5px; }
+        
         .aspect-video { position: relative; padding-bottom: 56.25%; height: 0; }
-        .aspect-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px; }
+        .aspect-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     </style>
 </head>
 <body>
 
-<div class="max-width-6xl mx-auto px-4 py-8">
-    <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
-        <h1 class="text-3xl font-bold italic uppercase tracking-tighter">
-            <span class="text-white">Cover Collection by</span> <span class="text-blue-500">SAI Roots</span>
-        </h1>
-        <input type="text" id="searchInput" placeholder="Cari video..." 
-               class="bg-zinc-900 border border-zinc-700 px-4 py-2 rounded-full w-full md:w-64 focus:outline-none focus:border-blue-500">
-    </div>
-
-    <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <header class="p-4 flex items-center justify-between sticky top-0 bg-[#0d0d0d] z-50 border-b border-zinc-800">
+        <a href="/" class="text-zinc-400 hover:text-white flex items-center gap-2">
+            <span>&lsaquo;</span> HOME
+        </a>
+        <div class="text-xl font-black italic tracking-tighter uppercase">
+            LIST <span class="text-blue-500">ARTICLE</span>
         </div>
-</div>
+        <div class="w-10"></div>
+    </header>
 
-<div id="videoModal" class="modal px-4">
-    <div class="modal-content border border-zinc-800">
-        <button onclick="closeModal()" class="mb-4 text-zinc-400 hover:text-white font-bold">✕ TUTUP</button>
-        <div id="modalBody">
+    <main class="max-w-6xl mx-auto p-6">
+        <h1 class="text-2xl font-bold mb-6">Cover Collection by SAI Roots</h1>
+        
+        <div class="mb-8">
+            <input type="text" id="searchInput" placeholder="Cari koleksi video..." 
+                   class="w-full bg-zinc-900 border border-zinc-800 p-4 rounded-xl focus:outline-none focus:border-blue-500 transition">
+        </div>
+
+        <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             </div>
-    </div>
-</div>
+    </main>
 
-<script>
-    let videoData = [];
-
-    async function loadVideos() {
-        try {
-            const response = await fetch('videos.json');
-            videoData = await response.json();
-            renderVideos(videoData);
+    <div id="videoModal">
+        <div class="modal-content relative shadow-2xl">
+            <div class="flex justify-between p-3 bg-zinc-900 items-center">
+                <button onclick="minimizeModal()" class="text-sm font-bold text-zinc-400 hover:text-white">[_] MINIMIZE</button>
+                <button onclick="closeModal()" class="text-xl font-bold text-red-500">&times; CLOSE</button>
+            </div>
             
-            // Cek jika ada ID di URL untuk SEO/Deep Linking
-            const hash = window.location.hash.substring(1);
-            if(hash) {
-                const video = videoData.find(v => v.id === hash);
-                if(video) openModal(video.id);
-            }
-        } catch (e) { console.log("Belum ada data video."); }
-    }
-
-    function renderVideos(data) {
-        const grid = document.getElementById('videoGrid');
-        grid.innerHTML = data.map(v => `
-            <div class="video-card p-4" onclick="openModal('${v.id}')">
-                <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" class="w-full rounded-lg mb-3">
-                <span class="text-xs bg-blue-600 px-2 py-1 rounded mb-2 inline-block">ARTICLE</span>
-                <h3 class="font-bold text-lg leading-tight uppercase">${v.title}</h3>
-                <p class="text-sm text-zinc-400 mt-2 line-clamp-2">${v.description.substring(0, 100)}...</p>
+            <div class="aspect-video" id="iframeContainer"></div>
+            
+            <div class="p-6 desc-box">
+                <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
+                <hr class="border-zinc-800 mb-4">
+                <p id="modalDesc" class="text-zinc-400 text-sm leading-relaxed whitespace-pre-wrap"></p>
             </div>
-        `).join('');
-    }
+        </div>
+    </div>
 
-    function openModal(id) {
-        const video = videoData.find(v => v.id === id);
-        if(!video) return;
-        
-        window.location.hash = id;
-        const modal = document.getElementById('videoModal');
-        const body = document.getElementById('modalBody');
-        
-        body.innerHTML = `
-            <div class="aspect-video mb-6">
-                <iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allowfullscreen></iframe>
-            </div>
-            <h2 class="text-2xl font-bold mb-4">${video.title}</h2>
-            <div class="text-zinc-300 whitespace-pre-wrap text-sm leading-relaxed">${video.description}</div>
-        `;
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
+    <script>
+        let allVideos = [];
 
-    function closeModal() {
-        document.getElementById('videoModal').style.display = 'none';
-        document.body.style.overflow = 'auto';
-        history.pushState("", document.title, window.location.pathname);
-    }
+        async function init() {
+            try {
+                const res = await fetch('videos.json');
+                allVideos = await res.json();
+                renderVideos(allVideos);
 
-    // Fitur Search
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-        const term = e.target.value.toLowerCase();
-        const filtered = videoData.filter(v => 
-            v.title.toLowerCase().includes(term) || 
-            v.description.toLowerCase().includes(term)
-        );
-        renderVideos(filtered);
-    });
+                // Fitur SEO Indexing: Cek ID di URL Hash (#videoID)
+                const hashId = window.location.hash.replace('#', '');
+                if (hashId) openModal(hashId);
+            } catch (e) { console.error("Data videos.json belum ada."); }
+        }
 
-    window.onload = loadVideos;
-</script>
+        function renderVideos(data) {
+            const grid = document.getElementById('videoGrid');
+            grid.innerHTML = data.map(v => `
+                <div class="video-card" onclick="openModal('${v.id}')">
+                    <img src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg" class="w-full aspect-video object-cover">
+                    <div class="p-4">
+                        <span class="text-[10px] bg-blue-600 px-2 py-0.5 rounded font-bold uppercase mb-2 inline-block">Article</span>
+                        <h3 class="font-bold text-lg leading-tight mb-2 uppercase">${v.title}</h3>
+                        <p class="text-xs text-zinc-500 line-clamp-2">${v.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openModal(id) {
+            const video = allVideos.find(v => v.id === id);
+            if (!video) return;
+
+            // Update URL untuk SEO
+            window.location.hash = id;
+            
+            const modal = document.getElementById('videoModal');
+            document.getElementById('iframeContainer').innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
+            document.getElementById('modalTitle').innerText = video.title;
+            document.getElementById('modalDesc').innerText = video.description;
+            
+            modal.style.display = 'block';
+            modal.classList.remove('minimized');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function minimizeModal() {
+            const modal = document.getElementById('videoModal');
+            modal.classList.toggle('minimized');
+            document.body.style.overflow = modal.classList.contains('minimized') ? 'auto' : 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            modal.style.display = 'none';
+            document.getElementById('iframeContainer').innerHTML = '';
+            document.body.style.overflow = 'auto';
+            history.pushState("", document.title, window.location.pathname);
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = allVideos.filter(v => v.title.toLowerCase().includes(term));
+            renderVideos(filtered);
+        });
+
+        window.onload = init;
+    </script>
 </body>
 </html>
