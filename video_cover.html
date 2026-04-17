@@ -80,7 +80,9 @@
         <input type="search" id="searchInput" placeholder="Search cover song video..." 
                class="w-full bg-zinc-900 border border-zinc-800 p-4 rounded-2xl mb-10 focus:ring-2 focus:ring-green-600 outline-none">
 
-        <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+        <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <p class="text-zinc-500 text-xs animate-pulse">Loading Collection...</p>
+        </div>
     </main>
 
     <div id="videoModal" aria-hidden="true" role="dialog">
@@ -135,10 +137,10 @@
 
         async function load() {
             try {
+                // [FITUR] Load dari videos.json Tetap Sama
                 const r = await fetch('videos.json');
                 videoData = await r.json();
                 display(videoData);
-                // Injeksi Schema Video untuk Googlebot
                 injectVideoSchema(videoData);
                 
                 if(window.location.hash) openModal(window.location.hash.substring(1));
@@ -149,11 +151,11 @@
             const g = document.getElementById('videoGrid');
             g.innerHTML = data.map(v => `
                 <article class="video-card" onclick="openModal('${v.id}')">
-                    <a href="#${v.id}" class="sr-only">${v.title}</a>
+                    <a href="https://www.youtube.com/watch?v=${v.id}" class="sr-only" target="_blank">${v.title}</a>
                     <div class="thumb-container">
                         <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" 
                              onerror="this.src='https://i.ytimg.com/vi/${v.id}/mqdefault.jpg'"
-                             loading="lazy" alt="Thumbnail ${v.title}">
+                             loading="lazy" alt="${v.title}">
                     </div>
                     <div class="p-5">
                         <div class="flex items-center gap-1.5 mb-2">
@@ -167,7 +169,6 @@
             `).join('');
         }
 
-        // FUNGSI BARU: Agar Googlebot bisa membaca metadata video tanpa klik popup
         function injectVideoSchema(videos) {
             const schema = videos.map(v => ({
                 "@context": "https://schema.org",
@@ -185,6 +186,7 @@
             document.head.appendChild(script);
         }
 
+        // [FITUR] Modal Logic Tetap Sama
         function openModal(id) {
             const v = videoData.find(x => x.id === id);
             if(!v) return;
@@ -223,6 +225,7 @@
             history.pushState("", document.title, window.location.pathname);
         }
 
+        // [FITUR] Search Tetap Sama
         document.getElementById('searchInput').addEventListener('input', e => {
             const t = e.target.value.toLowerCase();
             display(videoData.filter(v => v.title.toLowerCase().includes(t)));
