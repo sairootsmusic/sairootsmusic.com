@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lirik resmi ${judul} oleh ${artist}. Produksi SAI Roots Music, diciptakan oleh Ahmad Supembri. Tersedia di Spotify, YouTube Music, dan Apple Music.">
-    <meta name="keywords" content="${judul}, ${artist}, Ahmad Supembri, SAI Roots Music, Lirik Lagu, Official, Reggae Indonesia, Spotify Lyrics, YouTube Music Lyrics">
+    <meta name="description" content="Lirik resmi ${judul} oleh SAI Roots. Produksi SAI Roots Music, diciptakan oleh Ahmad Supembri. Tersedia di Spotify, YouTube Music, dan Apple Music.">
+    <meta name="keywords" content="${judul}, SAI Roots, Ahmad Supembri, SAI Roots Music, Lirik Lagu, Official, Reggae Indonesia, Spotify Lyrics, YouTube Music Lyrics">
     <meta name="author" content="Ahmad Supembri">
     
-    <meta property="og:title" content="Lirik ${judul} - ${artist}">
+    <meta property="og:title" content="Lirik ${judul} - SAI Roots">
     <meta property="og:site_name" content="SAI Roots Music">
     <meta property="og:description" content="Official Lyric by Ahmad Supembri (SAI Roots Music)">
     <meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
-    <meta property="og:url" content="https://sairootsmusic.github.io/lyric/${slugInput}.html">
+    <meta property="og:url" content="https://sairootsmusic.github.io/lyric">
     <meta property="og:type" content="music.song">
     
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -26,99 +26,137 @@
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-TileColor" content="#000000">
     
-    <title>Lirik ${judul} - ${artist}</title>
+    <title>Lirik ${judul} - SAI Roots</title>
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@graph": [
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "SAI Roots Music",
+      "url": "https://sairootsmusic.github.io"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sairootsmusic.github.io" },
+        { "@type": "ListItem", "position": 2, "name": "Lyric", "item": "https://sairootsmusic.github.io/lyric" }
+      ]
+    },
+    {
+      "@type": "MusicRecording",
+      "name": "${judul}",
+      "url": "https://sairootsmusic.github.io/lyric/timpang.html",
+      "datePublished": "2026",
+      "byArtist": { "@type": "MusicGroup", "name": "SAI Roots" },
+      "inAlbum": { "@type": "MusicAlbum", "name": "Single" },
+      "recordingOf": {
+        "@type": "MusicComposition",
+        "name": "${judul}",
+        "lyricist": { "@type": "Person", "name": "Ahmad Supembri" },
+        "composer": { "@type": "Person", "name": "Ahmad Supembri" },
+        "producer": { "@type": "Person", "name": "Ahmad Supembri" },
+        "copyrightHolder": { "@type": "Person", "name": "Ahmad Supembri" },
+        "publisher": { "@type": "Organization", "name": "SAI Roots Music" }
+      }
+    },
+    {
+      "@type": "MusicGroup",
+      "@id": "https://sairootsmusic.github.io/#artist",
+      "name": "SAI Roots",
+      "alternateName": ["Sairoots", "SAI Roots Official", "SAI Roots Music", "SAI Roots Indonesia", "Ahmad Supembri SAI Roots"],
+      "description": "SAI Roots adalah proyek musik independen asal Indonesia yang menggabungkan unsur roots reggae dan rap dalam satu karakter musikal yang khas. Perpaduan groove reggae yang santai dengan vokal rap yang ritmis menciptakan warna musik yang seimbang antara nuansa dan penyampaian pesan. Menggabungkan groove khas reggae yang hangat dengan delivery rap yang tajam, SAI Roots menghadirkan karya yang tidak hanya enak didengar, tetapi juga sarat makna. Lirik-liriknya berbicara tentang realita sosial, kritik terhadap sistem, hingga refleksi kehidupan dengan pendekatan yang jujur dan tanpa kompromi. Sebagai proyek independen, SAI Roots berjalan dengan pendekatan mandiri dan terus berupaya berkembang dalam skena musik reggae Indonesia.",
+      "url": "https://sairootsmusic.github.io",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
+        "width": 1200,
+        "height": 1200,
+        "caption": "SAI Roots Official Artwork - Artis Roots Reggae Rap Indie Indonesia",
+        "description": "Foto resmi SAI Roots, proyek musik independen asal Indonesia"
+      },
+      "genre": ["Roots Reggae", "Reggae", "Rap", "Hip Hop", "Indie", "Ska", "Conscious Rap", "Indonesian Reggae", "Indonesian Hip Hop"],
+      "keywords": "SAI Roots, Ahmad Supembri, Pembri, roots reggae Indonesia, rap Indonesia, reggae rap, kritik sosial, conscious music, musik indie Indonesia, critical fire album, reborn riddim, propaganda sai roots, drama klenik, blaze it up, eksploitasi, senandung manis",
+      "foundingDate": "2024",
+      "originPlace": {
+        "@type": "Place",
+        "name": "Indonesia"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@sairoots",
+        "https://youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA",
+        "https://music.youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA",
+        "https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr",
+        "https://music.apple.com/id/artist/sai-roots/1892187423",
+        "https://soundcloud.com/sairoots",
+        "https://instagram.com/ahmadsupembri",
+        "https://tiktok.com/@ahmadsupembri",
+        "https://facebook.com/ahmadsupembri",
+        "https://x.com/ahmadsupembri",
+        "https://genius.com/artists/Sai-roots",
+        "https://www.musixmatch.com/artist/SAI-Roots",
+        "https://lyrics.lyricfind.com/artists/sai-roots"
+      ],
+      "member": [
         {
-          "@type": "WebSite",
-          "name": "SAI Roots Music",
-          "url": "https://sairootsmusic.github.io"
-        },
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sairootsmusic.github.io" },
-            { "@type": "ListItem", "position": 2, "name": "Lyric", "item": "https://sairootsmusic.github.io/lyric" }
-          ]
-        },
-        {
-          "@type": "MusicRecording",
-          "name": "${judul}",
-          "url": "https://sairootsmusic.github.io/lyric/${slugInput}.html",
-          "datePublished": "${tahun}",
-          "byArtist": { "@type": "MusicGroup", "name": "${artist}" },
-          "inAlbum": { "@type": "MusicAlbum", "name": "${album}" },
-          "recordingOf": {
-            "@type": "MusicComposition",
-            "name": "${judul}",
-            "lyricist": { "@type": "Person", "name": "Ahmad Supembri" },
-            "composer": { "@type": "Person", "name": "Ahmad Supembri" },
-            "producer": { "@type": "Person", "name": "Ahmad Supembri" },
-            "copyrightHolder": { "@type": "Person", "name": "Ahmad Supembri" },
-            "publisher": { "@type": "Organization", "name": "SAI Roots Music" }
+          "@type": "OrganizationRole",
+          "member": { "@id": "https://sairootsmusic.github.io/#producer" },
+          "roleName": ["Solo Artist", "Vocalist", "Rapper", "Songwriter", "Composer", "Music Producer", "Founder"]
+        }
+      ],
+      "subjectOf": [
+        { "@id": "https://sairootsmusic.github.io/music" },
+        { "@id": "https://sairootsmusic.github.io/lirik" },
+        { "@id": "https://sairootsmusic.github.io/tentang" },
+        { "@id": "https://sairootsmusic.github.io/credits" }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sairootsmusic.github.io/#producer",
+      "name": "Ahmad Supembri",
+      "alternateName": ["Pembri", "Ahmad Supembri SAI Roots"],
+      "description": "Ahmad Supembri, yang juga dikenal sebagai Pembri, adalah songwriter dan composer di balik proyek musik SAI Roots. Ia yang menciptakan seluruh lagu, menulis lirik, mengomposisi musik, dan memproduksi semua karya SAI Roots mulai dari album Critical Fire hingga Reborn Riddim serta berbagai single yang telah dirilis. Sebagai satu-satunya kreator di balik proyek ini, ia bertanggung jawab penuh atas seluruh proses kreatif dari awal hingga akhir.",
+      "jobTitle": ["Songwriter", "Composer", "Music Producer", "Founder", "Solo Artist", "Vocalist", "Rapper"],
+      "url": "https://instagram.com/ahmadsupembri",
+      "image": [
+        "https://sairootsmusic.github.io/photos/IMG_0144.png",
+        "https://sairootsmusic.github.io/photos/IMG_0337.jpg",
+        "https://sairootsmusic.github.io/photos/IMG_0220.jpg"
+      ],
+      "sameAs": [
+        "https://instagram.com/ahmadsupembri",
+        "https://tiktok.com/@ahmadsupembri",
+        "https://facebook.com/ahmadsupembri",
+        "https://x.com/ahmadsupembri"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sairootsmusic.github.io/#label",
+      "name": "SAI Roots Music",
+      "legalName": "SAI Roots Music Records",
+      "url": "https://sairootsmusic.github.io",
+      "description": "Label musik independen yang menaungi proyek SAI Roots dan fokus pada produksi musik roots reggae, rap, dan indie dengan pesan emosional serta kritik sosial.",
+      "founder": { "@id": "https://sairootsmusic.github.io/#producer" },
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg"
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://sairootsmusic.github.io/music",
+      "name": "SAI Roots Discography",
+      "description": "Daftar lengkap album dan single resmi SAI Roots.",
+      "numberOfItems": 19
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://sairootsmusic.github.io/lirik",
+      "name": "SAI Roots Official Lyrics Library",
+      "description": "Kumpulan lirik lagu resmi SAI Roots yang ditulis oleh Ahmad Supembri.",
+      "numberOfItems": 32
           }
-        },
-        {
-          "@type": "MusicGroup",
-          "@id": "https://sairootsmusic.github.io/#artist",
-          "name": "SAI Roots",
-          "alternateName": ["Sairoots", "SAI Roots Official", "SAI Roots Music", "SAI Roots Indonesia", "Ahmad Supembri SAI Roots"],
-          "description": "SAI Roots adalah proyek musik independen asal Indonesia yang menggabungkan unsur roots reggae dan rap...",
-          "url": "https://sairootsmusic.github.io",
-          "image": {
-            "@type": "ImageObject",
-            "url": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
-            "width": 1200, "height": 1200
-          },
-          "genre": ["Roots Reggae", "Reggae", "Rap", "Hip Hop", "Indie", "Ska", "Conscious Rap", "Indonesian Reggae", "Indonesian Hip Hop"],
-          "sameAs": [
-            "https://www.youtube.com/@sairoots",
-            "https://music.apple.com/id/artist/sai-roots/1892187423",
-            "https://instagram.com/ahmadsupembri",
-            "https://tiktok.com/@ahmadsupembri"
-          ],
-          "member": [{
-            "@type": "OrganizationRole",
-            "member": { "@id": "https://sairootsmusic.github.io/#producer" },
-            "roleName": ["Solo Artist", "Music Producer", "Founder"]
-          }]
-        },
-        {
-          "@type": "Person",
-          "@id": "https://sairootsmusic.github.io/#producer",
-          "name": "Ahmad Supembri",
-          "jobTitle": ["Songwriter", "Music Producer", "Founder"],
-          "url": "https://instagram.com/ahmadsupembri",
-          "sameAs": [
-            "https://instagram.com/ahmadsupembri",
-            "https://facebook.com/ahmadsupembri"
-          ]
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://sairootsmusic.github.io/#label",
-          "name": "SAI Roots Music",
-          "url": "https://sairootsmusic.github.io",
-          "founder": { "@id": "https://sairootsmusic.github.io/#producer" },
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg"
-          }
-        },
-        {
-          "@type": "ItemList",
-          "@id": "https://sairootsmusic.github.io/music",
-          "name": "SAI Roots Discography",
-          "numberOfItems": 19
-        },
-        {
-          "@type": "ItemList",
-          "@id": "https://sairootsmusic.github.io/lirik",
-          "name": "SAI Roots Official Lyrics Library",
-          "numberOfItems": 32
         }
       ]
     }
@@ -137,8 +175,8 @@
         h1 { font-size: 34px; margin: 0; letter-spacing: -1.5px; line-height: 1.1; font-weight: 700; }
         .artist { color: #2ecc71; font-size: 17px; font-weight: 700; margin-top: 5px; }
         .album-info { color: #555; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-top: 2px; margin-bottom: 30px; }
-        pre { white-space: pre-wrap; line-height: 2.1; color: #d1d1d1; margin-top: 20px; font-family: 'Poppins', sans-serif; font-size: 16px; }
-        .footer-text { text-align: center; margin-top: 60px; }
+        pre { white-space: pre-wrap; line-height: 2.1; color: #d1d1d1; border-left: none; padding-left: 0; margin-top: 20px; font-family: 'Poppins', sans-serif; font-size: 16px; }
+        .footer { text-align: center; margin-top: 60px; font-size: 12px; color: #666; }
     </style>
 </head>
 <body>
@@ -149,19 +187,83 @@
             <a href="/lyric" class="btn-nav">List Lyric</a>
             <a href="/music" class="btn-nav">Stream Discography</a>
         </div>
-        <a href="/music?song=${songParam}" class="btn-nav btn-listen">Listen to ${artist} - ${judul}</a>
+        <a href="/music?song=judul" class="btn-nav btn-listen">Listen to SAI Roots - ${judul}</a>
     </div>
     <div class="card">
         <h1>${judul}</h1>
-        <div class="artist">${artist}</div>
-        <div class="album-info">${album} • ${tahun}</div>
-        <pre>${lirik}</pre>
+        <div class="artist">SAI Roots</div>
+        <div class="album-info">Single • 2026</div>
+        <pre>Kami jalan pelan dengan beban yang makin berat
+Katanya hidup adil, tapi terasa makin sesak
+Yang di atas tertawa tanpa pernah lihat
+Yang di bawah berjuang sampai tenaga sekarat
+
+Kontrak ditulis rapi, tapi maknanya sering dibelokkan
+Banyak janji disusun tinggi, tapi rakyat yang dikorbankan
+Angka naik di layar kaca, katanya semua baik saja
+Tapi di jalan yang terasa, hidup makin susah nyata
+
+Upah jalan di tempat, harga terus melonjak
+Kerja keras tiap hari, tapi hasil terasa sesak
+Aturan dibuat indah, seolah berpihak semua
+Tapi saat dijalankan, beda jauh dari katanya
+
+Fasilitas dijual mahal, yang butuh makin terhalang
+Yang punya makin mudah, yang kurang makin terbuang
+Yang bersuara dianggap salah, yang diam jadi aman
+Akhirnya banyak yang ikut, walau hati tak nyaman
+
+Kami jalan pelan dengan beban yang makin berat
+Katanya hidup adil, tapi terasa makin sesak
+Yang di atas tertawa tanpa pernah lihat
+Yang di bawah berjuang sampai tenaga sekarat
+
+Sekolah makin tinggi biaya, nggak semua bisa ikut
+Yang punya jalan terbuka, yang lain harus takut
+Katanya semua punya peluang untuk jadi lebih
+Tapi dari awal saja, jalannya sudah dipilih
+
+Rumah sakit penuh angka, bukan lagi rasa
+Yang sakit harus bayar, walau tak punya apa
+Proses panjang berbelit, bantuan datang terlambat
+Sementara yang kuat, selalu dapat tempat
+
+Banyak bicara di depan, soal keadilan merata
+Tapi di balik semua, tetap saja beda cerita
+Yang di atas tetap aman, yang di bawah bertahan
+Hidup jadi perjuangan, bukan lagi pilihan
+
+Kami jalan pelan dengan beban yang makin berat
+Katanya hidup adil, tapi terasa makin sesak
+Yang di atas tertawa tanpa pernah lihat
+Yang di bawah berjuang sampai tenaga sekarat
+
+Kalau hukum tajam ke bawah, tapi tumpul ke atas
+Itu bukan lagi adil, tapi sudah jelas bias
+Banyak yang tahu salah, tapi memilih diam
+Karena bersuara keras sering berujung ancaman
+
+Tapi semua bisa berubah kalau masih peduli
+Kalau masih ada yang berani berdiri sendiri
+Nggak harus sempurna, cukup mulai dari sadar
+Kalau terus dibiarkan, semua akan makin pudar
+
+Kami jalan pelan dengan beban yang makin berat
+Katanya hidup adil, tapi terasa makin sesak
+Yang di atas tertawa tanpa pernah lihat
+Yang di bawah berjuang sampai tenaga sekarat
+
+Kami jalan pelan dengan beban yang makin berat
+Katanya hidup adil, tapi terasa makin sesak
+Yang di atas tertawa tanpa pernah lihat
+Yang di bawah berjuang sampai tenaga sekarat</pre>
     </div>
-    <div class="footer-text">
-        <a href="/copyright" style="text-decoration: none; color: #333; font-size: 11px; letter-spacing: 0.5px;">
-            © 2026 SAI Roots Music. All Rights Reserved.
-        </a>
-    </div>
+        
+    <div class="footer-text" style="text-align: center; margin-top: 20px;">
+    <a href="/copyright" style="text-decoration: none; color: #333; font-size: 11px; display: inline-block; transition: 0.3s; letter-spacing: 0.5px;">
+        © 2026 SAI Roots Music. All Rights Reserved.
+    </a>
 </div>
+        
 </body>
 </html>
