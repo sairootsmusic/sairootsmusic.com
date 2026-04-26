@@ -3,9 +3,8 @@ name: Generate XML Sitemap
 on:
   push:
     branches:
-      - main
+      - main # Sesuaikan jika branch utama kamu namanya 'master'
 
-# Tambahkan izin ini agar bot bisa nge-push sitemap.xml
 permissions:
   contents: write
 
@@ -24,13 +23,41 @@ jobs:
       with:
         base-url-path: https://sairootmusic.com/
         drop-html-extension: true
+        additional-explicit-url: |
+          https://sairootmusic.com/music?song=drama-klenik
+          https://sairootmusic.com/music?song=senandung-manis
+          https://sairootmusic.com/music?song=eksploitasi
+          https://sairootmusic.com/music?song=jurus-liar
+          https://sairootmusic.com/music?song=dari-jauh
+          https://sairootmusic.com/music?song=kasih-mengalun
+          https://sairootmusic.com/music?song=genjer-hijau
+          https://sairootmusic.com/music?song=timpang
+          https://sairootmusic.com/music?song=babylon-burn
+          https://sairootmusic.com/music?song=bayang-singgasana
+          https://sairootmusic.com/music?song=blaze-it-up
+          https://sairootmusic.com/music?song=evaluasi-lagi
+          https://sairootmusic.com/music?song=irama-hidup
+          https://sairootmusic.com/music?song=jamaican-sound
+          https://sairootmusic.com/music?song=ormas-tipu-tipu
+          https://sairootmusic.com/music?song=propaganda
+          https://sairootmusic.com/music?song=roots-medication
+          https://sairootmusic.com/music?song=skank-patrol
+          https://sairootmusic.com/music?song=reborn-riddim
+          https://sairootmusic.com/music?song=autopsi-mic
+          https://sairootmusic.com/music?song=salam-dari-timur
+          https://sairootmusic.com/music?song=mantra-malam
+          https://sairootmusic.com/music?song=magic-mushroom
+          https://sairootmusic.com/music?song=rastaman
+          https://sairootmusic.com/music?song=melayang-pelan
+          https://sairootmusic.com/music?song=tanah-hijau
+          https://sairootmusic.com/music?song=bbm-busuk
+          https://sairootmusic.com/music?song=kabur-saja-dulu
 
     - name: Commit and push if changed
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add sitemap.xml
-        # Cek jika ada perubahan, baru commit
         if [ -n "$(git status --porcelain)" ]; then
           git commit -m "Automated sitemap update"
           git push
