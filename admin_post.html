@@ -34,7 +34,304 @@
 <meta property="og:type" content="website">
 
 <link rel="stylesheet" href="/assets/asset.css">
+<!-- =========================================
+ADMIN MOBILE FIX FINAL
+Tempel mengganti CSS admin lama / tambah sebelum </head>
+========================================= -->
 
+<style>
+/* ===============================
+BASE FIX
+================================= */
+*{
+box-sizing:border-box;
+}
+
+html,body{
+overflow-x:hidden;
+}
+
+body.admin-page{
+margin:0;
+padding:0;
+}
+
+/* ===============================
+LOGIN PANEL NORMAL
+================================= */
+.admin-shell{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:28px 16px;
+}
+
+.admin-login{
+width:100%;
+max-width:540px;
+padding:34px;
+border-radius:24px;
+margin:auto;
+}
+
+.admin-logo{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:18px;
+}
+
+.admin-logo img{
+width:62px;
+height:62px;
+flex-shrink:0;
+}
+
+.admin-logo h1{
+margin:0;
+font-size:1.4rem;
+line-height:1.2;
+}
+
+.admin-logo span{
+display:block;
+font-size:.92rem;
+opacity:.72;
+margin-top:3px;
+}
+
+.admin-title{
+font-size:1.55rem;
+line-height:1.2;
+margin-bottom:10px;
+}
+
+.admin-sub{
+font-size:.96rem;
+line-height:1.7;
+margin-bottom:18px;
+opacity:.72;
+}
+
+.admin-form{
+display:grid;
+gap:14px;
+}
+
+.admin-form label{
+display:block;
+font-size:.92rem;
+margin-bottom:6px;
+}
+
+.admin-input{
+width:100%;
+display:block;
+padding:14px 16px;
+font-size:16px;
+border-radius:14px;
+}
+
+.admin-btn{
+width:100%;
+display:block;
+padding:15px;
+font-size:1rem;
+border-radius:14px;
+}
+
+.admin-note{
+font-size:.86rem;
+line-height:1.7;
+margin-top:16px;
+}
+
+/* ===============================
+TABLET
+================================= */
+@media(max-width:900px){
+
+.admin-panel{
+grid-template-columns:1fr !important;
+}
+
+.admin-sidebar{
+border-right:none !important;
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.admin-main{
+min-width:0;
+}
+
+}
+
+/* ===============================
+MOBILE FIX MAIN
+================================= */
+@media(max-width:768px){
+
+body.admin-page{
+background-position:center;
+background-size:cover;
+}
+
+.admin-shell{
+padding:14px;
+align-items:flex-start;
+padding-top:34px;
+}
+
+.admin-login{
+max-width:100%;
+padding:22px;
+border-radius:20px;
+}
+
+.admin-logo{
+align-items:center;
+gap:12px;
+}
+
+.admin-logo img{
+width:52px;
+height:52px;
+}
+
+.admin-logo h1{
+font-size:1.18rem;
+}
+
+.admin-logo span{
+font-size:.84rem;
+}
+
+.admin-title{
+font-size:1.25rem;
+}
+
+.admin-sub{
+font-size:.92rem;
+line-height:1.6;
+}
+
+.admin-input{
+padding:13px 14px;
+font-size:16px;
+}
+
+.admin-btn{
+padding:14px;
+font-size:1rem;
+}
+
+.admin-note{
+font-size:.82rem;
+line-height:1.6;
+}
+
+/* dashboard */
+.admin-topbar{
+padding:16px !important;
+flex-direction:column;
+align-items:flex-start !important;
+gap:10px;
+}
+
+.admin-top-title h2{
+font-size:1.05rem !important;
+}
+
+.admin-top-title p{
+font-size:.84rem !important;
+}
+
+.admin-content{
+padding:16px !important;
+}
+
+.admin-card{
+padding:18px !important;
+border-radius:18px !important;
+}
+
+.admin-grid{
+grid-template-columns:1fr !important;
+gap:14px !important;
+}
+
+.stat-box{
+padding:16px !important;
+}
+
+.admin-nav{
+gap:8px;
+}
+
+.admin-nav button{
+padding:13px 14px;
+font-size:.94rem;
+border-radius:12px;
+}
+
+.quick-row{
+grid-template-columns:1fr !important;
+}
+
+.toolbar{
+gap:6px;
+}
+
+.toolbar button{
+padding:9px 12px;
+font-size:.9rem;
+}
+
+textarea.admin-input{
+min-height:240px !important;
+}
+
+}
+
+/* ===============================
+SMALL PHONE
+================================= */
+@media(max-width:420px){
+
+.admin-shell{
+padding:10px;
+padding-top:22px;
+}
+
+.admin-login{
+padding:18px;
+}
+
+.admin-logo{
+gap:10px;
+}
+
+.admin-logo img{
+width:46px;
+height:46px;
+}
+
+.admin-title{
+font-size:1.12rem;
+}
+
+.admin-sub{
+font-size:.88rem;
+}
+
+.admin-btn{
+font-size:.96rem;
+}
+
+}
+</style>
+ 
 <style>
 body.admin-page{
 background:
