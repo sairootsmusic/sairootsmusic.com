@@ -1,0 +1,43 @@
+name: Generate XML Sitemap
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Create Sitemap Manually
+        run: |
+          # Mulai buat file sitemap baru
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
+          
+          # Halaman Utama & Statis
+          echo '<url><loc>https://sairootmusic.com/</loc><priority>1.0</priority></url>' >> sitemap.xml
+          echo '<url><loc>https://sairootmusic.com/artikel</loc><priority>0.8</priority></url>' >> sitemap.xml
+          
+          # List Lagu - Ditulis satu per satu agar tidak terpotong
+          songs=("drama-klenik" "senandung-manis" "eksploitasi" "jurus-liar" "dari-jauh" "kasih-mengalun" "genjer-hijau" "timpang" "babylon-burn" "bayang-singgasana" "blaze-it-up" "evaluasi-lagi" "irama-hidup" "jamaican-sound" "ormas-tipu-tipu" "propaganda" "roots-medication" "skank-patrol" "reborn-riddim" "autopsi-mic" "salam-dari-timur" "mantra-malam" "magic-mushroom" "rastaman" "melayang-pelan" "tanah-hijau" "bbm-busuk" "kabur-saja-dulu")
+          
+          for song in "${songs[@]}"; do
+            echo "<url><loc>https://sairootmusic.com/music?song=$song</loc><priority>0.7</priority></url>" >> sitemap.xml
+          done
+          
+          echo '</urlset>' >> sitemap.xml
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add sitemap.xml
+          git commit -m "Fixed: Full sitemap with 28 songs" || echo "No changes"
+          git push
