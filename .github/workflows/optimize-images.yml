@@ -1,0 +1,24 @@
+name: Compress Images
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.jpg'
+      - '**.png'
+      - '**.jpeg'
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    name: calibra-image-action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Compress Images
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true # Menimpa file asli dengan versi lebih ringan
