@@ -38,14 +38,17 @@
     <header>
         <div class="header-inner">
             <a href="/" class="logo">
-                <img src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg" alt="SAI Roots" style="height: 40px; border-radius: 4px; display: block;">
+                <img src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg" alt="SAI Roots Logo">
+                <span>SAI Roots</span>
             </a>
             
             <div class="search-container">
                 <input type="text" id="smartSearch" class="search-bar" placeholder="Cari lirik, artikel, rilis...">
             </div>
 
-            <button class="nav-toggle" id="menuBtn" aria-label="Menu">☰</button>
+            <button class="nav-toggle" id="menuBtn" aria-label="Buka Menu">
+                <i class="fas fa-bars"></i>
+            </button>
 
             <nav class="nav-links" id="navLinks">
                 <a href="/discography">Discography</a>
@@ -61,28 +64,28 @@
     </header>
 
     <main>
-        <header style="margin-bottom: 40px;">
+        <section>
             <h1 class="page-title">Discography</h1>
-            <p class="page-description">Koleksi rilis resmi SAI Roots, mulai dari album penuh hingga single terbaru.</p>
-        </header>
-
-        <div id="musicList">
-            <p style="color: var(--text-secondary);">Memuat katalog musik...</p>
-        </div>
+            <p class="page-description">Koleksi rilis resmi SAI Roots. Album, Single, dan EP.</p>
+            
+            <div id="musicContainer">
+                <p style="color: var(--text-secondary); text-align: center;">Memuat katalog musik...</p>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="social-grid">
-            <a href="https://www.youtube.com/@sairoots" target="_blank" class="social-link">YouTube</a>
-            <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" class="social-link">YouTube Music</a>
-            <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank" class="social-link">Spotify</a>
-            <a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id" target="_blank" class="social-link">Apple Music</a>
-            <a href="https://m.soundcloud.com/sairoots" target="_blank" class="social-link">SoundCloud</a>
-            <a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank" class="social-link">Deezer</a>
-            <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank" class="social-link">Amazon Music</a>
-            <a href="https://instagram.com/ahmadsupembri" target="_blank" class="social-link">Instagram</a>
-            <a href="https://tiktok.com/@ahmadsupembri" target="_blank" class="social-link">Tiktok</a>
-            <a href="https://facebook.com/ahmadsupembri" target="_blank" class="social-link">Facebook</a>
+            <a href="https://www.youtube.com/@sairoots" target="_blank" class="social-link"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" class="social-link"><i class="fas fa-play-circle"></i> YouTube Music</a>
+            <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank" class="social-link"><i class="fab fa-spotify"></i> Spotify</a>
+            <a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id" target="_blank" class="social-link"><i class="fab fa-apple"></i> Apple Music</a>
+            <a href="https://m.soundcloud.com/sairoots" target="_blank" class="social-link"><i class="fab fa-soundcloud"></i> SoundCloud</a>
+            <a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank" class="social-link"><i class="fab fa-deezer"></i> Deezer</a>
+            <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank" class="social-link"><i class="fab fa-amazon"></i> Amazon Music</a>
+            <a href="https://instagram.com/ahmadsupembri" target="_blank" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://tiktok.com/@ahmadsupembri" target="_blank" class="social-link"><i class="fab fa-tiktok"></i> Tiktok</a>
+            <a href="https://facebook.com/ahmadsupembri" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i> Facebook</a>
         </div>
 
         <div class="footer-nav">
@@ -102,54 +105,46 @@
         const navLinks = document.getElementById('navLinks');
         menuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
-        // Fetch Data Musik dari data.json
-        async function loadDiscography() {
-            const container = document.getElementById('musicList');
+        // Load Music Data from data.json
+        async function loadMusic() {
+            const container = document.getElementById('musicContainer');
             try {
                 const response = await fetch('/data.json');
-                if (!response.ok) throw new Error('Data tidak ditemukan');
                 const data = await response.json();
-                
                 const musics = data.musics || [];
-                
+
                 if (musics.length === 0) {
-                    container.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">Belum ada rilis musik yang tersedia.</p>';
+                    container.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Belum ada rilisan musik.</p>';
                     return;
                 }
 
                 container.innerHTML = '';
                 musics.forEach(item => {
-                    // Struktur item musik (Style ala Spotify)
                     container.innerHTML += `
-                        <div class="album-flex">
+                        <div class="album-item">
                             <img src="${item.cover || 'https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg'}" alt="${item.title}" class="album-art">
-                            <div class="album-details">
+                            <div style="flex: 1; text-align: left;">
                                 <span class="card-tag">${item.category}</span>
-                                <h2 class="card-title" style="font-size: 1.8rem;">${item.title}</h2>
-                                <p class="card-meta">Dilis rilis: ${item.date}</p>
-                                
-                                <div class="player-embed">
-                                    <iframe style="border-radius:12px" src="${item.embedUrl}" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <h2 style="margin-bottom: 10px;">${item.title}</h2>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px;">Rilis: ${item.date}</p>
+                                <div class="player-box">
+                                    <iframe src="${item.embedUrl}" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius: 12px;"></iframe>
                                 </div>
                             </div>
                         </div>
                     `;
                 });
             } catch (err) {
-                container.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">Gagal memuat katalog musik.</p>';
+                container.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Gagal memuat katalog musik.</p>';
             }
         }
 
-        // Smart Search Dasar
-        document.getElementById('smartSearch').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                alert('Mencari: ' + e.target.value.toLowerCase());
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', loadDiscography);
+        document.addEventListener('DOMContentLoaded', loadMusic);
     </script>
 </body>
 </html>
