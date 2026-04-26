@@ -131,3 +131,76 @@ footer {
 .nav-menu a:hover {
     color: var(--primary-color);
 }
+
+/* Spotify-like Player */
+.player-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #181818;
+    border-top: 1px solid #282828;
+    padding: 15px 5%;
+    display: none; /* Muncul saat lagu diklik */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2000;
+}
+
+.play-circle {
+    background: var(--primary-color);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.player-info { flex: 1; }
+.player-controls { flex: 1; text-align: center; }
+.player-extra { flex: 1; text-align: right; }
+
+.btn-filter {
+    background: #282828;
+    color: white;
+    border: 1px solid #444;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-filter.active, .btn-filter:hover {
+    background: var(--primary-color);
+    color: black;
+    border-color: var(--primary-color);
+}
+
+/* Article Styling */
+#article-grid .article-item {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 4px; /* Lebih kotak agar formal */
+    border: 1px solid #282828;
+    transition: transform 0.2s;
+}
+
+#article-grid .article-item:hover {
+    border-color: var(--primary-color);
+}
+
+#article-grid h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+#article-grid p {
+    color: var(--text-gray);
+    font-size: 1rem;
+    line-height: 1.8;
+}
