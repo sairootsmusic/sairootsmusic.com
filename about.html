@@ -1,88 +1,81 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"SAI Roots Music","url":"https://sairootsmusic.com"}
-</script>
-
-<link rel="canonical" href="https://sairootsmusic.com/about">
-<link rel="icon" href="/favicon.ico">
-<title>About - SAI Roots Music</title>
-
-<meta name="description" content="Tentang SAI Roots Music, proyek musik independen dengan karakter reggae rap indie.">
-<meta property="og:title" content="About - SAI Roots Music">
-<meta property="og:site_name" content="SAI Roots Music">
-<meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
-<meta property="og:url" content="https://sairootsmusic.com/about">
-<meta property="og:type" content="website">
-
-<link rel="stylesheet" href="/assets/asset.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SAI Roots Music",
+      "url": "https://sairootsmusic.com"
+    }
+    </script>
+    <link rel="canonical" href="https://sairootsmusic.com/about" />
+    <title>About - SAI Roots Music</title>
+    <meta name="description" content="Mengenal lebih dekat SAI Roots, proyek musik independen yang menggabungkan Roots Reggae dan Rap.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .about-content { max-width: 800px; margin: 40px auto; line-height: 1.8; }
+        .about-image { width: 100%; border-radius: 12px; margin-bottom: 30px; border: 1px solid #333; }
+        .identity-box { background: var(--card-bg); padding: 30px; border-radius: 12px; border-left: 4px solid var(--primary-color); margin-top: 40px; }
+    </style>
 </head>
 <body>
 
 <header>
-<div class="container">
-<div class="navbar">
-<a href="/" class="brand">
-<img src="/android-chrome-192x192.png">
-<span>SAI Roots</span>
-</a>
-<div class="search-wrap">
-<input class="search-input" placeholder="Cari...">
-<button class="search-btn">⌕</button>
-</div>
-<button class="menu-btn">☰</button>
-</div>
-</div>
+    <div class="logo">SAI ROOTS</div>
+    <div class="nav-container">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+    <nav class="nav-menu" id="navMenu">
+        <a href="/">Home</a>
+        <a href="/dicography">Discography</a>
+        <a href="/lyric">Koleksi Lirik</a>
+        <a href="/article">Artikel</a>
+        <a href="/video_cover">Video Cover</a>
+        <hr style="border: 0.5px solid #333; margin: 10px 0;">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy Policy</a>
+    </nav>
 </header>
 
-<div class="overlay"></div>
+<main style="padding: 20px 5%; min-height: 80vh;">
+    <div class="about-content">
+        <img src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg" alt="SAI Roots Branding" class="about-image">
+        
+        <h1 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px;">The Project</h1>
+        <p><strong>SAI Roots</strong> adalah sebuah proyek musik independen yang berakar pada semangat <em>Roots Reggae</em> dan eksplorasi lirik <em>Reggae Rap</em>. Lahir dari keresahan terhadap pesan-pesan propaganda dan ketimpangan sosial, proyek ini menjadi wadah untuk menyuarakan perlawanan, kedamaian, dan kebenaran melalui nada.</p>
+        
+        <p style="margin-top: 15px;">Diluncurkan secara resmi pada tahun 2026 melalui album perdana bertajuk <strong>"Critical Fire"</strong>, SAI Roots terus konsisten memproduksi karya-karya yang tidak hanya enak didengar, tetapi juga memiliki kedalaman makna di setiap liriknya.</p>
 
-<div class="drawer">
-<div class="drawer-title">Menu</div>
-<a href="/discography">Discography</a>
-<a href="/lyric">Koleksi Lirik</a>
-<a href="/article">Artikel</a>
-<a href="/video_cover">Video Cover</a>
-<a href="/about">About</a>
-<a href="/contact">Contact</a>
-<a href="/privacy">Privacy Policy</a>
-</div>
-
-<section class="section">
-<div class="container">
-<div class="about-box">
-
-<h2>About SAI Roots</h2>
-
-<p>
-SAI Roots adalah proyek musik independen yang menggabungkan nuansa reggae, rap, dan warna indie modern.
-Fokus utama proyek ini adalah karya, karakter suara, dan identitas musik yang berkembang bebas.
-</p>
-
-<p>
-Website ini menjadi pusat resmi untuk rilisan musik, lirik, artikel, dan pembaruan terbaru.
-</p>
-
-<p>
-Di balik proyek ini ada Ahmad Supembri, namun sorotan utama tetap pada nama dan karya SAI Roots.
-</p>
-
-</div>
-</div>
-</section>
+        <div class="identity-box">
+            <h2 style="color: white; margin-bottom: 10px;">Behind The Sound</h2>
+            <p style="color: var(--text-gray); font-size: 0.95rem;">
+                Di balik setiap komposisi, aransemen, dan produksi SAI Roots, terdapat dedikasi dari <strong>Ahmad Supembri</strong> sebagai arsitek musik tunggal. Meskipun SAI Roots adalah identitas utama di atas panggung, esensi karyanya tetap terjaga secara mandiri mulai dari penulisan lirik hingga proses <em>mixing</em>.
+            </p>
+        </div>
+    </div>
+</main>
 
 <footer>
-<div class="container">
-<div class="footer-wrap">
-<div class="copy">© 2026 SAI Roots Music. All Rights Reserved</div>
-</div>
-</div>
+    <div class="social-icons">
+        <a href="https://www.youtube.com/@sairoots">YouTube</a>
+        <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ">YouTube Music</a>
+        <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr">Spotify</a>
+        <a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id">Apple Music</a>
+        <a href="https://m.soundcloud.com/sairoots">SoundCloud</a>
+        <a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB">Deezer</a>
+        <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots">Amazon Music</a>
+        <a href="https://instagram.com/ahmadsupembri">Instagram</a>
+        <a href="https://tiktok.com/@ahmadsupembri">Tiktok</a>
+        <a href="https://facebook.com/ahmadsupembri">Facebook</a>
+    </div>
+    <p style="margin-top:20px; text-align:center; font-size: 0.8rem; color: var(--text-gray);">© 2026 SAI Roots Music. All Rights Reserved</p>
 </footer>
 
-<script src="/assets/asset.js"></script>
+<script src="/app.js"></script>
+
 </body>
 </html>
