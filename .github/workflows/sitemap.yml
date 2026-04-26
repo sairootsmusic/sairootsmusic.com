@@ -1,0 +1,43 @@
+name: Auto Generate Sitemap Clean URLs Pro
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  sitemap_job:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Bikin Sitemap Otomatis
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://sairootmusic.com/
+          drop-github-md: true
+          include-html-extension: false
+          strip-extension: true
+
+      - name: Sisipkan 28 Lagu SAI Roots
+        run: |
+          # 1. Hilangkan sisa-sisa /index jika ada
+          sed -i 's/\/index<\/loc>/<\/loc>/g' sitemap.xml
+          
+          # 2. Sisipkan daftar lagu sebelum tag penutup </urlset>
+          # Kita pakai loop biar kodenya rapi dan gak kepotong
+          SONGS="drama-klenik senandung-manis eksploitasi jurus-liar dari-jauh kasih-mengalun genjer-hijau timpang babylon-burn bayang-singgasana blaze-it-up evaluasi-lagi irama-hidup jamaican-sound ormas-tipu-tipu propaganda roots-medication skank-patrol reborn-riddim autopsi-mic salam-dari-timur mantra-malam magic-mushroom rastaman melayang-pelan tanah-hijau bbm-busuk kabur-saja-dulu"
+          
+          for s in $SONGS; do
+            sed -i '/<\/urlset>/i <url><loc>https://sairootmusic.com/music?song='$s'<\/loc><lastmod>'"$(date +%Y-%m-%d)"'<\/lastmod><priority>0.7<\/priority><\/url>' sitemap.xml
+          done
+          
+          # 3. Commit dan Push
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "SEO: Update sitemap (28 songs added)" && git push)
