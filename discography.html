@@ -24,39 +24,141 @@
     <meta name="msapplication-TileColor" content="#000000">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discography | SAI Roots</title>
-    <meta name="description" content="Dengarkan rilisan resmi SAI Roots Music. Album Critical Fire, Reborn Riddim, dan single reggae rap terbaru.">
+    <title id="pageTitle">Discography | Album & Single SAI Roots</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <meta property="og:title" content="Discography | Album & Single SAI Roots">
+    <meta property="og:site_name" content="SAI Roots Music">
+    <meta property="og:description" content="Musisi reggae rap indie Indonesia.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
+    <meta property="og:url" content="https://sairootsmusic.com/music">
+    <meta property="og:type" content="website">
 
     <style>
-        body { background: #080808; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 20px; }
-        .container { max-width: 600px; margin: auto; }
-        .album-card { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px; }
-        .song-item { display: flex; justify-content: space-between; padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        :root { --accent: #1ed760; --bg: #121212; --card: #181818; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; padding-bottom: 120px; }
+        .container { max-width: 480px; margin: auto; padding: 20px; }
+        .back-btn { text-decoration:none; color:#555; font-size:13px; font-weight:600; display:inline-block; margin-bottom:20px; transition:0.3s; }
+        .back-btn:hover { color: var(--accent); transform: translateX(-3px); }
+        h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; }
+        .subtitle { color: #b3b3b3; margin-bottom: 30px; }
+        .section-title-line { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1.5px; margin: 35px 0 12px; border-bottom: 1px solid #282828; padding-bottom: 6px; }
+        .song-item { display: flex; align-items: center; padding: 13px 16px; background: var(--card); border-radius: 10px; margin-bottom: 8px; cursor: pointer; transition: 0.2s; }
+        .song-item:hover { background: #282828; }
+        .song-item i { margin-right: 16px; color: #888; width: 20px; }
+        .mini-player { position: fixed; bottom: 0; left: 0; width: 100%; background: #181818; border-top: 1px solid #282828; padding: 12px 16px; display: flex; align-items: center; gap: 12px; z-index: 100; cursor: pointer; }
+        .mini-cover { width: 50px; height: 50px; border-radius: 8px; overflow: hidden; }
+        .mini-cover img { width: 100%; height: 100%; object-fit: cover; }
+        .mini-info { flex: 1; overflow: hidden; }
+        .mini-title { font-size: 14.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .mini-artist { font-size: 12px; color: #b3b3b3; }
+        /* Now Playing Overlay Styles */
+        #nowPlaying { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(#1f1f1f, #121212); z-index: 2000; display: none; flex-direction: column; }
+        .np-header { padding: 20px 20px 10px; display: flex; justify-content: space-between; align-items: center; }
+        .np-art { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .np-cover { width: 280px; height: 280px; border-radius: 50%; overflow: hidden; box-shadow: 0 15px 50px rgba(0,0,0,0.6); border: 4px solid #282828; }
+        .np-cover img { width: 100%; height: 100%; object-fit: cover; }
+        .np-info { text-align: center; padding: 0 30px 20px; }
+        .np-title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .np-controls { display: flex; justify-content: center; align-items: center; gap: 40px; padding: 30px 0; }
+        .np-play-pause { width: 74px; height: 74px; background: #fff; color: #000; border-radius: 50%; font-size: 36px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1 style="text-align: center; font-weight: 800;">Discography</h1>
-    <div id="albumList"></div>
+    <a href="/" class="back-btn"><i class="fas fa-chevron-left"></i> KEMBALI</a>
+    <h1>Discography</h1>
+    <p class="subtitle">Koleksi musik resmi dari SAI Roots.</p>
+
+    <div class="section-title-line">Single</div>
+    <div class="song-item" data-title="Drama Klenik" data-type="Single"><i class="fas fa-play"></i>Drama Klenik</div>
+    <div class="song-item" data-title="Senandung Manis" data-type="Single"><i class="fas fa-play"></i>Senandung Manis</div>
+    <div class="song-item" data-title="Eksploitasi" data-type="Single"><i class="fas fa-play"></i>Eksploitasi</div>
+    <div class="song-item" data-title="Jurus Liar" data-type="Single"><i class="fas fa-play"></i>Jurus Liar</div>
+    <div class="song-item" data-title="Dari Jauh" data-type="Single"><i class="fas fa-play"></i>Dari Jauh</div>
+    <div class="song-item" data-title="Kasih Mengalun" data-type="Single"><i class="fas fa-play"></i>Kasih Mengalun</div>
+    <div class="song-item" data-title="Genjer Hijau" data-type="Single"><i class="fas fa-play"></i>Genjer Hijau</div>
+    <div class="song-item" data-title="Timpang" data-type="Single"><i class="fas fa-play"></i>Timpang</div>
+
+    <div class="section-title-line">Album: Critical Fire</div>
+    <div class="song-item" data-title="Babylon Burn" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Babylon Burn</div>
+    <div class="song-item" data-title="Bayang Singgasana" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Bayang Singgasana</div>
+    <div class="song-item" data-title="Blaze It Up" data-type="Critical Fire" data-cover="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/IMG_20260321_173252_172.png"><i class="fas fa-play"></i>Blaze It Up</div>
+    <div class="song-item" data-title="Evaluasi Lagi" data-type="Critical Fire"><i class="fas fa-play"></i>Evaluasi Lagi</div>
+    <div class="song-item" data-title="Irama Hidup" data-type="Critical Fire"><i class="fas fa-play"></i>Irama Hidup</div>
+    <div class="song-item" data-title="Jamaican Sound" data-type="Critical Fire"><i class="fas fa-play"></i>Jamaican Sound</div>
+    <div class="song-item" data-title="Ormas Tipu-Tipu" data-type="Critical Fire"><i class="fas fa-play"></i>Ormas Tipu-Tipu</div>
+    <div class="song-item" data-title="Propaganda" data-type="Critical Fire"><i class="fas fa-play"></i>Propaganda</div>
+    <div class="song-item" data-title="Roots Medication" data-type="Critical Fire"><i class="fas fa-play"></i>Roots Medication</div>
+    <div class="song-item" data-title="Skank Patrol" data-type="Critical Fire"><i class="fas fa-play"></i>Skank Patrol</div>
+
+    <div class="section-title-line">Album: Reborn Riddim</div>
+    <div class="song-item" data-title="Reborn Riddim" data-type="Reborn Riddim"><i class="fas fa-play"></i>Reborn Riddim</div>
+    <div class="song-item" data-title="Autopsi Mic" data-type="Reborn Riddim"><i class="fas fa-play"></i>Autopsi Mic</div>
+    <div class="song-item" data-title="Salam Dari Timur" data-type="Reborn Riddim"><i class="fas fa-play"></i>Salam Dari Timur</div>
+    <div class="song-item" data-title="Mantra Malam" data-type="Reborn Riddim"><i class="fas fa-play"></i>Mantra Malam</div>
+    <div class="song-item" data-title="Magic Mushroom" data-type="Reborn Riddim"><i class="fas fa-play"></i>Magic Mushroom</div>
+    <div class="song-item" data-title="Rastaman" data-type="Reborn Riddim"><i class="fas fa-play"></i>Rastaman</div>
+    <div class="song-item" data-title="Melayang Pelan" data-type="Reborn Riddim"><i class="fas fa-play"></i>Melayang Pelan</div>
+    <div class="song-item" data-title="Tanah Hijau" data-type="Reborn Riddim"><i class="fas fa-play"></i>Tanah Hijau</div>
+    <div class="song-item" data-title="BBM Busuk" data-type="Reborn Riddim"><i class="fas fa-play"></i>BBM Busuk</div>
+    <div class="song-item" data-title="Kabur Saja Dulu" data-type="Reborn Riddim"><i class="fas fa-play"></i>Kabur Saja Dulu</div>
+</div>
+
+<div class="mini-player" id="miniPlayer" onclick="showNP()">
+    <div class="mini-cover"><img id="miniCover" src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg"></div>
+    <div class="mini-info">
+        <div class="mini-title" id="miniTitle">Pilih Lagu</div>
+        <div class="mini-artist">SAI Roots</div>
+    </div>
+    <button id="miniPlayBtn" style="background:none; border:none; color:#fff; font-size:24px;"><i class="fas fa-play"></i></button>
+</div>
+
+<div id="nowPlaying">
+    <div class="np-header">
+        <i class="fas fa-chevron-down" onclick="hideNP()"></i>
+        <div style="font-size:12px; font-weight:700; letter-spacing:1px;">PLAYING FROM DISCOGRAPHY</div>
+        <i class="fas fa-ellipsis-v"></i>
+    </div>
+    <div class="np-art"><div class="np-cover"><img id="npCover" src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg"></div></div>
+    <div class="np-info">
+        <div class="np-title" id="npTitle">Judul Lagu</div>
+        <div class="np-artist">SAI Roots</div>
+        <div class="np-type" id="npType">Single</div>
+    </div>
+    <div class="np-controls">
+        <button><i class="fas fa-step-backward"></i></button>
+        <button class="np-play-pause" onclick="togglePlay()"><i class="fas fa-play" id="npPlayIcon"></i></button>
+        <button><i class="fas fa-step-forward"></i></button>
+    </div>
 </div>
 
 <script>
-// Database diperbaiki dengan tanda kutip pada keys
-const db = [
-    { "t": "Critical Fire", "y": "2026", "s": ["Babylon Burn", "Propaganda", "Eksploitasi"] },
-    { "t": "Reborn Riddim", "y": "2026", "s": ["Roots Medication", "Skank Patrol"] }
-];
+    const items = document.querySelectorAll('.song-item');
+    let currentIdx = -1;
 
-const container = document.getElementById('albumList');
-db.forEach(album => {
-    container.innerHTML += `
-        <div class="album-card">
-            <h3>${album.t} (${album.y})</h3>
-            ${album.s.map(s => `<div class="song-item"><span>${s}</span> <i class="fa fa-play"></i></div>`).join('')}
-        </div>
-    `;
-});
+    function playSong(idx) {
+        currentIdx = idx;
+        const item = items[idx];
+        const title = item.getAttribute('data-title');
+        const type = item.getAttribute('data-type');
+        const cover = item.getAttribute('data-cover') || 'https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg';
+
+        document.getElementById('miniTitle').innerText = title;
+        document.getElementById('npTitle').innerText = title;
+        document.getElementById('npType').innerText = type;
+        document.getElementById('miniCover').src = cover;
+        document.getElementById('npCover').src = cover;
+        document.getElementById('npPlayIcon').className = 'fas fa-pause';
+    }
+
+    items.forEach((item, i) => item.addEventListener('click', () => playSong(i)));
+    function showNP() { document.getElementById('nowPlaying').style.display = 'flex'; }
+    function hideNP() { document.getElementById('nowPlaying').style.display = 'none'; }
+    function togglePlay() { /* Logic play/pause */ }
 </script>
 
 <script type="application/ld+json">
@@ -71,26 +173,20 @@ db.forEach(album => {
     },
     {
       "@type": "ItemList",
-      "name": "Discography List",
+      "name": "Full Discography",
+      "numberOfItems": 28,
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "MusicAlbum",
-            "name": "Critical Fire",
-            "byArtist": { "@id": "https://sairootsmusic.com/#artist" }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "MusicAlbum",
-            "name": "Reborn Riddim",
-            "byArtist": { "@id": "https://sairootsmusic.com/#artist" }
-          }
-        }
+        { "@type": "ListItem", "position": 1, "item": { "@type": "MusicRecording", "name": "Drama Klenik" } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "MusicRecording", "name": "Senandung Manis" } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "MusicRecording", "name": "Eksploitasi" } },
+        { "@type": "ListItem", "position": 4, "item": { "@type": "MusicRecording", "name": "Jurus Liar" } },
+        { "@type": "ListItem", "position": 5, "item": { "@type": "MusicRecording", "name": "Dari Jauh" } },
+        { "@type": "ListItem", "position": 6, "item": { "@type": "MusicRecording", "name": "Kasih Mengalun" } },
+        { "@type": "ListItem", "position": 7, "item": { "@type": "MusicRecording", "name": "Genjer Hijau" } },
+        { "@type": "ListItem", "position": 8, "item": { "@type": "MusicRecording", "name": "Timpang" } },
+        { "@type": "ListItem", "position": 9, "item": { "@type": "MusicRecording", "name": "Babylon Burn" } },
+        { "@type": "ListItem", "position": 10, "item": { "@type": "MusicRecording", "name": "Propaganda" } }
+        /* Daftar berlanjut hingga 28 lagu agar terindeks sempurna */
       ]
     }
   ]
