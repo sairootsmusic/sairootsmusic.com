@@ -43,10 +43,11 @@
             </a>
             
             <div class="search-container">
-                <input type="text" id="smartSearch" class="search-bar" placeholder="Cari lirik, artikel, rilis...">
+                <input type="text" id="smartSearch" class="search-bar" placeholder="Cari lirik, artikel, rilis..." autocomplete="off">
+                <div id="searchResultWrapper"></div>
             </div>
 
-            <button class="nav-toggle" id="menuBtn" aria-label="Buka Menu">
+            <button class="nav-toggle" id="menuBtn" aria-label="Menu">
                 <i class="fas fa-bars"></i>
             </button>
 
@@ -64,15 +65,15 @@
     </header>
 
     <main>
-        <section style="text-align: center; padding: 40px 0;">
+        <section style="text-align: center; margin-bottom: 50px;">
             <h1 class="page-title">SAI Roots Music</h1>
-            <p class="page-description">Eksplorasi Roots Reggae, Ska, dan Reggae Rap dalam satu proyek musik independen.</p>
+            <p class="page-description">Proyek musik independen: Roots Reggae, Ska, dan Reggae Rap.</p>
         </section>
 
         <section>
             <h2 class="section-title">Update Terbaru</h2>
             <div class="post-grid" id="latestPosts">
-                <p style="color: var(--text-secondary); text-align: center; width: 100%;">Memuat konten terbaru...</p>
+                <p style="color: var(--text-secondary); text-align: center; width: 100%;">Memuat konten...</p>
             </div>
         </section>
     </main>
@@ -103,67 +104,80 @@
     </footer>
 
     <script>
-        // 1. Hamburger Menu Toggle
+        // 1. HAMBURGER TOGGLE
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
-
         menuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            const icon = menuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            menuBtn.querySelector('i').classList.toggle('fa-bars');
+            menuBtn.querySelector('i').classList.toggle('fa-times');
         });
 
-        // 2. Fetch 5 Data Terbaru (Lirik & Artikel) dari data.json
-        async function fetchLatestUpdates() {
+        // 2. SMART SEARCH LOGIC
+        const searchInput = document.getElementById('smartSearch');
+        const searchWrapper = document.getElementById('searchResultWrapper');
+
+        searchInput.addEventListener('input', async (e) => {
+            const query = e.target.value.toLowerCase();
+            if (query.length < 2) { searchWrapper.style.display = 'none'; return; }
+
+            try {
+                const res = await fetch('/data.json');
+                const data = await res.json();
+                let pool = [];
+                if(data.articles) pool = pool.concat(data.articles.map(i => ({...i, type: 'Artikel'})));
+                if(data.lyrics) pool = pool.concat(data.lyrics.map(i => ({...i, type: 'Lirik'})));
+                if(data.musics) pool = pool.concat(data.musics.map(i => ({...i, type: 'Musik'})));
+
+                const results = pool.filter(item => item.title.toLowerCase().includes(query));
+
+                if (results.length > 0) {
+                    searchWrapper.style.display = 'block';
+                    searchWrapper.innerHTML = results.map(item => `
+                        <div class="search-item">
+                            <span class="search-tag">${item.type}</span>
+                            <a href="${item.url}">${item.title}</a>
+                        </div>
+                    `).join('');
+                } else {
+                    searchWrapper.innerHTML = '<div class="search-item">Konten tidak ditemukan</div>';
+                    searchWrapper.style.display = 'block';
+                }
+            } catch (err) { console.error("Search Error"); }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target)) searchWrapper.style.display = 'none';
+        });
+
+        // 3. FETCH 5 LATEST
+        async function fetchLatest() {
             const container = document.getElementById('latestPosts');
             try {
-                const response = await fetch('/data.json');
-                if (!response.ok) throw new Error('Data tidak ditemukan');
-                
-                const data = await response.json();
-                
-                // Gabungkan artikel dan lirik
-                let allItems = [];
-                if (data.articles) allItems = allItems.concat(data.articles.map(i => ({...i, type: 'Artikel'})));
-                if (data.lyrics) allItems = allItems.concat(data.lyrics.map(i => ({...i, type: 'Lirik'})));
+                const res = await fetch('/data.json');
+                const data = await res.json();
+                let all = [];
+                if(data.articles) all = all.concat(data.articles.map(i => ({...i, type: 'Artikel'})));
+                if(data.lyrics) all = all.concat(data.lyrics.map(i => ({...i, type: 'Lirik'})));
 
-                // Sortir data (asumsi admin_post memasukkan data terbaru di awal array)
-                const latest = allItems.slice(0, 5);
-                
+                const latest = all.slice(0, 5);
                 if (latest.length === 0) {
-                    container.innerHTML = '<p style="text-align: center; color: var(--text-secondary); width: 100%;">Belum ada rilis atau artikel terbaru.</p>';
+                    container.innerHTML = '<p style="color:var(--text-secondary);">Belum ada postingan terbaru.</p>';
                     return;
                 }
 
-                container.innerHTML = '';
-                latest.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.innerHTML = `
+                container.innerHTML = latest.map(item => `
+                    <div class="card">
                         <span class="card-tag">${item.type}</span>
                         <h3 class="card-title">${item.title}</h3>
-                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 15px;">${item.date || ''}</p>
-                        <a href="${item.url}" class="social-link" style="display:inline-block; border-color: var(--accent); color: var(--accent);">Lihat Detail</a>
-                    `;
-                    container.appendChild(card);
-                });
-
-            } catch (err) {
-                container.innerHTML = '<p style="text-align: center; color: var(--text-secondary); width: 100%;">Gagal memuat data terbaru.</p>';
-            }
+                        <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:15px;">${item.date}</p>
+                        <a href="${item.url}" class="social-link" style="color:var(--accent); border-color:var(--accent); display:inline-block;">Baca Selengkapnya</a>
+                    </div>
+                `).join('');
+            } catch (err) { container.innerHTML = '<p>Gagal memuat konten.</p>'; }
         }
 
-        // 3. Smart Search Dasar
-        document.getElementById('smartSearch').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                const query = e.target.value.toLowerCase();
-                if(query) alert('Mencari: ' + query);
-            }
-        });
-
-        // Jalankan fetch saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', fetchLatestUpdates);
+        document.addEventListener('DOMContentLoaded', fetchLatest);
     </script>
 </body>
 </html>
