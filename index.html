@@ -24,6 +24,7 @@
 <link rel="manifest" href="/site.webmanifest">
 
 <title>SAI Roots Music</title>
+
 <meta name="description" content="Official Website SAI Roots Music. Dengarkan lagu reggae rap indie terbaru, baca lirik lengkap, dan streaming di Spotify, YouTube Music, SoundCloud, serta Amazon Music.">
 
 <meta property="og:title" content="SAI Roots Music">
@@ -32,303 +33,35 @@
 <meta property="og:url" content="https://sairootsmusic.com">
 <meta property="og:type" content="website">
 
-<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="/assets/asset.css">
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#050505;
-color:#fff;
-line-height:1.6;
-overflow-x:hidden;
-}
-
-a{
-text-decoration:none;
-color:#fff;
-}
-
-img{
-max-width:100%;
-display:block;
-}
-
-header{
-position:sticky;
-top:0;
-z-index:999;
-background:rgba(0,0,0,.92);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.topbar{
-max-width:1400px;
-margin:auto;
-padding:14px 18px;
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.logo{
-font-size:26px;
-font-weight:800;
-letter-spacing:2px;
-white-space:nowrap;
-}
-
-.search-box{
-flex:1;
-position:relative;
-}
-
-.search-box input{
-width:100%;
-padding:12px 45px 12px 16px;
-border:none;
-border-radius:30px;
-background:#111;
-color:#fff;
-outline:none;
-font-size:14px;
-}
-
-.search-box button{
-position:absolute;
-right:6px;
-top:5px;
-width:34px;
-height:34px;
-border:none;
-border-radius:50%;
-background:#1f1f1f;
-color:#fff;
-cursor:pointer;
-}
-
-.menu-btn{
-width:42px;
-height:42px;
-border:none;
-border-radius:12px;
-background:#111;
-color:#fff;
-font-size:22px;
-cursor:pointer;
-}
-
-.sidebar{
-position:fixed;
-top:0;
-right:-340px;
-width:320px;
-height:100%;
-background:#0b0b0b;
-z-index:1000;
-transition:.3s;
-padding:25px;
-overflow-y:auto;
-border-left:1px solid rgba(255,255,255,.08);
-}
-
-.sidebar.active{
-right:0;
-}
-
-.sidebar h3{
-font-size:22px;
-margin-bottom:18px;
-}
-
-.sidebar a{
-display:block;
-padding:14px 0;
-border-bottom:1px solid rgba(255,255,255,.06);
-font-size:15px;
-opacity:.95;
-}
-
-.overlay{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.65);
-z-index:998;
-display:none;
-}
-
-.overlay.active{
-display:block;
-}
-
-.hero{
-max-width:1400px;
-margin:auto;
-padding:60px 20px;
-text-align:center;
-}
-
-.hero h1{
-font-size:52px;
-margin-bottom:12px;
-}
-
-.hero p{
-color:#bbb;
-max-width:800px;
-margin:auto;
-font-size:18px;
-}
-
-.section{
-max-width:1400px;
-margin:auto;
-padding:30px 20px;
-}
-
-.section-title{
-font-size:28px;
-margin-bottom:20px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-}
-
-.card{
-background:#111;
-border:1px solid rgba(255,255,255,.06);
-border-radius:18px;
-padding:18px;
-transition:.25s;
-}
-
-.card:hover{
-transform:translateY(-4px);
-border-color:rgba(255,255,255,.18);
-}
-
-.card h3{
-font-size:18px;
-margin-bottom:8px;
-}
-
-.card p{
-font-size:14px;
-color:#aaa;
-}
-
-footer{
-margin-top:60px;
-background:#080808;
-border-top:1px solid rgba(255,255,255,.08);
-}
-
-.footer-wrap{
-max-width:1400px;
-margin:auto;
-padding:40px 20px;
-}
-
-.footer-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
-margin-bottom:30px;
-}
-
-.footer-title{
-font-size:18px;
-margin-bottom:12px;
-}
-
-.footer-links a{
-display:block;
-padding:6px 0;
-color:#ccc;
-font-size:14px;
-}
-
-.socials{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-}
-
-.socials a{
-padding:10px 14px;
-border-radius:30px;
-background:#111;
-font-size:13px;
-}
-
-.copy{
-padding-top:18px;
-border-top:1px solid rgba(255,255,255,.08);
-font-size:13px;
-color:#888;
-text-align:center;
-}
-
-@media(max-width:768px){
-
-.logo{
-font-size:21px;
-}
-
-.hero{
-padding:40px 18px;
-}
-
-.hero h1{
-font-size:34px;
-}
-
-.hero p{
-font-size:15px;
-}
-
-.search-box input{
-font-size:13px;
-}
-
-.sidebar{
-width:290px;
-}
-
-}
-</style>
 </head>
-
 <body>
 
 <header>
-<div class="topbar">
+<div class="container">
+<div class="navbar">
 
-<a href="/" class="logo">SAI Roots</a>
+<a href="/" class="brand">
+<img src="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" alt="SAI Roots Logo">
+<span>SAI Roots</span>
+</a>
 
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Cari lagu, lirik, artikel...">
-<button onclick="smartSearch()">⌕</button>
+<div class="search-wrap">
+<input type="text" class="search-input" placeholder="Cari lagu, lirik, artikel...">
+<button class="search-btn">⌕</button>
 </div>
 
-<button class="menu-btn" onclick="openMenu()">☰</button>
+<button class="menu-btn">☰</button>
 
+</div>
 </div>
 </header>
 
-<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="overlay"></div>
 
-<aside class="sidebar" id="sidebar">
-<h3>Menu</h3>
+<div class="drawer">
+<div class="drawer-title">Menu</div>
 
 <a href="/discography">Discography</a>
 <a href="/lyric">Koleksi Lirik</a>
@@ -338,195 +71,139 @@ width:290px;
 <a href="/about">About</a>
 <a href="/contact">Contact</a>
 <a href="/privacy">Privacy Policy</a>
+</div>
 
-</aside>
+<section class="hero" style="background-image:url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1400&q=80');">
+<div class="hero-inner">
 
-<!-- GANTI isi <section class="hero"> sampai sebelum <footer> dengan PART 2 ini -->
+<div class="hero-tag">OFFICIAL MUSIC PROJECT</div>
 
-<section class="hero">
-<h1>SAI Roots Music</h1>
+<h1>SAI Roots</h1>
+
 <p>
-Rilisan terbaru, koleksi lirik resmi, artikel eksklusif, dan perjalanan karya dari proyek musik SAI Roots.
+Reggae, rap, indie vibration. Temukan rilisan resmi, lirik lengkap,
+video cover, dan perjalanan karya eksklusif.
 </p>
+
+<div class="hero-actions">
+<a href="/discography" class="btn btn-primary">▶ Play Music</a>
+<a href="/lyric" class="btn btn-dark">View Lyrics</a>
+</div>
+
+</div>
 </section>
 
 <section class="section">
-<h2 class="section-title">Rilisan Terbaru</h2>
+<div class="container">
+
+<h2 class="section-title">Latest Release</h2>
+
 <div class="grid" id="latestMusic">
 
-<div class="card">
-<h3>Memuat rilisan...</h3>
-<p>Data akan otomatis diambil dari folder /music</p>
+<div class="music-card">
+<div class="music-cover">
+<img src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
+<div class="play-badge">▶</div>
+</div>
+<div class="music-body">
+<div class="music-title">Loading...</div>
+<div class="music-meta">Memuat rilisan terbaru</div>
+</div>
+</div>
+
 </div>
 
 </div>
 </section>
 
 <section class="section">
-<h2 class="section-title">5 Lirik Terbaru</h2>
+<div class="container">
+
+<h2 class="section-title">Latest Lyrics</h2>
+
 <div class="grid" id="latestLyrics">
 
 <div class="card">
-<h3>Memuat lirik...</h3>
-<p>Sinkron otomatis dari folder /lyric</p>
+<div class="card-img">
+<img src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
+</div>
+<div class="card-body">
+<div class="card-title">Loading...</div>
+<div class="card-text">Memuat lirik terbaru</div>
+</div>
+</div>
+
 </div>
 
 </div>
 </section>
 
 <section class="section">
-<h2 class="section-title">5 Artikel Terbaru</h2>
+<div class="container">
+
+<h2 class="section-title">Latest Articles</h2>
+
 <div class="grid" id="latestArticles">
 
 <div class="card">
-<h3>Memuat artikel...</h3>
-<p>Sinkron otomatis dari folder /article</p>
+<div class="card-img">
+<img src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
+</div>
+<div class="card-body">
+<div class="card-title">Loading...</div>
+<div class="card-text">Memuat artikel terbaru</div>
+</div>
+</div>
+
 </div>
 
 </div>
 </section>
 
 <section class="section">
-<h2 class="section-title">Tentang SAI Roots</h2>
+<div class="container">
 
-<div class="card">
-<h3>Proyek Musik Independen</h3>
-<p>
-SAI Roots adalah proyek musik yang mengeksplorasi warna reggae, rap, indie, dan nuansa modern dengan identitas sendiri. Fokus utama website ini adalah karya, rilisan, dan pengalaman pendengar.
-</p>
+<div class="feature-grid">
+
+<div class="feature-card">
+<div class="feature-icon">🎵</div>
+<div class="feature-title">Multi Platform</div>
+<div class="feature-desc">
+Spotify, YouTube Music, Apple Music, Deezer, Amazon Music & more.
+</div>
 </div>
 
+<div class="feature-card">
+<div class="feature-icon">🔥</div>
+<div class="feature-title">Independent Identity</div>
+<div class="feature-desc">
+SAI Roots fokus pada karya, karakter, dan kebebasan bermusik.
+</div>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🌍</div>
+<div class="feature-title">Official Website</div>
+<div class="feature-desc">
+Pusat rilisan resmi, lirik, artikel, dan update terbaru.
+</div>
+</div>
+
+</div>
+
+</div>
 </section>
 
-<script>
-const REPO_OWNER = "sairootsmusic";
-const REPO_NAME  = "sairootsmusic.com";
-
-async function loadGithubFolder(path){
-try{
-const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`);
-return await res.json();
-}catch(e){
-return [];
-}
-}
-
-/* MUSIC */
-async function loadMusic(){
-const box=document.getElementById("latestMusic");
-const files=await loadGithubFolder("music");
-
-if(!Array.isArray(files) || !files.length){
-box.innerHTML=`
-<div class="card">
-<h3>Belum ada rilisan</h3>
-<p>Upload lagu dari admin panel.</p>
-</div>`;
-return;
-}
-
-box.innerHTML="";
-
-files.slice(0,5).forEach(file=>{
-
-box.innerHTML += `
-<div class="card">
-<h3>${cleanName(file.name)}</h3>
-<p>Streaming langsung dari website.</p>
-<audio controls style="width:100%;margin-top:12px;">
-<source src="${file.download_url}">
-</audio>
-</div>
-`;
-
-});
-}
-
-/* LYRICS */
-async function loadLyrics(){
-const box=document.getElementById("latestLyrics");
-const files=await loadGithubFolder("lyric");
-
-if(!Array.isArray(files) || !files.length){
-box.innerHTML=`
-<div class="card">
-<h3>Belum ada lirik</h3>
-<p>Upload lirik dari admin panel.</p>
-</div>`;
-return;
-}
-
-box.innerHTML="";
-
-files.slice(0,5).forEach(file=>{
-
-let slug=file.name.replace(".html","");
-
-box.innerHTML += `
-<a href="/lyric/${slug}">
-<div class="card">
-<h3>${cleanName(slug)}</h3>
-<p>Baca lirik resmi SAI Roots.</p>
-</div>
-</a>
-`;
-
-});
-}
-
-/* ARTICLE */
-async function loadArticles(){
-const box=document.getElementById("latestArticles");
-const files=await loadGithubFolder("article");
-
-if(!Array.isArray(files) || !files.length){
-box.innerHTML=`
-<div class="card">
-<h3>Belum ada artikel</h3>
-<p>Posting artikel dari admin panel.</p>
-</div>`;
-return;
-}
-
-box.innerHTML="";
-
-files.slice(0,5).forEach(file=>{
-
-let slug=file.name.replace(".html","");
-
-box.innerHTML += `
-<a href="/article/${slug}">
-<div class="card">
-<h3>${cleanName(slug)}</h3>
-<p>Baca artikel terbaru.</p>
-</div>
-</a>
-`;
-
-});
-}
-
-function cleanName(txt){
-return txt
-.replace(".mp3","")
-.replace(".wav","")
-.replace(/[-_]/g," ")
-.replace(/\b\w/g,l=>l.toUpperCase());
-}
-
-loadMusic();
-loadLyrics();
-loadArticles();
-</script>
-
 <footer>
+<div class="container">
 <div class="footer-wrap">
 
 <div class="footer-grid">
 
 <div>
-<h3 class="footer-title">Streaming</h3>
-<div class="footer-links">
+<div class="footer-title">Streaming</div>
+<div class="footer-platforms">
+
 <a href="https://www.youtube.com/@sairoots" target="_blank">YouTube</a>
 <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank">YouTube Music</a>
 <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank">Spotify</a>
@@ -534,24 +211,29 @@ loadArticles();
 <a href="https://m.soundcloud.com/sairoots" target="_blank">SoundCloud</a>
 <a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank">Deezer</a>
 <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank">Amazon Music</a>
+
 </div>
 </div>
 
 <div>
-<h3 class="footer-title">Social</h3>
+<div class="footer-title">Social</div>
 <div class="footer-links">
+
 <a href="https://instagram.com/ahmadsupembri" target="_blank">Instagram</a>
 <a href="https://tiktok.com/@ahmadsupembri" target="_blank">TikTok</a>
 <a href="https://facebook.com/ahmadsupembri" target="_blank">Facebook</a>
+
 </div>
 </div>
 
 <div>
-<h3 class="footer-title">Website</h3>
+<div class="footer-title">Website</div>
 <div class="footer-links">
+
 <a href="/about">About</a>
 <a href="/contact">Contact</a>
 <a href="/privacy">Privacy Policy</a>
+
 </div>
 </div>
 
@@ -562,43 +244,10 @@ loadArticles();
 </div>
 
 </div>
+</div>
 </footer>
 
-<script>
-function openMenu(){
-document.getElementById("sidebar").classList.add("active");
-document.getElementById("overlay").classList.add("active");
-}
-
-function closeMenu(){
-document.getElementById("sidebar").classList.remove("active");
-document.getElementById("overlay").classList.remove("active");
-}
-
-function smartSearch(){
-let q=document.getElementById("searchInput").value.toLowerCase().trim();
-
-if(q.includes("lirik") || q.includes("lyric")){
-location.href="/lyric?q="+encodeURIComponent(q);
-}
-else if(q.includes("artikel")){
-location.href="/article?q="+encodeURIComponent(q);
-}
-else if(q.includes("video")){
-location.href="/video_cover?q="+encodeURIComponent(q);
-}
-else if(q.includes("album") || q.includes("lagu")){
-location.href="/discography?q="+encodeURIComponent(q);
-}
-else{
-location.href="/search?q="+encodeURIComponent(q);
-}
-}
-
-document.getElementById("searchInput").addEventListener("keypress",function(e){
-if(e.key==="Enter") smartSearch();
-});
-</script>
+<script src="/assets/asset.js"></script>
 
 </body>
 </html>
