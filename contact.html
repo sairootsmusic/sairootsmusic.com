@@ -1,86 +1,130 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SAI Roots Music",
+      "url": "https://sairootsmusic.com"
+    }
+    </script>
+    <link rel="canonical" href="https://sairootsmusic.com/contact" />
+    <title>Contact & Support - SAI Roots Music</title>
+    <meta name="description" content="Hubungi SAI Roots Music untuk kolaborasi, bantuan, atau pertanyaan seputar rilisan musik.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .contact-container { max-width: 600px; margin: 40px auto; background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid #282828; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: var(--text-gray); font-size: 0.9rem; }
+        input, textarea { width: 100%; padding: 12px; background: #282828; border: 1px solid #333; color: white; border-radius: 6px; outline: none; }
+        input:focus, textarea:focus { border-color: var(--primary-color); }
+        .btn-send { background: var(--primary-color); color: black; border: none; padding: 12px 30px; border-radius: 25px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+        .btn-send:hover { transform: scale(1.02); background: #1ed760; }
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"SAI Roots Music","url":"https://sairootsmusic.com"}
-</script>
-
-<link rel="canonical" href="https://sairootsmusic.com/contact">
-<link rel="icon" href="/favicon.ico">
-<title>Contact - SAI Roots Music</title>
-
-<meta name="description" content="Hubungi SAI Roots Music melalui halaman kontak resmi.">
-<meta property="og:title" content="Contact - SAI Roots Music">
-<meta property="og:site_name" content="SAI Roots Music">
-<meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
-<meta property="og:url" content="https://sairootsmusic.com/contact">
-<meta property="og:type" content="website">
-
-<link rel="stylesheet" href="/assets/asset.css">
+        /* Modal Pop-up */
+        #status-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; z-index: 9999; }
+        .modal-content { background: #181818; padding: 30px; border-radius: 12px; text-align: center; border: 1px solid var(--primary-color); max-width: 300px; }
+    </style>
 </head>
 <body>
 
 <header>
-<div class="container">
-<div class="navbar">
-<a href="/" class="brand">
-<img src="/android-chrome-192x192.png">
-<span>SAI Roots</span>
-</a>
-<div class="search-wrap">
-<input class="search-input" placeholder="Cari...">
-<button class="search-btn">⌕</button>
-</div>
-<button class="menu-btn">☰</button>
-</div>
-</div>
+    <div class="logo">SAI ROOTS</div>
+    <div class="nav-container">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+    <nav class="nav-menu" id="navMenu">
+        <a href="/">Home</a>
+        <a href="/dicography">Discography</a>
+        <a href="/lyric">Koleksi Lirik</a>
+        <a href="/article">Artikel</a>
+        <a href="/video_cover">Video Cover</a>
+        <hr style="border: 0.5px solid #333; margin: 10px 0;">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy Policy</a>
+    </nav>
 </header>
 
-<div class="overlay"></div>
+<main style="padding: 20px 5%; min-height: 80vh;">
+    <div class="contact-container">
+        <h2 style="margin-bottom: 10px;">Hubungi Kami</h2>
+        <p style="color: var(--text-gray); font-size: 0.9rem; margin-bottom: 25px;">Kirim pesan untuk kolaborasi atau bantuan teknis.</p>
 
-<div class="drawer">
-<div class="drawer-title">Menu</div>
-<a href="/discography">Discography</a>
-<a href="/lyric">Koleksi Lirik</a>
-<a href="/article">Artikel</a>
-<a href="/video_cover">Video Cover</a>
-<a href="/about">About</a>
-<a href="/contact">Contact</a>
-<a href="/privacy">Privacy Policy</a>
+        <form id="contact-form" action="https://formspree.io/f/xgopgrbl" method="POST">
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" name="name" required placeholder="Nama Anda...">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required placeholder="email@contoh.com">
+            </div>
+            <div class="form-group">
+                <label>Pesan</label>
+                <textarea name="message" rows="5" required placeholder="Tulis sesuatu..."></textarea>
+            </div>
+            <button type="submit" class="btn-send" id="submit-button">Kirim Pesan</button>
+        </form>
+    </div>
+</main>
+
+<div id="status-modal">
+    <div class="modal-content">
+        <div style="font-size: 3rem; margin-bottom: 15px;">✅</div>
+        <h3>Berhasil Terkirim!</h3>
+        <p style="color: var(--text-gray); font-size: 0.8rem; margin: 15px 0;">Terima kasih, SAI Roots akan segera merespons pesan kamu.</p>
+        <button onclick="closeModal()" class="btn-send" style="padding: 8px 20px;">Tutup</button>
+    </div>
 </div>
-
-<section class="section">
-<div class="container">
-<div class="contact-box">
-
-<div class="contact-title">Contact</div>
-<div class="contact-sub">Kirim pesan atau pertanyaan melalui formulir resmi.</div>
-
-<form id="contactForm" action="https://formspree.io/f/xgopgrbl" method="POST">
-
-<input class="input" type="text" name="name" placeholder="Nama" required>
-<input class="input" type="email" name="email" placeholder="Email" required>
-<textarea class="input" name="message" placeholder="Pesan..." required></textarea>
-
-<button class="btn btn-primary w-100" type="submit">Kirim Pesan</button>
-
-</form>
-
-</div>
-</div>
-</section>
 
 <footer>
-<div class="container">
-<div class="footer-wrap">
-<div class="copy">© 2026 SAI Roots Music. All Rights Reserved</div>
-</div>
-</div>
+    <p style="color: var(--text-gray); font-size: 0.8rem; text-align: center;">© 2026 SAI Roots Music. All Rights Reserved</p>
 </footer>
 
-<script src="/assets/asset.js"></script>
+<script>
+    const form = document.getElementById("contact-form");
+    const modal = document.getElementById("status-modal");
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const status = document.getElementById("submit-button");
+      const data = new FormData(event.target);
+      
+      status.innerText = "Mengirim...";
+      status.disabled = true;
+
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          modal.style.display = "flex";
+          form.reset();
+        } else {
+          alert("Oops! Terjadi kesalahan saat mengirim.");
+        }
+        status.innerText = "Kirim Pesan";
+        status.disabled = false;
+      }).catch(error => {
+        alert("Oops! Ada masalah koneksi.");
+      });
+    }
+
+    form.addEventListener("submit", handleSubmit);
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+    
+    function toggleMenu() {
+        document.getElementById('navMenu').classList.toggle('active');
+    }
+</script>
+
 </body>
 </html>
