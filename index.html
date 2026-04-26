@@ -38,14 +38,17 @@
     <header>
         <div class="header-inner">
             <a href="/" class="logo">
-                <img src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg" alt="SAI Roots" style="height: 40px; border-radius: 4px; display: block;">
+                <img src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg" alt="SAI Roots Logo">
+                <span>SAI Roots</span>
             </a>
             
             <div class="search-container">
                 <input type="text" id="smartSearch" class="search-bar" placeholder="Cari lirik, artikel, rilis...">
             </div>
 
-            <button class="nav-toggle" id="menuBtn" aria-label="Menu">☰</button>
+            <button class="nav-toggle" id="menuBtn" aria-label="Buka Menu">
+                <i class="fas fa-bars"></i>
+            </button>
 
             <nav class="nav-links" id="navLinks">
                 <a href="/discography">Discography</a>
@@ -61,31 +64,31 @@
     </header>
 
     <main>
-        <section style="margin-bottom: 50px; text-align: center;">
+        <section style="text-align: center; padding: 40px 0;">
             <h1 class="page-title">SAI Roots Music</h1>
-            <p class="page-description">Proyek musik independen: Roots Reggae, Ska, dan Reggae Rap.</p>
+            <p class="page-description">Eksplorasi Roots Reggae, Ska, dan Reggae Rap dalam satu proyek musik independen.</p>
         </section>
 
         <section>
             <h2 class="section-title">Update Terbaru</h2>
             <div class="post-grid" id="latestPosts">
-                <p style="color: var(--text-secondary);">Memuat konten terbaru...</p>
+                <p style="color: var(--text-secondary); text-align: center; width: 100%;">Memuat konten terbaru...</p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="social-grid">
-            <a href="https://www.youtube.com/@sairoots" target="_blank" class="social-link">YouTube</a>
-            <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" class="social-link">YouTube Music</a>
-            <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank" class="social-link">Spotify</a>
-            <a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id" target="_blank" class="social-link">Apple Music</a>
-            <a href="https://m.soundcloud.com/sairoots" target="_blank" class="social-link">SoundCloud</a>
-            <a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank" class="social-link">Deezer</a>
-            <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank" class="social-link">Amazon Music</a>
-            <a href="https://instagram.com/ahmadsupembri" target="_blank" class="social-link">Instagram</a>
-            <a href="https://tiktok.com/@ahmadsupembri" target="_blank" class="social-link">Tiktok</a>
-            <a href="https://facebook.com/ahmadsupembri" target="_blank" class="social-link">Facebook</a>
+            <a href="https://www.youtube.com/@sairoots" target="_blank" class="social-link"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" class="social-link"><i class="fas fa-play-circle"></i> YouTube Music</a>
+            <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank" class="social-link"><i class="fab fa-spotify"></i> Spotify</a>
+            <a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id" target="_blank" class="social-link"><i class="fab fa-apple"></i> Apple Music</a>
+            <a href="https://m.soundcloud.com/sairoots" target="_blank" class="social-link"><i class="fab fa-soundcloud"></i> SoundCloud</a>
+            <a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank" class="social-link"><i class="fab fa-deezer"></i> Deezer</a>
+            <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank" class="social-link"><i class="fab fa-amazon"></i> Amazon Music</a>
+            <a href="https://instagram.com/ahmadsupembri" target="_blank" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://tiktok.com/@ahmadsupembri" target="_blank" class="social-link"><i class="fab fa-tiktok"></i> Tiktok</a>
+            <a href="https://facebook.com/ahmadsupembri" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i> Facebook</a>
         </div>
 
         <div class="footer-nav">
@@ -100,53 +103,66 @@
     </footer>
 
     <script>
-        // Hamburger Menu Toggle
+        // 1. Hamburger Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
+
         menuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
 
-        // Fetch 5 Data Terbaru dari data.json
+        // 2. Fetch 5 Data Terbaru (Lirik & Artikel) dari data.json
         async function fetchLatestUpdates() {
             const container = document.getElementById('latestPosts');
             try {
                 const response = await fetch('/data.json');
                 if (!response.ok) throw new Error('Data tidak ditemukan');
+                
                 const data = await response.json();
                 
+                // Gabungkan artikel dan lirik
                 let allItems = [];
                 if (data.articles) allItems = allItems.concat(data.articles.map(i => ({...i, type: 'Artikel'})));
                 if (data.lyrics) allItems = allItems.concat(data.lyrics.map(i => ({...i, type: 'Lirik'})));
 
+                // Sortir data (asumsi admin_post memasukkan data terbaru di awal array)
                 const latest = allItems.slice(0, 5);
+                
                 if (latest.length === 0) {
-                    container.innerHTML = '<p>Belum ada rilis atau artikel terbaru.</p>';
+                    container.innerHTML = '<p style="text-align: center; color: var(--text-secondary); width: 100%;">Belum ada rilis atau artikel terbaru.</p>';
                     return;
                 }
 
                 container.innerHTML = '';
                 latest.forEach(item => {
-                    container.innerHTML += `
-                        <div class="card">
-                            <span class="card-tag">${item.type}</span>
-                            <h3 class="card-title">${item.title}</h3>
-                            <a href="${item.url}" class="btn-read">Lihat Selengkapnya</a>
-                        </div>
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <span class="card-tag">${item.type}</span>
+                        <h3 class="card-title">${item.title}</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 15px;">${item.date || ''}</p>
+                        <a href="${item.url}" class="social-link" style="display:inline-block; border-color: var(--accent); color: var(--accent);">Lihat Detail</a>
                     `;
+                    container.appendChild(card);
                 });
+
             } catch (err) {
-                container.innerHTML = '<p style="color: var(--text-secondary);">Gagal memuat data terbaru.</p>';
+                container.innerHTML = '<p style="text-align: center; color: var(--text-secondary); width: 100%;">Gagal memuat data terbaru.</p>';
             }
         }
 
-        // Smart Search Dasar
+        // 3. Smart Search Dasar
         document.getElementById('smartSearch').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                alert('Mencari: ' + e.target.value.toLowerCase());
+                const query = e.target.value.toLowerCase();
+                if(query) alert('Mencari: ' + query);
             }
         });
 
+        // Jalankan fetch saat halaman dimuat
         document.addEventListener('DOMContentLoaded', fetchLatestUpdates);
     </script>
 </body>
