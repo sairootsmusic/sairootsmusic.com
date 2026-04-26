@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebSite",
+ "name":"SAI Roots Music",
+ "url":"https://sairootsmusic.com"
+}
+</script>
+
+<link rel="canonical" href="https://sairootsmusic.com/admin_post">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<title>Admin Panel - SAI Roots Music</title>
+
+<meta name="description" content="Admin panel resmi untuk mengelola artikel, lirik, musik, dan video SAI Roots Music.">
+
+<meta property="og:title" content="Admin Panel - SAI Roots Music">
+<meta property="og:site_name" content="SAI Roots Music">
+<meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
+<meta property="og:url" content="https://sairootsmusic.com/admin_post">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="/assets/asset.css">
+
+<style>
+body.admin-page{
+background:
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.92)),
+url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+min-height:100vh;
+}
+
+.admin-shell{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px 20px;
+}
+
+.admin-login{
+width:100%;
+max-width:520px;
+background:rgba(16,16,16,.92);
+border:1px solid rgba(255,255,255,.08);
+border-radius:24px;
+padding:34px;
+box-shadow:0 25px 60px rgba(0,0,0,.45);
+backdrop-filter:blur(12px);
+}
+
+.admin-logo{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:22px;
+}
+
+.admin-logo img{
+width:62px;
+height:62px;
+border-radius:16px;
+object-fit:cover;
+}
+
+.admin-logo h1{
+font-size:1.35rem;
+margin:0;
+line-height:1.2;
+}
+
+.admin-logo span{
+display:block;
+font-size:.92rem;
+opacity:.72;
+margin-top:3px;
+}
+
+.admin-title{
+font-size:1.5rem;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.admin-sub{
+opacity:.72;
+line-height:1.7;
+margin-bottom:22px;
+font-size:.95rem;
+}
+
+.admin-form{
+display:grid;
+gap:14px;
+}
+
+.admin-form label{
+font-size:.92rem;
+opacity:.85;
+margin-bottom:4px;
+display:block;
+}
+
+.admin-input{
+width:100%;
+padding:14px 16px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,.08);
+background:#111;
+color:#fff;
+outline:none;
+transition:.25s;
+}
+
+.admin-input:focus{
+border-color:#1db954;
+box-shadow:0 0 0 4px rgba(29,185,84,.15);
+}
+
+.admin-actions{
+display:grid;
+grid-template-columns:1fr;
+gap:12px;
+margin-top:6px;
+}
+
+.admin-btn{
+border:none;
+padding:15px 18px;
+border-radius:14px;
+font-weight:700;
+cursor:pointer;
+transition:.25s;
+}
+
+.admin-btn.primary{
+background:#1db954;
+color:#fff;
+}
+
+.admin-btn.primary:hover{
+transform:translateY(-2px);
+filter:brightness(1.05);
+}
+
+.admin-note{
+margin-top:18px;
+font-size:.88rem;
+opacity:.65;
+line-height:1.7;
+}
+
+.admin-dashboard{
+display:none;
+}
+</style>
+
+</head>
+
+<body class="admin-page">
+
+<div class="admin-shell">
+
+<!-- LOGIN PANEL -->
+<div class="admin-login">
+
+<div class="admin-logo">
+<img src="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" alt="Logo">
+<div>
+<h1>SAI Roots</h1>
+<span>Official Admin Panel</span>
+</div>
+</div>
+
+<div class="admin-title">
+Secure Login
+</div>
+
+<div class="admin-sub">
+Masuk menggunakan GitHub Token dan YouTube API Token untuk mengelola website, upload musik, artikel, lirik, dan video resmi.
+</div>
+
+<form id="adminLoginForm" class="admin-form">
+
+<div>
+<label>GitHub Personal Access Token</label>
+<input
+type="password"
+id="githubToken"
+class="admin-input"
+placeholder="Masukkan GitHub Token"
+required>
+</div>
+
+<div>
+<label>YouTube API Token</label>
+<input
+type="password"
+id="youtubeToken"
+class="admin-input"
+placeholder="Masukkan YouTube Token"
+required>
+</div>
+
+<div class="admin-actions">
+<button type="submit" class="admin-btn primary">
+Masuk Dashboard
+</button>
+</div>
+
+</form>
+
+<div class="admin-note">
+Token hanya digunakan di browser Anda untuk autentikasi dan publish ke repository resmi.
+</div>
+
+</div>
+
+<!-- DASHBOARD NEXT PART -->
+<div class="admin-dashboard" id="adminDashboard"></div>
+
+</div>
+
+<script src="/assets/asset.js"></script>
+</body>
+</html>
+
+<!-- =========================================
+ADMIN_POST PART 2
+Tempel mengganti:
+<div class="admin-dashboard" id="adminDashboard"></div>
+========================================= -->
+
+<div class="admin-dashboard" id="adminDashboard">
+
+<style>
+.admin-panel{
+width:100%;
+max-width:1450px;
+min-height:92vh;
+background:rgba(14,14,14,.94);
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+overflow:hidden;
+display:grid;
+grid-template-columns:290px 1fr;
+box-shadow:0 30px 70px rgba(0,0,0,.45);
+backdrop-filter:blur(12px);
+}
+
+.admin-sidebar{
+padding:26px;
+border-right:1px solid rgba(255,255,255,.06);
+background:linear-gradient(180deg,#101010,#0b0b0b);
+}
+
+.admin-side-logo{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:28px;
+}
+
+.admin-side-logo img{
+width:54px;
+height:54px;
+border-radius:14px;
+}
+
+.admin-side-logo h3{
+margin:0;
+font-size:1.08rem;
+}
+
+.admin-side-logo span{
+display:block;
+font-size:.85rem;
+opacity:.65;
+margin-top:2px;
+}
+
+.admin-nav{
+display:grid;
+gap:10px;
+}
+
+.admin-nav button{
+border:none;
+background:#151515;
+color:#fff;
+padding:14px 16px;
+border-radius:14px;
+text-align:left;
+cursor:pointer;
+font-weight:600;
+transition:.25s;
+}
+
+.admin-nav button:hover{
+background:#1d1d1d;
+transform:translateX(4px);
+}
+
+.admin-nav button.active{
+background:#1db954;
+}
+
+.admin-logout{
+margin-top:20px;
+width:100%;
+border:none;
+padding:14px;
+border-radius:14px;
+font-weight:700;
+cursor:pointer;
+background:#262626;
+color:#fff;
+}
+
+.admin-main{
+display:flex;
+flex-direction:column;
+min-width:0;
+}
+
+.admin-topbar{
+padding:22px 28px;
+border-bottom:1px solid rgba(255,255,255,.06);
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+}
+
+.admin-top-title h2{
+margin:0;
+font-size:1.25rem;
+}
+
+.admin-top-title p{
+margin:4px 0 0;
+opacity:.65;
+font-size:.92rem;
+}
+
+.admin-status{
+padding:10px 14px;
+border-radius:999px;
+background:rgba(29,185,84,.12);
+color:#1db954;
+font-size:.88rem;
+font-weight:700;
+}
+
+.admin-content{
+padding:28px;
+overflow:auto;
+}
+
+.tab-pane{
+display:none;
+animation:fadeUp .25s ease;
+}
+
+.tab-pane.active{
+display:block;
+}
+
+.admin-card{
+background:#121212;
+border:1px solid rgba(255,255,255,.06);
+border-radius:22px;
+padding:24px;
+margin-bottom:22px;
+}
+
+.admin-card h3{
+margin:0 0 8px;
+font-size:1.08rem;
+}
+
+.admin-card p{
+margin:0;
+opacity:.68;
+line-height:1.7;
+font-size:.95rem;
+}
+
+.admin-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-bottom:22px;
+}
+
+.stat-box{
+background:#111;
+border:1px solid rgba(255,255,255,.06);
+border-radius:18px;
+padding:20px;
+}
+
+.stat-box .num{
+font-size:1.8rem;
+font-weight:800;
+margin-bottom:8px;
+}
+
+.stat-box .label{
+opacity:.68;
+font-size:.92rem;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(10px)}
+to{opacity:1;transform:none}
+}
+
+@media(max-width:980px){
+.admin-panel{
+grid-template-columns:1fr;
+}
+.admin-sidebar{
+border-right:none;
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+.admin-grid{
+grid-template-columns:1fr;
+}
+}
+</style>
+
+<div class="admin-panel">
+
+<!-- SIDEBAR -->
+<aside class="admin-sidebar">
+
+<div class="admin-side-logo">
+<img src="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png">
+<div>
+<h3>SAI Roots</h3>
+<span>Control Center</span>
+</div>
+</div>
+
+<div class="admin-nav">
+
+<button class="tab-btn active" data-tab="dashboardTab">🏠 Dashboard</button>
+<button class="tab-btn" data-tab="articleTab">📰 Artikel</button>
+<button class="tab-btn" data-tab="lyricTab">🎤 Lirik</button>
+<button class="tab-btn" data-tab="musicTab">🎵 Upload Musik</button>
+<button class="tab-btn" data-tab="videoTab">🎬 Video Cover</button>
+<button class="tab-btn" data-tab="filesTab">📁 File Manager</button>
+
+</div>
+
+<button class="admin-logout" onclick="location.reload()">
+Logout
+</button>
+
+</aside>
+
+<!-- MAIN -->
+<section class="admin-main">
+
+<div class="admin-topbar">
+
+<div class="admin-top-title">
+<h2>Admin Dashboard</h2>
+<p>Kelola seluruh konten website resmi SAI Roots Music</p>
+</div>
+
+<div class="admin-status">
+● Connected
+</div>
+
+</div>
+
+<div class="admin-content">
+
+<!-- DASHBOARD -->
+<div class="tab-pane active" id="dashboardTab">
+
+<div class="admin-grid">
+
+<div class="stat-box">
+<div class="num">0</div>
+<div class="label">Artikel</div>
+</div>
+
+<div class="stat-box">
+<div class="num">0</div>
+<div class="label">Lirik</div>
+</div>
+
+<div class="stat-box">
+<div class="num">0</div>
+<div class="label">Rilisan Musik</div>
+</div>
+
+</div>
+
+<div class="admin-card">
+<h3>Selamat Datang</h3>
+<p>
+Gunakan panel ini untuk memposting artikel, lirik lagu, upload musik,
+dan video cover langsung ke repository website.
+</p>
+</div>
+
+<div class="admin-card">
+<h3>Status Sistem</h3>
+<p>
+GitHub publish aktif. Integrasi asset.js siap digunakan.
+Part berikutnya akan menambahkan form editor lengkap.
+</p>
+</div>
+
+</div>
+
+<!-- PLACEHOLDER NEXT PART -->
+<div class="tab-pane" id="articleTab"></div>
+<div class="tab-pane" id="lyricTab"></div>
+<div class="tab-pane" id="musicTab"></div>
+<div class="tab-pane" id="videoTab"></div>
+<div class="tab-pane" id="filesTab"></div>
+
+</div>
+</section>
+</div>
+
+<script>
+document.querySelectorAll(".tab-btn").forEach(btn=>{
+btn.onclick=()=>{
+document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+
+document.querySelectorAll(".tab-pane").forEach(p=>p.classList.remove("active"));
+document.getElementById(btn.dataset.tab).classList.add("active");
+};
+});
+</script>
+
+</div>
+
+<!-- =========================================
+ADMIN_POST PART 3
+Tempel mengganti placeholder:
+<div class="tab-pane" id="articleTab"></div>
+<div class="tab-pane" id="lyricTab"></div>
+<div class="tab-pane" id="musicTab"></div>
+<div class="tab-pane" id="videoTab"></div>
+<div class="tab-pane" id="filesTab"></div>
+========================================= -->
+
+<div class="tab-pane" id="articleTab">
+
+<div class="admin-card">
+<h3>Publish Artikel</h3>
+<p>Tulis artikel, berita, atau update resmi SAI Roots Music.</p>
+</div>
+
+<div class="admin-card">
+
+<input class="admin-input" id="articleTitle" placeholder="Judul artikel">
+
+<div style="height:12px"></div>
+
+<div class="toolbar">
+<button type="button" onclick="wrapText('articleContent','<b>','</b>')"><b>B</b></button>
+<button type="button" onclick="wrapText('articleContent','<i>','</i>')"><i>I</i></button>
+<button type="button" onclick="wrapText('articleContent','<h2>','</h2>')">H2</button>
+<button type="button" onclick="wrapText('articleContent','<blockquote>','</blockquote>')">❝</button>
+<button type="button" onclick="wrapText('articleContent','<ul><li>','</li></ul>')">• List</button>
+</div>
+
+<textarea
+id="articleContent"
+class="admin-input"
+style="min-height:320px;margin-top:12px"
+placeholder="Tulis isi artikel (HTML diperbolehkan)..."></textarea>
+
+<div style="height:14px"></div>
+
+<button class="admin-btn primary" id="publishArticle">
+Publish Artikel
+</button>
+
+</div>
+</div>
+
+
+
+<div class="tab-pane" id="lyricTab">
+
+<div class="admin-card">
+<h3>Publish Lirik</h3>
+<p>Buat halaman lirik lagu kategori album atau single.</p>
+</div>
+
+<div class="admin-card">
+
+<input class="admin-input" id="lyricTitle" placeholder="Judul lagu">
+
+<div style="height:12px"></div>
+
+<select class="admin-input" id="lyricCategory">
+<option value="single">Single</option>
+<option value="album">Album</option>
+</select>
+
+<div style="height:12px"></div>
+
+<textarea
+id="lyricContent"
+class="admin-input"
+style="min-height:320px"
+placeholder="Tulis lirik lagu..."></textarea>
+
+<div style="height:14px"></div>
+
+<button class="admin-btn primary" id="publishLyric">
+Publish Lirik
+</button>
+
+</div>
+</div>
+
+
+
+<div class="tab-pane" id="musicTab">
+
+<div class="admin-card">
+<h3>Upload Musik</h3>
+<p>Upload MP3/WAV dan tampilkan di halaman discography.</p>
+</div>
+
+<div class="admin-card">
+
+<input class="admin-input" id="musicTitle" placeholder="Judul lagu">
+
+<div style="height:12px"></div>
+
+<input class="admin-input" id="musicYear" placeholder="Tahun rilisan">
+
+<div style="height:12px"></div>
+
+<input type="file" id="musicFile" class="admin-input" accept=".mp3,.wav,.m4a">
+
+<div style="height:14px"></div>
+
+<button class="admin-btn primary" id="publishMusic">
+Upload Musik
+</button>
+
+</div>
+</div>
+
+
+
+<div class="tab-pane" id="videoTab">
+
+<div class="admin-card">
+<h3>Tambah Video Cover</h3>
+<p>Masukkan link YouTube untuk tampil otomatis di halaman video cover.</p>
+</div>
+
+<div class="admin-card">
+
+<input class="admin-input" id="videoTitle" placeholder="Judul video">
+
+<div style="height:12px"></div>
+
+<input class="admin-input" id="videoLink" placeholder="https://youtube.com/watch?v=...">
+
+<div style="height:14px"></div>
+
+<button class="admin-btn primary" id="publishVideo">
+Publish Video
+</button>
+
+</div>
+</div>
+
+
+
+<div class="tab-pane" id="filesTab">
+
+<div class="admin-card">
+<h3>File Manager</h3>
+<p>
+Di part final nanti akan berisi daftar artikel, lirik, musik,
+fitur edit, hapus, dan refresh data repository.
+</p>
+</div>
+
+<div class="admin-grid">
+
+<div class="stat-box">
+<div class="num">/article</div>
+<div class="label">Folder Artikel</div>
+</div>
+
+<div class="stat-box">
+<div class="num">/lyric</div>
+<div class="label">Folder Lirik</div>
+</div>
+
+<div class="stat-box">
+<div class="num">/music</div>
+<div class="label">Folder Musik</div>
+</div>
+
+</div>
+
+</div>
+
+
+
+<style>
+.toolbar{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.toolbar button{
+border:none;
+background:#181818;
+color:#fff;
+padding:10px 14px;
+border-radius:12px;
+cursor:pointer;
+font-weight:700;
+}
+
+.toolbar button:hover{
+background:#222;
+}
+</style>
+
+<script>
+function wrapText(id,start,end){
+const el=document.getElementById(id);
+if(!el) return;
+
+const s=el.selectionStart;
+const e=el.selectionEnd;
+const txt=el.value;
+
+el.value =
+txt.substring(0,s) +
+start +
+txt.substring(s,e) +
+end +
+txt.substring(e);
+
+el.focus();
+}
+</script>
+
+<!-- =========================================
+ADMIN_POST PART 4 FINAL
+Tempel sebelum </body>
+========================================= -->
+
+<style>
+.preview-box{
+margin-top:16px;
+padding:18px;
+border-radius:18px;
+background:#0f0f0f;
+border:1px solid rgba(255,255,255,.06);
+}
+
+.preview-box h4{
+margin:0 0 12px;
+font-size:1rem;
+}
+
+.preview-render{
+line-height:1.8;
+opacity:.92;
+}
+
+.quick-row{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-top:18px;
+}
+
+.quick-btn{
+border:none;
+padding:14px;
+border-radius:14px;
+background:#161616;
+color:#fff;
+cursor:pointer;
+font-weight:700;
+}
+
+.quick-btn:hover{
+background:#1db954;
+}
+
+.admin-footer-note{
+margin-top:26px;
+opacity:.55;
+font-size:.88rem;
+text-align:center;
+}
+
+@media(max-width:900px){
+.quick-row{
+grid-template-columns:1fr;
+}
+}
+</style>
+
+<script>
+(function(){
+
+/* ==========================
+LOGIN POLISH
+========================== */
+const loginForm = document.getElementById("adminLoginForm");
+
+if(loginForm){
+loginForm.addEventListener("submit",function(){
+
+setTimeout(()=>{
+const dash = document.getElementById("adminDashboard");
+if(dash && dash.style.display==="block"){
+showWelcome();
+}
+},700);
+
+});
+}
+
+/* ==========================
+WELCOME
+========================== */
+function showWelcome(){
+
+if(window.showPopup){
+showPopup("Selamat datang di Admin Panel SAI Roots");
+}else{
+console.log("Welcome");
+}
+
+}
+
+/* ==========================
+ARTICLE PREVIEW
+========================== */
+const articleArea = document.getElementById("articleContent");
+
+if(articleArea){
+
+const box = document.createElement("div");
+box.className = "preview-box";
+box.innerHTML = `
+<h4>Preview Artikel</h4>
+<div class="preview-render" id="articlePreview">
+Mulai menulis untuk melihat preview...
+</div>
+`;
+
+articleArea.parentNode.appendChild(box);
+
+articleArea.addEventListener("input",()=>{
+document.getElementById("articlePreview").innerHTML =
+articleArea.value || "Mulai menulis untuk melihat preview...";
+});
+
+}
+
+/* ==========================
+LYRIC PREVIEW
+========================== */
+const lyricArea = document.getElementById("lyricContent");
+
+if(lyricArea){
+
+const box = document.createElement("div");
+box.className = "preview-box";
+box.innerHTML = `
+<h4>Preview Lirik</h4>
+<div class="preview-render" id="lyricPreview"></div>
+`;
+
+lyricArea.parentNode.appendChild(box);
+
+lyricArea.addEventListener("input",()=>{
+document.getElementById("lyricPreview").innerHTML =
+(lyricArea.value || "")
+.replace(/\n/g,"<br>");
+});
+
+}
+
+/* ==========================
+QUICK ACTION FILE MANAGER
+========================== */
+const filesTab = document.getElementById("filesTab");
+
+if(filesTab){
+
+const quick = document.createElement("div");
+quick.className = "quick-row";
+quick.innerHTML = `
+<button class="quick-btn" onclick="window.open('/article','_blank')">Open Article</button>
+<button class="quick-btn" onclick="window.open('/lyric','_blank')">Open Lyrics</button>
+<button class="quick-btn" onclick="window.open('/discography','_blank')">Open Music</button>
+`;
+
+filesTab.appendChild(quick);
+
+}
+
+/* ==========================
+LOGOUT REAL
+========================== */
+document.querySelectorAll(".admin-logout").forEach(btn=>{
+
+btn.onclick = function(){
+
+localStorage.removeItem("sai_github_token");
+localStorage.removeItem("sai_youtube_token");
+
+location.reload();
+
+};
+
+});
+
+/* ==========================
+AUTO LOGIN SESSION
+========================== */
+window.addEventListener("load",()=>{
+
+const git = localStorage.getItem("sai_github_token");
+const yt  = localStorage.getItem("sai_youtube_token");
+
+if(git && yt){
+
+const login = document.querySelector(".admin-login");
+const dash  = document.querySelector(".admin-dashboard");
+
+if(login) login.style.display="none";
+if(dash) dash.style.display="block";
+
+}
+
+});
+
+/* ==========================
+TOPBAR CLOCK
+========================== */
+const topbar = document.querySelector(".admin-top-title p");
+
+if(topbar){
+
+setInterval(()=>{
+
+const d = new Date();
+
+topbar.innerHTML =
+"Kelola seluruh konten website • " +
+d.toLocaleTimeString("id-ID");
+
+},1000);
+
+}
+
+/* ==========================
+FOOTER NOTE
+========================== */
+const adminContent = document.querySelector(".admin-content");
+
+if(adminContent){
+
+const note = document.createElement("div");
+note.className = "admin-footer-note";
+note.innerHTML =
+"SAI Roots Music CMS • Secure GitHub Publisher • 2026";
+
+adminContent.appendChild(note);
+
+}
+
+})();
+</script>
