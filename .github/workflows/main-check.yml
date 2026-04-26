@@ -1,4 +1,4 @@
-name: SAI Roots Web Optimizer
+name: SAI Roots Optimizer
 
 on:
   push:
@@ -8,15 +8,14 @@ permissions:
   contents: write
 
 jobs:
-  optimize_and_check:
+  sitemap:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 1. GENERATE SITEMAP (Otomatis 28 Lagu)
       - name: Generate Sitemap
         uses: cicirello/generate-sitemap@v1
         with:
@@ -52,17 +51,10 @@ jobs:
             https://sairootmusic.com/music?song=bbm-busuk
             https://sairootmusic.com/music?song=kabur-saja-dulu
 
-      # 2. HTML VALIDATOR (Hanya peringatan, tidak bikin STOP kalau gagal)
-      - name: HTML Validator
-        uses: Cypherous/html5validator-action@v1
-        continue-on-error: true # Biar tetep lanjut meski ada salah tulis kode
-        with:
-          root: .
-
-      # 3. COMMIT SEMUA PERUBAHAN
-      - name: Commit and Push
+      - name: Save Sitemap
         run: |
-          git config --global user.name 'SAI Roots Bot'
-          git config --global user.email 'bot@sairootmusic.com'
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add sitemap.xml
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto Update: Sitemap & Optimization" && git push)
+          git commit -m "Auto update sitemap" || echo "No changes"
+          git push
