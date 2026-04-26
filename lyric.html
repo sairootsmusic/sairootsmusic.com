@@ -1,280 +1,992 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "SAI Roots Music",
-      "url": "https://sairootsmusic.com"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- STRUKTUR LAMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SAI Roots Music",
+    "url": "https://sairootsmusic.com"
+  }
+  </script>
+  <link rel="canonical" href="https://sairootsmusic.com/lyric" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <title>Koleksi Lirik — SAI Roots Music</title>
+  <meta name="description" content="Baca lirik lengkap lagu-lagu SAI Roots Music. Koleksi lirik album dan single reggae rap indie terlengkap.">
+
+  <meta property="og:title" content="Koleksi Lirik — SAI Roots Music">
+  <meta property="og:site_name" content="SAI Roots Music">
+  <meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
+  <meta property="og:url" content="https://sairootsmusic.com/lyric">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <style>
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
     }
-    </script>
-    
-    <link rel="canonical" href="https://sairootsmusic.com/lyric" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-    <link rel="manifest" href="/site.webmanifest">
-    
-    <meta name="theme-color" content="#000000">
-    <meta name="msapplication-TileColor" content="#000000">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyrics Collection | SAI Roots</title>
-    <meta name="description" content="Kumpulan lirik lagu lengkap SAI Roots. Drama Klenik, Senandung Manis, Eksploitasi, Babylon Burn, Propaganda dan banyak lagu reggae rap indie lainnya.">
-    <meta name="keywords" content="lirik sai roots, lirik drama klenik, lirik senandung manis, lirik babylon burn, sai roots lyrics, lagu reggae rap Indonesia">
-    <link rel="canonical" href="https://sairootsmusic.com/lyric">
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 24px;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: var(--font-main);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+    }
+    .filter-btn.album.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #333;
+    }
+    .filter-btn.single.active {
+      background: #6c5ce7;
+      border-color: #6c5ce7;
+      color: var(--white);
+    }
+    .filter-search {
+      margin-left: auto;
+      position: relative;
+    }
+    .filter-search input {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 8px 36px 8px 16px;
+      color: var(--text);
+      font-size: 0.85rem;
+      font-family: var(--font-main);
+      outline: none;
+      width: 220px;
+      transition: border-color var(--transition);
+    }
+    .filter-search input:focus { border-color: var(--accent); }
+    .filter-search svg {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
 
-    <meta property="og:title" content="Lyrics Collection | SAI Roots">
-    <meta property="og:site_name" content="SAI Roots Music">
-    <meta property="og:description" content="Musisi reggae rap indie Indonesia.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
-    <meta property="og:url" content="https://sairootsmusic.com/lyric">
-    <meta property="og:type" content="website">
+    /* ── LYRIC GRID ── */
+    .lyric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
 
+    /* ── LYRIC CARD ── */
+    .lyric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 22px;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .lyric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .lyric-card:hover {
+      border-color: #6c5ce7;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(108,92,231,0.15);
+    }
+    .lyric-card:hover::before { opacity: 1; background: #6c5ce7; }
+    .lyric-card.album:hover { border-color: var(--gold); box-shadow: 0 8px 28px rgba(245,166,35,0.12); }
+    .lyric-card.album:hover::before { background: var(--gold); }
 
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    .lc-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .lc-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+    .lc-badge.single {
+      background: rgba(108,92,231,0.2);
+      color: #6c5ce7;
+      border: 1px solid #6c5ce7;
+    }
+    .lc-badge.album {
+      background: rgba(245,166,35,0.2);
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .lc-num {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .lc-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .lc-album {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .lc-preview {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      border-left: 2px solid var(--card-border);
+      padding-left: 10px;
+    }
+    .lc-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--card-border);
+    }
+    .lc-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .lc-read {
+      font-size: 0.78rem;
+      color: #6c5ce7;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--transition);
+    }
+    .lyric-card:hover .lc-read { gap: 8px; }
 
-    <style>
-        body { background: #080808; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; padding: 40px 20px; }
-        .container { max-width: 450px; margin: auto; }
-        .l-box { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); }
-        .item { display: flex; align-items: center; padding: 16px; background: rgba(255,255,255,0.03); border-radius: 12px; margin-bottom: 8px; text-decoration: none; color: #fff; transition: 0.3s; }
-        .item:hover { background: rgba(29,185,84,0.1); border-color: #1db954; transform: translateX(5px); }
-        .item i { margin-right: 15px; color: #1db954; }
-        .footer { text-align: center; margin-top: 35px; font-size: 11px; color: #444; }
-    </style>
+    /* ── LYRIC DETAIL MODAL ── */
+    .lyric-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 10000;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+      overflow-y: auto;
+    }
+    .lyric-modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .lyric-modal {
+      background: var(--secondary);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 680px;
+      overflow: hidden;
+      transform: translateY(20px);
+      transition: transform var(--transition);
+      margin: auto;
+    }
+    .lyric-modal-overlay.active .lyric-modal {
+      transform: translateY(0);
+    }
+    .lm-header {
+      background: linear-gradient(135deg, var(--accent2), var(--primary));
+      padding: 32px;
+      position: relative;
+    }
+    .lm-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: var(--white);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+    }
+    .lm-close:hover { background: rgba(255,255,255,0.2); }
+    .lm-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    .lm-badge.single { background: rgba(108,92,231,0.3); color: #a29bfe; border: 1px solid #6c5ce7; }
+    .lm-badge.album { background: rgba(245,166,35,0.3); color: var(--gold); border: 1px solid var(--gold); }
+    .lm-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .lm-meta {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .lm-body { padding: 32px; }
+    .lm-lyric-text {
+      font-size: 0.95rem;
+      line-height: 2;
+      color: var(--text);
+      white-space: pre-wrap;
+      font-family: var(--font-main);
+    }
+    .lm-lyric-text .verse-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 4px;
+    }
+    .lm-actions {
+      display: flex;
+      gap: 10px;
+      padding: 0 32px 32px;
+      flex-wrap: wrap;
+    }
+    .lm-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 0.83rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: var(--font-main);
+    }
+    .lm-action-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .lm-action-btn.copy:hover { border-color: #6c5ce7; color: #6c5ce7; }
+    .lm-action-btn.share:hover { border-color: #00b894; color: #00b894; }
+
+    /* ── ALBUM GROUP ── */
+    .album-group {
+      margin-bottom: 48px;
+    }
+    .album-group-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .album-cover-thumb {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .album-group-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .album-group-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ── EMPTY / LOADING ── */
+    .lyric-loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px;
+    }
+
+    /* ── SORT BAR ── */
+    .sort-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .sort-select {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      color: var(--text);
+      font-size: 0.83rem;
+      font-family: var(--font-main);
+      outline: none;
+      cursor: pointer;
+    }
+    .result-count {
+      margin-left: auto;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .lyric-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .lyric-grid { grid-template-columns: 1fr; }
+      .filter-bar { gap: 8px; }
+      .filter-search { margin-left: 0; width: 100%; }
+      .filter-search input { width: 100%; }
+      .lm-header { padding: 24px; }
+      .lm-body { padding: 24px; }
+      .lm-actions { padding: 0 24px 24px; }
+      .lm-title { font-size: 1.3rem; }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-    <div class="l-box">
-        <a href="/" style="color:#555; text-decoration:none; font-size:13px;">← Home</a>
-        <h1 style="margin:20px 0 30px; font-weight:800; font-size:28px;">Lyric Collection</h1>
-        <a href="lyric/dramaklenik" class="item"><i class="fas fa-music"></i>Drama Klenik</a>
-        <a href="lyric/senandungmanis" class="item"><i class="fas fa-music"></i>Senandung Manis</a>
-        <a href="lyric/eksploitasi" class="item"><i class="fas fa-music"></i>Eksploitasi</a>
-        <a href="lyric/jurusliar" class="item"><i class="fas fa-music"></i>Jurus Liar</a>
-        <a href="lyric/darijauh" class="item"><i class="fas fa-music"></i>Dari Jauh</a>
-        <a href="lyric/kasihmengalun" class="item"><i class="fas fa-music"></i>Kasih Mengalun</a>
-        <a href="lyric/genjerhijau" class="item"><i class="fas fa-music"></i>Genjer Hijau</a>
-        <a href="lyric/timpang" class="item"><i class="fas fa-music"></i>Timpang</a>
-        <a href="lyric/babylonburn" class="item"><i class="fas fa-music"></i>Babylon Burn</a>
-        <a href="lyric/propaganda" class="item"><i class="fas fa-music"></i>Propaganda</a>
-        <a href="lyric/bayangsinggasana" class="item"><i class="fas fa-music"></i>Bayang Singgasana</a>
-        <a href="lyric/blazeitup" class="item"><i class="fas fa-music"></i>Blaze It Up</a>
-        <a href="lyric/evaluasilagi" class="item"><i class="fas fa-music"></i>Evaluasi Lagi</a>
-        <a href="lyric/iramahidup" class="item"><i class="fas fa-music"></i>Irama Hidup</a>
-        <a href="lyric/jamaicansound" class="item"><i class="fas fa-music"></i>Jamaican Sound</a>
-        <a href="lyric/ormastiputipu" class="item"><i class="fas fa-music"></i>Ormas Tipu-tipu</a>
-        <a href="lyric/rootsmedication" class="item"><i class="fas fa-music"></i>Roots Medication</a>
-        <a href="lyric/skankpatrol" class="item"><i class="fas fa-music"></i>Skank Patrol</a>
-        <a href="lyric/rebornriddim" class="item"><i class="fas fa-music"></i>Reborn Riddim</a>
-        <a href="lyric/autopsimic" class="item"><i class="fas fa-music"></i>Autopsi Mic</a>
-        <a href="lyric/salamdaritimur" class="item"><i class="fas fa-music"></i>Salam Dari Timur</a>
-        <a href="lyric/mantramalam" class="item"><i class="fas fa-music"></i>Mantra Malam</a>
-        <a href="lyric/magicmushroom" class="item"><i class="fas fa-music"></i>Magic Mushroom</a>
-        <a href="lyric/rastaman" class="item"><i class="fas fa-music"></i>Rastaman</a>
-        <a href="lyric/melayangpelan" class="item"><i class="fas fa-music"></i>Melayang Pelan</a>
-        <a href="lyric/tanahhijau" class="item"><i class="fas fa-music"></i>Tanah Hijau</a>
-        <a href="lyric/bbmbusuk" class="item"><i class="fas fa-music"></i>BBM Busuk</a>
-        <a href="lyric/kabursajadulu" class="item"><i class="fas fa-music"></i>Kabur Saja Dulu</a>
-        </div>
-    <div class="footer-text" style="text-align: center; margin-top: 20px;">
-    <a href="/copyright" style="text-decoration: none; color: #333; font-size: 11px; display: inline-block; transition: 0.3s; letter-spacing: 0.5px;">
-        © 2026 SAI Roots Music. All Rights Reserved.
-    </a>
+
+<!-- ══════════════════════════════════════
+     HEADER
+══════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">SAI <span>Roots</span></a>
+    <div class="header-search">
+      <input type="text" id="globalSearch" placeholder="Cari lagu, lirik, artikel..." autocomplete="off">
+      <span class="search-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </span>
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="side-nav" id="sideNav">
+  <ul>
+    <li><a href="/">🏠 Beranda</a></li>
+    <li><a href="/discography">🎵 Discography</a></li>
+    <li><a href="/lyric" class="active">📝 Koleksi Lirik</a></li>
+    <li><a href="/article">📰 Artikel</a></li>
+    <li><a href="/video-cover">🎬 Video Cover</a></li>
+  </ul>
+  <div class="nav-divider"></div>
+  <ul class="nav-secondary">
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/privacy">Privacy Policy</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════
+     MAIN
+══════════════════════════════════════ -->
+<main class="main-content">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="/">Beranda</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Koleksi Lirik</span>
+      </div>
+      <h1>📝 Koleksi Lirik</h1>
+      <p>Semua lirik lagu SAI Roots Music — dari album hingga single.</p>
+    </div>
+  </div>
+
+  <div class="section">
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn album" data-filter="album">💿 Album</button>
+      <button class="filter-btn single" data-filter="single">🎵 Single</button>
+      <div class="filter-search">
+        <input type="text" id="lyricSearch" placeholder="Cari judul lagu...">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- SORT BAR -->
+    <div class="sort-bar">
+      <span>Urutkan:</span>
+      <select class="sort-select" id="sortSelect">
+        <option value="newest">Terbaru</option>
+        <option value="oldest">Terlama</option>
+        <option value="az">A–Z</option>
+        <option value="za">Z–A</option>
+      </select>
+      <span class="result-count" id="resultCount">Memuat...</span>
+    </div>
+
+    <!-- LYRIC GRID -->
+    <div class="lyric-grid" id="lyricGrid">
+      <div class="lyric-loading">
+        <div class="spinner"></div>
+        <p style="color:var(--text-muted);margin-top:12px;">Memuat koleksi lirik...</p>
+      </div>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination" id="lyricPagination"></div>
+
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════
+     LYRIC DETAIL MODAL
+══════════════════════════════════════ -->
+<div class="lyric-modal-overlay" id="lyricModalOverlay">
+  <div class="lyric-modal" id="lyricModal">
+    <div class="lm-header" id="lmHeader">
+      <button class="lm-close" id="lmClose" aria-label="Tutup">✕</button>
+      <span class="lm-badge" id="lmBadge">Single</span>
+      <div class="lm-title" id="lmTitle"></div>
+      <div class="lm-meta" id="lmMeta"></div>
+    </div>
+    <div class="lm-body">
+      <div class="lm-lyric-text" id="lmLyricText"></div>
+    </div>
+    <div class="lm-actions">
+      <button class="lm-action-btn copy" id="lmCopyBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        Salin Lirik
+      </button>
+      <button class="lm-action-btn share" id="lmShareBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        Bagikan
+      </button>
+      <a class="lm-action-btn" id="lmSpotifyBtn" href="#" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Dengarkan di Spotify
+      </a>
+    </div>
+  </div>
 </div>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "MusicGroup",
-      "@id": "https://sairootsmusic.com/#artist",
-      "name": "SAI Roots",
-      "alternateName": ["Sairoots", "SAI Roots Official", "SAI Roots Music", "SAI Roots Indonesia", "SAI Roots"],
-      "description": "SAI Roots adalah proyek musik independen asal Indonesia yang menggabungkan unsur roots reggae dan rap dalam satu karakter musikal yang khas. Perpaduan groove reggae yang santai dengan vokal rap yang ritmis menciptakan warna musik yang seimbang antara nuansa dan penyampaian pesan. Menggabungkan groove khas reggae yang hangat dengan delivery rap yang tajam, SAI Roots menghadirkan karya yang tidak hanya enak didengar, tetapi juga sarat makna. Lirik-liriknya berbicara tentang realita sosial, kritik terhadap sistem, hingga refleksi kehidupan dengan pendekatan yang jujur dan tanpa kompromi. Sebagai proyek independen, SAI Roots berjalan dengan pendekatan mandiri dan terus berupaya berkembang dalam skena musik reggae Indonesia.",
-      "url": "https://sairootsmusic.com",
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg",
-        "width": 1200,
-        "height": 1200,
-        "caption": "SAI Roots Official Artwork - Artis Roots Reggae Rap Indie Indonesia",
-        "description": "Foto resmi SAI Roots, proyek musik independen asal Indonesia"
-      },
-      "genre": ["Roots Reggae", "Reggae", "Rap", "Hip Hop", "Indie", "Ska", "Conscious Rap", "Indonesian Reggae", "Indonesian Hip Hop"],
-      "keywords": "SAI Roots, roots reggae Indonesia, rap Indonesia, reggae rap, kritik sosial, conscious music, musik indie Indonesia, critical fire album, reborn riddim, propaganda sai roots, drama klenik, blaze it up, eksploitasi, senandung manis",
-      "foundingDate": "2024",
-      "originPlace": {
-        "@type": "Place",
-        "name": "Indonesia"
-      },
-      "sameAs": [
-        "https://www.youtube.com/@sairoots",
-        "https://youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA",
-        "https://music.youtube.com/channel/UCnjRvftn7QD2kDqLHszImsA",
-        "https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr",
-        "https://music.apple.com/id/artist/sai-roots/1892187423",
-        "https://soundcloud.com/sairoots",
-        "https://instagram.com/ahmadsupembri",
-        "https://tiktok.com/@ahmadsupembri",
-        "https://facebook.com/ahmadsupembri",
-        "https://x.com/ahmadsupembri",
-        "https://genius.com/artists/Sai-roots",
-        "https://www.musixmatch.com/artist/SAI-Roots",
-        "https://lyrics.lyricfind.com/artists/sai-roots"
-      ],
-      "member": [
-        {
-          "@type": "OrganizationRole",
-          "member": { "@id": "https://sairootsmusic.com/#producer" },
-          "roleName": ["Solo Artist", "Vocalist", "Rapper", "Songwriter", "Composer", "Music Producer", "Founder"]
-        }
-      ],
-      "subjectOf": [
-        { "@id": "https://sairootsmusic.com/music" },
-        { "@id": "https://sairootsmusic.com/lirik" },
-        { "@id": "https://sairootsmusic.com/tentang" },
-        { "@id": "https://sairootsmusic.com/credits" }
-      ]
-    },
-    {
-      "@type": "Person",
-      "@id": "https://sairootsmusic.com/#producer",
-      "name": "Ahmad Supembri",
-      "alternateName": ["Pembri", "Ahmad Supembri SAI Roots"],
-      "description": "Ahmad Supembri, yang juga dikenal sebagai Pembri, adalah songwriter dan composer di balik proyek musik SAI Roots. Ia yang menciptakan seluruh lagu, menulis lirik, mengomposisi musik, dan memproduksi semua karya SAI Roots mulai dari album Critical Fire hingga Reborn Riddim serta berbagai single yang telah dirilis. Sebagai satu-satunya kreator di balik proyek ini, ia bertanggung jawab penuh atas seluruh proses kreatif dari awal hingga akhir.",
-      "jobTitle": ["Songwriter", "Composer", "Music Producer", "Founder"],
-      "url": "https://instagram.com/ahmadsupembri",
-      "image": [
-        "https://sairootsmusic.com/photos/IMG_0144.png",
-        "https://sairootsmusic.com/photos/IMG_0337.jpg",
-        "https://sairootsmusic.com/photos/IMG_0220.jpg"
-      ],
-      "sameAs": [
-        "https://instagram.com/ahmadsupembri",
-        "https://tiktok.com/@ahmadsupembri",
-        "https://facebook.com/ahmadsupembri",
-        "https://x.com/ahmadsupembri"
-      ]
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://sairootsmusic.com/#label",
-      "name": "SAI Roots Music",
-      "legalName": "SAI Roots Music Records",
-      "url": "https://sairootsmusic.com",
-      "description": "Label musik independen yang menaungi proyek SAI Roots dan fokus pada produksi musik roots reggae, rap, dan indie dengan pesan emosional serta kritik sosial.",
-      "founder": { "@id": "https://sairootsmusic.com/#producer" },
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg"
-      }
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://sairootsmusic.com/music",
-      "name": "SAI Roots Discography",
-      "description": "Daftar lengkap album dan single resmi SAI Roots.",
-      "numberOfItems": 19,
-      "itemListElement": [
-        {
-          "@type": "MusicAlbum",
-          "name": "Critical Fire",
-          "byArtist": { "@id": "https://sairootsmusic.com/#artist" },
-          "numTracks": 10,
-          "track": [
-            {"@type": "MusicRecording", "name": "Babylon Burn"},
-            {"@type": "MusicRecording", "name": "Bayang Singgasana"},
-            {"@type": "MusicRecording", "name": "Blaze It Up"},
-            {"@type": "MusicRecording", "name": "Evaluasi Lagi"},
-            {"@type": "MusicRecording", "name": "Irama Hidup"},
-            {"@type": "MusicRecording", "name": "Jamaican Sound"},
-            {"@type": "MusicRecording", "name": "Ormas Tipu-tipu"},
-            {"@type": "MusicRecording", "name": "Propaganda"},
-            {"@type": "MusicRecording", "name": "Roots Medication"},
-            {"@type": "MusicRecording", "name": "Skank Patrol"}
-          ]
-        },
-        {
-          "@type": "MusicAlbum",
-          "name": "Reborn Riddim",
-          "byArtist": { "@id": "https://sairootsmusic.com/#artist" },
-          "numTracks": 10,
-          "track": [
-            {"@type": "MusicRecording", "name": "Reborn Riddim"},
-            {"@type": "MusicRecording", "name": "Autopsi Mic"},
-            {"@type": "MusicRecording", "name": "Salam Dari Timur"},
-            {"@type": "MusicRecording", "name": "Mantra Malam"},
-            {"@type": "MusicRecording", "name": "Magic Mushroom"},
-            {"@type": "MusicRecording", "name": "Rastaman"},
-            {"@type": "MusicRecording", "name": "Melayang Pelan"},
-            {"@type": "MusicRecording", "name": "Tanah Hijau"},
-            {"@type": "MusicRecording", "name": "BBM Busuk"},
-            {"@type": "MusicRecording", "name": "Kabur Saja Dulu"}
-          ]
-        },
-        {
-          "@type": "MusicRecording",
-          "name": "Drama Klenik",
-          "byArtist": { "@id": "https://sairootsmusic.com/#artist" }
-        },
-        {
-          "@type": "MusicRecording",
-          "name": "Senandung Manis",
-          "byArtist": { "@id": "https://sairootsmusic.com/#artist" }
-        },
-        {
-          "@type": "MusicRecording",
-          "name": "Eksploitasi",
-          "byArtist": { "@id": "https://sairootsmusic.com/#artist" }
-        },
-        {
-          "@type": "MusicRecording",
-          "name": "Jurus Liar",
-          "byArtist": { "@id": "https://sairootsmusic.com/#artist" }
-        },
-        {
-          "@type": "MusicRecording",
-          "name": "Dari Jauh",
-          "byArtist": { "@id": "https://sairootsmusic.com/#artist" }
-        },
-        {
-          "@type": "MusicRecording",
-          "name": "Kasih Mengalun",
-          "byArtist": { "@id": "https://sairootsmusic.com/#artist" }
-        },
-        {
-          "@type": "MusicRecording",
-          "name": "Genjer Hijau",
-          "byArtist": { "@id": "https://sairootsmusic.com/#artist" }
-        }
-      ]
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://sairootsmusic.com/lirik",
-      "name": "SAI Roots Official Lyrics Library",
-      "description": "Kumpulan lirik lagu resmi SAI Roots yang ditulis oleh Ahmad Supembri.",
-      "numberOfItems": 32
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://sairootsmusic.com/#website",
-      "url": "https://sairootsmusic.com",
-      "name": "SAI Roots Official Website",
-      "description": "Situs resmi proyek musik independen SAI Roots asal Indonesia."
-    }
-  ]
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-social">
+      <a href="https://www.youtube.com/@sairoots" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        YouTube
+      </a>
+      <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="#FF0000"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12z"/></svg>
+        YouTube Music
+      </a>
+      <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Spotify
+      </a>
+      <a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="#FA243C"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79        -3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Apple Music
+      </a>
+      <a href="https://m.soundcloud.com/sairoots" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="#FF5500"><path d="M11.56 8.87V17h8.76c1.24-.02 2.17-.82 2.17-2.02 0-1.2-.93-2-2.05-2.08-.05-.01-.1-.01-.15-.01-.13 0-.26.01-.39.04.08-.28.12-.57.12-.88 0-1.77-1.43-3.2-3.2-3.2-.68 0-1.31.22-1.82.59-.35-1.96-2.08-3.44-4.17-3.44-2.33 0-4.22 1.9-4.22 4.24 0 .28.03.55.07.82C4.38 12.45 3 13.94 3 15.72c0 1.77 1.38 3.28 3.14 3.28h5.42V8.87z"/></svg>
+        SoundCloud
+      </a>
+      <a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="#A238FF"><path d="M18.81 11.784h-2.49v1.215h2.49v-1.215zm0-2.431h-2.49v1.216h2.49V9.353zm0 4.862h-2.49v1.216h2.49v-1.216zm-3.675 0h-2.492v1.216h2.492v-1.216zm0-2.431h-2.492v1.215h2.492v-1.215zm0-2.431h-2.492v1.216h2.492V9.353zm-3.674 4.862H9.959v1.216h2.492v-1.216zm0-2.431H9.959v1.215h2.492v-1.215zm0-2.431H9.959v1.216h2.492V9.353zm-3.675 4.862H5.294v1.216h2.492v-1.216zm0-2.431H5.294v1.215h2.492v-1.215zm0 4.902H5.294V15.93h2.492v1.216zM2 14.216h2.491v-1.216H2v1.216zm0 2.43h2.491V15.43H2v1.216z"/></svg>
+        Deezer
+      </a>
+      <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="#FF9900"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.699-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.073-1.047-.872-1.237-1.276-1.814-2.106-1.734 1.767-2.962 2.297-5.209 2.297-2.66 0-4.731-1.641-4.731-4.925 0-2.565 1.391-4.309 3.37-5.164 1.715-.754 4.109-.891 5.942-1.097v-.41c0-.753.06-1.642-.383-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.897-.054.285-.261.567-.549.582l-3.061-.333c-.259-.056-.548-.266-.472-.661C5.754 2.507 8.816 1.5 11.56 1.5c1.4 0 3.231.373 4.337 1.435 1.403 1.308 1.269 3.053 1.269 4.952v4.484c0 1.349.561 1.941 1.089 2.67.186.261.226.574-.009.769-.591.487-1.639 1.394-2.213 1.902l.011-.917zM21.5 18.493c-2.44 1.843-5.978 2.822-9.024 2.822-4.269 0-8.11-1.578-11.015-4.202-.228-.206-.025-.487.249-.328 3.137 1.826 7.013 2.926 11.022 2.926 2.703 0 5.672-.56 8.402-1.718.413-.175.757.271.366.5z"/></svg>
+        Amazon Music
+      </a>
+      <a href="https://instagram.com/ahmadsupembri" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="url(#igGrad)">
+          <defs>
+            <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#f09433"/>
+              <stop offset="25%" style="stop-color:#e6683c"/>
+              <stop offset="50%" style="stop-color:#dc2743"/>
+              <stop offset="75%" style="stop-color:#cc2366"/>
+              <stop offset="100%" style="stop-color:#bc1888"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a href="https://tiktok.com/@ahmadsupembri" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+        TikTok
+      </a>
+      <a href="https://facebook.com/ahmadsupembri" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+    </div>
+
+    <div class="footer-links">
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">© 2026 SAI Roots Music. All Rights Reserved</p>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+// ══════════════════════════════════════
+// CONFIG
+// ══════════════════════════════════════
+const REPO        = 'sairootsmusic/sairootsmusic.com';
+const LYRIC_PATH  = 'lyric';
+const RAW_BASE    = `https://raw.githubusercontent.com/${REPO}/main`;
+const API_BASE    = `https://api.github.com/repos/${REPO}/contents/${LYRIC_PATH}`;
+const PER_PAGE    = 12;
+
+// ══════════════════════════════════════
+// STATE
+// ══════════════════════════════════════
+let allLyrics     = [];
+let filtered      = [];
+let currentPage   = 1;
+let activeFilter  = 'all';
+let currentLyric  = null;
+
+// ══════════════════════════════════════
+// HEADER: HAMBURGER
+// ══════════════════════════════════════
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const sideNav      = document.getElementById('sideNav');
+const navOverlay   = document.getElementById('navOverlay');
+
+hamburgerBtn.addEventListener('click', () => {
+  hamburgerBtn.classList.toggle('active');
+  sideNav.classList.toggle('active');
+  navOverlay.classList.toggle('active');
+});
+navOverlay.addEventListener('click', closeNav);
+function closeNav() {
+  hamburgerBtn.classList.remove('active');
+  sideNav.classList.remove('active');
+  navOverlay.classList.remove('active');
 }
+
+// ══════════════════════════════════════
+// GLOBAL SEARCH
+// ══════════════════════════════════════
+const globalSearch  = document.getElementById('globalSearch');
+const searchResults = document.getElementById('searchResults');
+
+globalSearch.addEventListener('input', async function() {
+  const q = this.value.trim();
+  if (q.length < 2) { searchResults.classList.remove('active'); return; }
+  const results = allLyrics.filter(l =>
+    l.title.toLowerCase().includes(q.toLowerCase()) ||
+    (l.album && l.album.toLowerCase().includes(q.toLowerCase()))
+  ).slice(0, 6);
+  if (!results.length) { searchResults.classList.remove('active'); return; }
+  searchResults.innerHTML = results.map(l => `
+    <div class="search-result-item" onclick="openLyricById('${l.slug}')">
+      <span class="result-type lyric">Lirik</span>
+      <span class="result-title">${l.title}</span>
+    </div>
+  `).join('');
+  searchResults.classList.add('active');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.header-search')) searchResults.classList.remove('active');
+});
+
+// ══════════════════════════════════════
+// FETCH LYRICS FROM GITHUB
+// ══════════════════════════════════════
+async function fetchLyrics() {
+  try {
+    const res  = await fetch(API_BASE);
+    if (!res.ok) throw new Error('Gagal mengambil data');
+    const files = await res.json();
+    const jsonFiles = files.filter(f => f.name.endsWith('.json'));
+
+    const promises = jsonFiles.map(f =>
+      fetch(f.download_url).then(r => r.json()).catch(() => null)
+    );
+    const results = await Promise.all(promises);
+    allLyrics = results
+      .filter(Boolean)
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    applyFilter();
+  } catch (err) {
+    document.getElementById('lyricGrid').innerHTML = `
+      <div class="lyric-loading">
+        <div class="empty-state">
+          <div class="empty-icon">🎵</div>
+          <h3>Belum ada lirik</h3>
+          <p>Lirik akan segera hadir. Pantau terus!</p>
+        </div>
+      </div>`;
+    document.getElementById('resultCount').textContent = '0 lirik';
+  }
+}
+
+// ══════════════════════════════════════
+// FILTER & SORT
+// ══════════════════════════════════════
+function applyFilter() {
+  const q    = document.getElementById('lyricSearch').value.trim().toLowerCase();
+  const sort = document.getElementById('sortSelect').value;
+
+  filtered = allLyrics.filter(l => {
+    const matchCat = activeFilter === 'all' || l.category === activeFilter;
+    const matchQ   = !q || l.title.toLowerCase().includes(q) ||
+                     (l.album && l.album.toLowerCase().includes(q));
+    return matchCat && matchQ;
+  });
+
+  filtered.sort((a, b) => {
+    if (sort === 'newest') return new Date(b.date) - new Date(a.date);
+    if (sort === 'oldest') return new Date(a.date) - new Date(b.date);
+    if (sort === 'az')     return a.title.localeCompare(b.title);
+    if (sort === 'za')     return b.title.localeCompare(a.title);
+    return 0;
+  });
+
+  currentPage = 1;
+  renderLyrics();
+}
+
+// ══════════════════════════════════════
+// RENDER
+// ══════════════════════════════════════
+function renderLyrics() {
+  const grid  = document.getElementById('lyricGrid');
+  const count = document.getElementById('resultCount');
+  const total = filtered.length;
+  const start = (currentPage - 1) * PER_PAGE;
+  const end   = start + PER_PAGE;
+  const page  = filtered.slice(start, end);
+
+  count.textContent = `${total} lirik ditemukan`;
+
+  if (!page.length) {
+    grid.innerHTML = `
+      <div class="lyric-loading">
+        <div class="empty-state">
+          <div class="empty-icon">🔍</div>
+          <h3>Tidak ditemukan</h3>
+          <p>Coba kata kunci lain atau ubah filter.</p>
+        </div>
+      </div>`;
+    document.getElementById('lyricPagination').innerHTML = '';
+    return;
+  }
+
+  grid.innerHTML = page.map((l, i) => `
+    <div class="lyric-card ${l.category || 'single'}"
+         onclick="openLyric(${start + i})"
+         data-slug="${l.slug}">
+      <div class="lc-header">
+        <span class="lc-badge ${l.category || 'single'}">
+          ${l.category === 'album' ? '💿 Album' : '🎵 Single'}
+        </span>
+        <span class="lc-num">#${String(start + i + 1).padStart(2,'0')}</span>
+      </div>
+      <div class="lc-title">${escHtml(l.title)}</div>
+      ${l.album ? `<div class="lc-album">📀 ${escHtml(l.album)}</div>` : ''}
+      ${l.preview ? `<div class="lc-preview">${escHtml(l.preview)}</div>` : ''}
+      <div class="lc-footer">
+        <span class="lc-date">${formatDate(l.date)}</span>
+        <span class="lc-read">Baca Lirik →</span>
+      </div>
+    </div>
+  `).join('');
+
+  renderPagination(total);
+}
+
+function renderPagination(total) {
+  const pages = Math.ceil(total / PER_PAGE);
+  const pag   = document.getElementById('lyricPagination');
+  if (pages <= 1) { pag.innerHTML = ''; return; }
+
+  let html = '';
+  for (let i = 1; i <= pages; i++) {
+    html += `<button class="page-btn ${i === currentPage ? 'active' : ''}"
+      onclick="goPage(${i})">${i}</button>`;
+  }
+  pag.innerHTML = html;
+}
+
+function goPage(p) {
+  currentPage = p;
+  renderLyrics();
+  window.scrollTo({ top: 200, behavior: 'smooth' });
+}
+
+// ══════════════════════════════════════
+// OPEN LYRIC MODAL
+// ══════════════════════════════════════
+function openLyric(index) {
+  currentLyric = filtered[index];
+  showLyricModal(currentLyric);
+}
+
+function openLyricById(slug) {
+  const l = allLyrics.find(x => x.slug === slug);
+  if (l) { currentLyric = l; showLyricModal(l); }
+  searchResults.classList.remove('active');
+  globalSearch.value = '';
+}
+
+function showLyricModal(l) {
+  document.getElementById('lmBadge').className = `lm-badge ${l.category || 'single'}`;
+  document.getElementById('lmBadge').textContent = l.category === 'album' ? '💿 Album' : '🎵 Single';
+  document.getElementById('lmTitle').textContent = l.title;
+  document.getElementById('lmMeta').textContent  =
+    [l.album ? `Album: ${l.album}` : '', l.date ? formatDate(l.date) : ''].filter(Boolean).join(' · ');
+  document.getElementById('lmLyricText').innerHTML = formatLyric(l.lyric || l.content || '');
+
+  // Spotify link
+  const spotifyBtn = document.getElementById('lmSpotifyBtn');
+  if (l.spotify_url) {
+    spotifyBtn.href = l.spotify_url;
+    spotifyBtn.style.display = 'inline-flex';
+  } else {
+    spotifyBtn.href = 'https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr';
+    spotifyBtn.style.display = 'inline-flex';
+  }
+
+  // URL clean
+  history.pushState(null, '', `/lyric/${l.slug}`);
+
+  document.getElementById('lyricModalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLyricModal() {
+  document.getElementById('lyricModalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+  history.pushState(null, '', '/lyric');
+}
+
+document.getElementById('lmClose').addEventListener('click', closeLyricModal);
+document.getElementById('lyricModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeLyricModal();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLyricModal();
+});
+
+// ══════════════════════════════════════
+// COPY & SHARE
+// ══════════════════════════════════════
+document.getElementById('lmCopyBtn').addEventListener('click', () => {
+  if (!currentLyric) return;
+  const text = `${currentLyric.title}\nSAI Roots Music\n\n${currentLyric.lyric || currentLyric.content || ''}`;
+  navigator.clipboard.writeText(text).then(() => showToast('✅ Lirik berhasil disalin!'));
+});
+
+document.getElementById('lmShareBtn').addEventListener('click', () => {
+  if (!currentLyric) return;
+  const url = `${location.origin}/lyric/${currentLyric.slug}`;
+  if (navigator.share) {
+    navigator.share({
+      title: `${currentLyric.title} — SAI Roots Music`,
+      text: `Baca lirik "${currentLyric.title}" di SAI Roots Music`,
+      url
+    });
+  } else {
+    navigator.clipboard.writeText(url).then(() => showToast('🔗 Link disalin!'));
+  }
+});
+
+// ══════════════════════════════════════
+// FILTER BUTTONS
+// ══════════════════════════════════════
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    activeFilter = this.dataset.filter;
+    applyFilter();
+  });
+});
+
+document.getElementById('lyricSearch').addEventListener('input', applyFilter);
+document.getElementById('sortSelect').addEventListener('change', applyFilter);
+
+// ══════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════
+function formatLyric(text) {
+  return text
+    .replace(/\[([^\]]+)\]/g, '<span class="verse-label">[$1]</span>')
+    .replace(/\n/g, '<br>');
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  return new Date(d).toLocaleDateString('id-ID', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+}
+
+function escHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ══════════════════════════════════════
+// CLEAN URL ROUTING
+// ══════════════════════════════════════
+function checkDirectUrl() {
+  const path  = location.pathname;
+  const match = path.match(/^\/lyric\/(.+)$/);
+  if (match) {
+    const slug = match[1];
+    const tryOpen = () => {
+      const l = allLyrics.find(x => x.slug === slug);
+      if (l) { currentLyric = l; showLyricModal(l); }
+    };
+    if (allLyrics.length) tryOpen();
+    else setTimeout(tryOpen, 1500);
+  }
+}
+
+// ══════════════════════════════════════
+// PAGINATION STYLE (inject)
+// ══════════════════════════════════════
+const style = document.createElement('style');
+style.textContent = `
+  .page-btn {
+    width: 40px; height: 40px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: var(--text);
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all var(--transition);
+    font-family: var(--font-main);
+  }
+  .page-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .page-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+`;
+document.head.appendChild(style);
+
+// ══════════════════════════════════════
+// INIT
+// ══════════════════════════════════════
+fetchLyrics().then(checkDirectUrl);
 </script>
-    
 </body>
 </html>
