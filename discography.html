@@ -1,178 +1,197 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0d0d0d" />
+<meta name="description" content="Dicography SAI Roots Music — Koleksi album dan single lengkap dengan pemutar musik streaming langsung dari website." />
+<meta name="keywords" content="SAI Roots dicography, album SAI Roots, single SAI Roots, musik streaming" />
+<meta name="author" content="SAI Roots Music" />
+<meta property="og:title" content="SAI Roots Music — Dicography" />
+<meta property="og:description" content="Koleksi album dan single SAI Roots Music." />
+<meta property="og:image" content="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" />
+<meta property="og:url" content="https://sairootsmusic.com/dicography" />
+<meta property="og:type" content="music.album" />
+<meta name="twitter:card" content="summary_large_image" />
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "SAI Roots Music",
-      "url": "https://sairootsmusic.com"
-    }
-    </script>
-    
-    <link rel="canonical" href="https://sairootsmusic.com/discography" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-    <link rel="manifest" href="/site.webmanifest">
+<title>SAI Roots Music — Dicography</title>
 
-    <title>Discography | SAI Roots Music</title>
-    <meta name="description" content="Koleksi album dan single resmi dari SAI Roots Music. Dengarkan rilis terbaru dan streaming langsung di platform musik favorit Anda.">
-    
-    <meta property="og:title" content="Discography | SAI Roots Music">
-    <meta property="og:site_name" content="SAI Roots Music">
-    <meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
-    <meta property="og:url" content="https://sairootsmusic.com/discography">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="/style.css">
+<link rel="icon" href="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" />
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" />
+<link rel="canonical" href="https://sairootsmusic.com/dicography" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+<!-- Struktur Lama (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SAI Roots Music — Dicography",
+  "url": "https://sairootsmusic.com"
+}
+</script>
 </head>
 <body>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg" alt="SAI Roots Logo">
-                <span>SAI Roots</span>
-            </a>
-            
-            <div class="search-container">
-                <input type="text" id="smartSearch" class="search-bar" placeholder="Cari lirik, artikel, rilis..." autocomplete="off">
-                <div id="searchResultWrapper"></div>
-            </div>
+<!-- ============ HEADER (SAMA DI SEMUA HALAMAN) ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="brand">
+      <img src="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" alt="SAI Roots Logo" />
+      <span>SAI Roots</span>
+    </a>
 
-            <button class="nav-toggle" id="menuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
+    <div class="search-wrap">
+      <input type="text" id="smartSearch" placeholder="Cari lagu, lirik, artikel..." autocomplete="off" />
+      <div id="searchResults" class="search-results"></div>
+    </div>
 
-            <nav class="nav-links" id="navLinks">
-                <a href="/discography">Discography</a>
-                <a href="/lyric">Koleksi Lirik</a>
-                <a href="/article">Artikel</a>
-                <a href="/video_cover">Video Cover</a>
-                <span class="nav-sep">|</span>
-                <a href="/about">About</a>
-                <a href="/contact">Contact</a>
-                <a href="/privacy">Privacy Policy</a>
-            </nav>
-        </div>
-    </header>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
-    <main>
-        <header style="margin-bottom: 40px;">
-            <h1 class="page-title">Discography</h1>
-            <p class="page-description">Koleksi rilis resmi SAI Roots. Dengarkan melalui platform streaming favorit Anda.</p>
-        </header>
+  <nav class="main-nav" id="mainNav">
+    <a href="/dicography" class="active">Dicography</a>
+    <a href="/lyric">Koleksi Lirik</a>
+    <a href="/article">Artikel</a>
+    <a href="/video_cover">Video Cover</a>
+    <span class="nav-sep">|</span>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy">Privacy Policy</a>
+  </nav>
+</header>
 
-        <div id="musicContainer">
-            <p style="color: var(--text-secondary); text-align: center;">Memuat katalog musik...</p>
-        </div>
-    </main>
+<!-- ============ MAIN ============ -->
+<main class="container">
 
-    <footer>
-        <div class="social-grid">
-            <a href="https://www.youtube.com/@sairoots" target="_blank" class="social-link"><i class="fab fa-youtube"></i> YouTube</a>
-            <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" class="social-link"><i class="fas fa-play-circle"></i> YouTube Music</a>
-            <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank" class="social-link"><i class="fab fa-spotify"></i> Spotify</a>
-            <a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id" target="_blank" class="social-link"><i class="fab fa-apple"></i> Apple Music</a>
-            <a href="https://m.soundcloud.com/sairoots" target="_blank" class="social-link"><i class="fab fa-soundcloud"></i> SoundCloud</a>
-            <a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank" class="social-link"><i class="fab fa-deezer"></i> Deezer</a>
-            <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank" class="social-link"><i class="fab fa-amazon"></i> Amazon Music</a>
-            <a href="https://instagram.com/ahmadsupembri" target="_blank" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="https://tiktok.com/@ahmadsupembri" target="_blank" class="social-link"><i class="fab fa-tiktok"></i> Tiktok</a>
-            <a href="https://facebook.com/ahmadsupembri" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i> Facebook</a>
-        </div>
+  <section class="page-head">
+    <h1>Dicography</h1>
+    <p>Seluruh perjalanan suara SAI Roots — dari single pertama hingga album terbaru.</p>
+  </section>
 
-        <div class="footer-nav">
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
-            <a href="/privacy">Privacy Policy</a>
-        </div>
+  <section class="section">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="album">Album</button>
+      <button class="filter-btn" data-filter="single">Single</button>
+    </div>
 
-        <div class="copyright">
-            © 2026 SAI Roots Music. All Rights Reserved
-        </div>
-    </footer>
+    <div id="musicGrid" class="music-grid">
+      <div class="loading">Memuat koleksi musik...</div>
+    </div>
+  </section>
 
-    <script>
-        // 1. NAVIGATION & SEARCH SYSTEM (IDENTIK)
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
-        const searchInput = document.getElementById('smartSearch');
-        const searchWrapper = document.getElementById('searchResultWrapper');
+</main>
 
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuBtn.querySelector('i').classList.toggle('fa-bars');
-            menuBtn.querySelector('i').classList.toggle('fa-times');
-        });
+<!-- ============ MUSIC PLAYER (Spotify-style) ============ -->
+<div id="musicPlayer" class="music-player hidden">
+  <div class="mp-track-info">
+    <img id="mpCover" src="" alt="cover" />
+    <div class="mp-meta">
+      <div id="mpTitle" class="mp-title">—</div>
+      <div id="mpArtist" class="mp-artist">SAI Roots</div>
+    </div>
+  </div>
 
-        searchInput.addEventListener('input', async (e) => {
-            const query = e.target.value.toLowerCase();
-            if (query.length < 2) { searchWrapper.style.display = 'none'; return; }
-            try {
-                const res = await fetch('/data.json');
-                const data = await res.json();
-                let pool = [];
-                if(data.articles) pool = pool.concat(data.articles.map(i => ({...i, type: 'Artikel'})));
-                if(data.lyrics) pool = pool.concat(data.lyrics.map(i => ({...i, type: 'Lirik'})));
-                if(data.musics) pool = pool.concat(data.musics.map(i => ({...i, type: 'Musik'})));
-                const results = pool.filter(item => item.title.toLowerCase().includes(query));
-                if (results.length > 0) {
-                    searchWrapper.style.display = 'block';
-                    searchWrapper.innerHTML = results.map(item => `
-                        <div class="search-item">
-                            <span class="search-tag">${item.type}</span>
-                            <a href="${item.url}">${item.title}</a>
-                        </div>
-                    `).join('');
-                } else {
-                    searchWrapper.innerHTML = '<div class="search-item">Tidak ditemukan</div>';
-                    searchWrapper.style.display = 'block';
-                }
-            } catch (err) { console.error("Search Error"); }
-        });
+  <div class="mp-controls">
+    <div class="mp-buttons">
+      <button id="mpShuffle" class="mp-btn" title="Shuffle">⇄</button>
+      <button id="mpPrev" class="mp-btn" title="Previous">⏮</button>
+      <button id="mpPlay" class="mp-btn mp-play" title="Play">▶</button>
+      <button id="mpNext" class="mp-btn" title="Next">⏭</button>
+      <button id="mpRepeat" class="mp-btn" title="Repeat">🔁</button>
+    </div>
+    <div class="mp-progress">
+      <span id="mpCurrent">0:00</span>
+      <input type="range" id="mpSeek" min="0" max="100" value="0" />
+      <span id="mpDuration">0:00</span>
+    </div>
+  </div>
 
-        document.addEventListener('click', (e) => {
-            if (!searchInput.contains(e.target)) searchWrapper.style.display = 'none';
-        });
+  <div class="mp-extra">
+    <button id="mpShare" class="mp-btn" title="Share">↗</button>
+    <div class="mp-volume">
+      <span>🔊</span>
+      <input type="range" id="mpVolume" min="0" max="100" value="80" />
+    </div>
+    <button id="mpClose" class="mp-btn" title="Close">✕</button>
+  </div>
 
-        // 2. DISCOGRAPHY LOADER
-        async function loadDiscography() {
-            const container = document.getElementById('musicContainer');
-            try {
-                const res = await fetch('/data.json');
-                const data = await res.json();
-                const musics = data.musics || [];
+  <audio id="mpAudio" preload="metadata"></audio>
+</div>
 
-                if (musics.length === 0) {
-                    container.innerHTML = '<p style="color:var(--text-secondary); text-align:center;">Belum ada rilis musik.</p>';
-                    return;
-                }
+<!-- Share Modal -->
+<div id="shareModal" class="modal hidden">
+  <div class="modal-box">
+    <h3>Bagikan Lagu</h3>
+    <p id="shareTrackName">—</p>
+    <input type="text" id="shareLink" readonly />
+    <div class="share-buttons">
+      <button onclick="SAIRoots.copyShare()">Salin Link</button>
+      <a id="shareWA" target="_blank" rel="noopener">WhatsApp</a>
+      <a id="shareTW" target="_blank" rel="noopener">Twitter/X</a>
+      <a id="shareFB" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('shareModal').classList.add('hidden')">Tutup</button>
+  </div>
+</div>
 
-                container.innerHTML = musics.map(item => `
-                    <div class="album-item">
-                        <img src="${item.cover || 'https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg'}" alt="${item.title}" class="album-art">
-                        <div style="flex: 1; text-align: left;">
-                            <span class="card-tag">${item.category}</span>
-                            <h2 style="margin-bottom: 5px;">${item.title}</h2>
-                            <p style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:15px;">Dilis rilis: ${item.date}</p>
-                            <div class="player-box">
-                                <iframe src="${item.embedUrl}" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius: 12px;"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-            } catch (err) { container.innerHTML = '<p>Gagal memuat musik.</p>'; }
-        }
+<!-- ============ FOOTER (SAMA DI SEMUA HALAMAN) ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" alt="SAI Roots" />
+      <h3>SAI Roots Music</h3>
+      <p>Proyek musik dengan karya orisinal yang lahir dari akar rasa.</p>
+    </div>
 
-        document.addEventListener('DOMContentLoaded', loadDiscography);
-    </script>
+    <div class="footer-col">
+      <h4>Platform Musik</h4>
+      <ul class="social-list">
+        <li><a href="https://www.youtube.com/@sairoots" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" rel="noopener">YouTube Music</a></li>
+        <li><a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank" rel="noopener">Spotify</a></li>
+        <li><a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id" target="_blank" rel="noopener">Apple Music</a></li>
+        <li><a href="https://m.soundcloud.com/sairoots" target="_blank" rel="noopener">SoundCloud</a></li>
+        <li><a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank" rel="noopener">Deezer</a></li>
+        <li><a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank" rel="noopener">Amazon Music</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Sosial Media</h4>
+      <ul class="social-list">
+        <li><a href="https://instagram.com/ahmadsupembri" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://tiktok.com/@ahmadsupembri" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://facebook.com/ahmadsupembri" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Halaman</h4>
+      <ul class="link-list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 SAI Roots Music. All Rights Reserved
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/player.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.SAIRoots) {
+      window.SAIRoots.loadDicography('musicGrid');
+    }
+  });
+</script>
 </body>
 </html>
