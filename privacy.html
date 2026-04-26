@@ -1,81 +1,203 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "SAI Roots Music",
-      "url": "https://sairootsmusic.com"
-    }
-    </script>
-    <link rel="canonical" href="https://sairootsmusic.com/privacy" />
-    <title>Privacy Policy - SAI Roots Music</title>
-    <meta name="description" content="Kebijakan Privasi resmi SAI Roots Music terkait penggunaan data dan interaksi di website resmi.">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <style>
-        .privacy-body { max-width: 800px; margin: 40px auto; color: var(--text-gray); line-height: 1.7; }
-        .privacy-body h2 { color: white; margin-top: 30px; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; }
-        .privacy-body p { margin-bottom: 15px; }
-        .update-date { font-style: italic; font-size: 0.8rem; margin-bottom: 30px; }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0d0d0d" />
+<meta name="description" content="Kebijakan Privasi SAI Roots Music — bagaimana kami menangani data, cookie, dan informasi pengguna di sairootsmusic.com." />
+<meta name="keywords" content="privacy policy SAI Roots, kebijakan privasi SAI Roots Music" />
+<meta name="author" content="SAI Roots Music" />
+<meta property="og:title" content="SAI Roots Music — Privacy Policy" />
+<meta property="og:description" content="Kebijakan privasi resmi SAI Roots Music." />
+<meta property="og:image" content="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" />
+<meta property="og:url" content="https://sairootsmusic.com/privacy" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<title>SAI Roots Music — Privacy Policy</title>
+
+<link rel="icon" href="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" />
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" />
+<link rel="canonical" href="https://sairootsmusic.com/privacy" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+<!-- Struktur Lama (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SAI Roots Music — Privacy Policy",
+  "url": "https://sairootsmusic.com"
+}
+</script>
 </head>
 <body>
 
-<header>
-    <div class="logo">SAI ROOTS</div>
-    <div class="nav-container">
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="brand">
+      <img src="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" alt="SAI Roots Logo" />
+      <span>SAI Roots</span>
+    </a>
+
+    <div class="search-wrap">
+      <input type="text" id="smartSearch" placeholder="Cari lagu, lirik, artikel..." autocomplete="off" />
+      <div id="searchResults" class="search-results"></div>
     </div>
-    <nav class="nav-menu" id="navMenu">
-        <a href="/">Home</a>
-        <a href="/dicography">Discography</a>
-        <a href="/lyric">Koleksi Lirik</a>
-        <a href="/article">Artikel</a>
-        <a href="/video_cover">Video Cover</a>
-        <hr style="border: 0.5px solid #333; margin: 10px 0;">
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="/privacy">Privacy Policy</a>
-    </nav>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="main-nav" id="mainNav">
+    <a href="/dicography">Dicography</a>
+    <a href="/lyric">Koleksi Lirik</a>
+    <a href="/article">Artikel</a>
+    <a href="/video_cover">Video Cover</a>
+    <span class="nav-sep">|</span>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy" class="active">Privacy Policy</a>
+  </nav>
 </header>
 
-<main style="padding: 20px 5%; min-height: 80vh;">
-    <div class="privacy-body">
-        <h1>Privacy Policy</h1>
-        <p class="update-date">Terakhir diperbarui: April 2026</p>
+<!-- ============ MAIN ============ -->
+<main class="container">
 
-        <p>Selamat datang di <strong>SAI Roots Music</strong>. Kami sangat menghargai privasi Anda. Kebijakan ini menjelaskan bagaimana kami mengelola informasi yang mungkin terkumpul saat Anda menggunakan website kami.</p>
+  <section class="page-head">
+    <h1>Privacy Policy</h1>
+    <p>Terakhir diperbarui: 26 April 2026</p>
+  </section>
 
-        <h2>1. Pengumpulan Informasi</h2>
-        <p>Kami tidak mewajibkan pendaftaran akun untuk mengakses konten kami. Namun, saat Anda menggunakan fitur <strong>Contact</strong>, kami mengumpulkan nama dan alamat email yang Anda berikan secara sukarela untuk memproses pesan Anda.</p>
+  <section class="legal-content">
+    <h2>1. Pendahuluan</h2>
+    <p>
+      SAI Roots Music ("kami") menghormati privasi setiap pengunjung situs web
+      <strong>sairootsmusic.com</strong>. Kebijakan ini menjelaskan jenis informasi yang kami kumpulkan,
+      bagaimana kami menggunakannya, dan hak-hak Anda atas informasi tersebut.
+    </p>
 
-        <h2>2. Layanan Pihak Ketiga</h2>
-        <p>Website kami menggunakan beberapa layanan pihak ketiga untuk meningkatkan pengalaman Anda:</p>
-        <ul>
-            <li><strong>YouTube API:</strong> Digunakan untuk menampilkan koleksi video cover. Penggunaan video tunduk pada Ketentuan Layanan YouTube.</li>
-            <li><strong>Formspree:</strong> Digunakan untuk mengelola formulir kontak agar pesan Anda sampai ke kami dengan aman.</li>
-            <li><strong>Streaming Platforms:</strong> Link ke Spotify, Apple Music, dan lainnya mungkin mengumpulkan data sesuai kebijakan platform masing-masing saat Anda mengekliknya.</li>
-        </ul>
+    <h2>2. Informasi yang Kami Kumpulkan</h2>
+    <p>Kami dapat mengumpulkan informasi berikut ketika Anda berinteraksi dengan situs:</p>
+    <ul>
+      <li><strong>Informasi Kontak</strong>: nama, alamat email, dan pesan yang Anda kirim melalui formulir kontak.</li>
+      <li><strong>Data Teknis</strong>: alamat IP, jenis browser, perangkat, sistem operasi, dan halaman yang dikunjungi.</li>
+      <li><strong>Cookie & Penyimpanan Lokal</strong>: untuk menyimpan preferensi seperti tema, sesi pemutar musik, atau riwayat pencarian.</li>
+    </ul>
 
-        <h2>3. Cookie</h2>
-        <p>Kami dapat menggunakan cookie sederhana untuk menyimpan preferensi tampilan atau menganalisis lalu lintas website secara anonim guna meningkatkan kualitas konten SAI Roots.</p>
+    <h2>3. Cara Kami Menggunakan Informasi</h2>
+    <p>Informasi yang dikumpulkan digunakan untuk:</p>
+    <ul>
+      <li>Menanggapi pertanyaan, kolaborasi, atau permintaan lisensi yang dikirim melalui formulir kontak.</li>
+      <li>Meningkatkan pengalaman pengguna dan kinerja situs.</li>
+      <li>Memantau lalu lintas dan analitik agregat (tanpa identitas pribadi).</li>
+      <li>Mencegah penyalahgunaan, spam, dan aktivitas mencurigakan.</li>
+    </ul>
 
-        <h2>4. Keamanan</h2>
-        <p>Informasi yang dikirimkan melalui formulir kontak kami dikelola secara rahasia dan tidak akan dijual atau dibagikan kepada pihak luar tanpa persetujuan Anda.</p>
+    <h2>4. Layanan Pihak Ketiga</h2>
+    <p>
+      Situs ini menggunakan layanan pihak ketiga yang memiliki kebijakan privasinya sendiri,
+      di antaranya:
+    </p>
+    <ul>
+      <li><strong>Formspree</strong> — untuk pemrosesan formulir kontak.</li>
+      <li><strong>YouTube</strong> — untuk embed video.</li>
+      <li><strong>Spotify, Apple Music, Deezer, SoundCloud, Amazon Music, YouTube Music</strong> — untuk distribusi musik.</li>
+      <li><strong>GitHub Pages / Hosting</strong> — untuk hosting dan distribusi konten situs.</li>
+    </ul>
+    <p>Kami menyarankan Anda untuk membaca kebijakan privasi masing-masing layanan tersebut.</p>
 
-        <h2>5. Kontak</h2>
-        <p>Jika ada pertanyaan mengenai kebijakan privasi ini, Anda dapat menghubungi kami melalui halaman <a href="/contact" style="color: var(--primary-color);">Contact</a>.</p>
-    </div>
+    <h2>5. Cookie</h2>
+    <p>
+      Kami menggunakan cookie dan penyimpanan lokal browser untuk meningkatkan fungsionalitas situs,
+      seperti menyimpan preferensi pemutar musik atau hasil pencarian. Anda dapat menonaktifkan cookie
+      melalui pengaturan browser, namun beberapa fitur situs mungkin tidak berfungsi optimal.
+    </p>
+
+    <h2>6. Perlindungan Data</h2>
+    <p>
+      Kami berkomitmen untuk menjaga keamanan data Anda dengan praktik terbaik yang wajar.
+      Namun perlu dipahami bahwa tidak ada metode transmisi melalui internet yang sepenuhnya aman.
+    </p>
+
+    <h2>7. Hak Pengguna</h2>
+    <p>Anda berhak untuk:</p>
+    <ul>
+      <li>Mengetahui data apa saja yang kami simpan tentang Anda.</li>
+      <li>Meminta penghapusan data pribadi Anda.</li>
+      <li>Mencabut persetujuan kapan saja melalui kontak resmi kami.</li>
+    </ul>
+
+    <h2>8. Hak Cipta Musik & Konten</h2>
+    <p>
+      Seluruh karya musik, lirik, video, artikel, dan materi lainnya yang ditampilkan di situs ini
+      adalah milik SAI Roots Music dan dilindungi oleh undang-undang hak cipta yang berlaku.
+      Penggunaan ulang tanpa izin tertulis dilarang.
+    </p>
+
+    <h2>9. Perubahan Kebijakan</h2>
+    <p>
+      Kami dapat memperbarui Kebijakan Privasi ini sewaktu-waktu. Perubahan akan dipublikasikan di halaman
+      ini dengan tanggal pembaruan terbaru di bagian atas.
+    </p>
+
+    <h2>10. Hubungi Kami</h2>
+    <p>
+      Jika Anda memiliki pertanyaan terkait Kebijakan Privasi ini, silakan kirim pesan melalui
+      <a href="/contact">halaman kontak</a> atau melalui akun media sosial resmi SAI Roots Music.
+    </p>
+  </section>
+
 </main>
 
-<footer>
-    <p style="text-align: center; font-size: 0.8rem; color: var(--text-gray);">© 2026 SAI Roots Music. All Rights Reserved</p>
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" alt="SAI Roots" />
+      <h3>SAI Roots Music</h3>
+      <p>Proyek musik dengan karya orisinal yang lahir dari akar rasa.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Platform Musik</h4>
+      <ul class="social-list">
+        <li><a href="https://www.youtube.com/@sairoots" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" rel="noopener">YouTube Music</a></li>
+        <li><a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank" rel="noopener">Spotify</a></li>
+        <li><a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id" target="_blank" rel="noopener">Apple Music</a></li>
+        <li><a href="https://m.soundcloud.com/sairoots" target="_blank" rel="noopener">SoundCloud</a></li>
+        <li><a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank" rel="noopener">Deezer</a></li>
+        <li><a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank" rel="noopener">Amazon Music</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Sosial Media</h4>
+      <ul class="social-list">
+        <li><a href="https://instagram.com/ahmadsupembri" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://tiktok.com/@ahmadsupembri" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://facebook.com/ahmadsupembri" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Halaman</h4>
+      <ul class="link-list">
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 SAI Roots Music. All Rights Reserved
+  </div>
 </footer>
 
-<script src="/app.js"></script>
-
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>
