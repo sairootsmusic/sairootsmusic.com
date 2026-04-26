@@ -29,15 +29,20 @@ jobs:
           sed -i 's/\/index<\/loc>/<\/loc>/g' sitemap.xml
           
           # 2. Sisipkan daftar lagu sebelum tag penutup </urlset>
-          # Kita pakai loop biar kodenya rapi dan gak kepotong
           SONGS="drama-klenik senandung-manis eksploitasi jurus-liar dari-jauh kasih-mengalun genjer-hijau timpang babylon-burn bayang-singgasana blaze-it-up evaluasi-lagi irama-hidup jamaican-sound ormas-tipu-tipu propaganda roots-medication skank-patrol reborn-riddim autopsi-mic salam-dari-timur mantra-malam magic-mushroom rastaman melayang-pelan tanah-hijau bbm-busuk kabur-saja-dulu"
           
           for s in $SONGS; do
-            sed -i '/<\/urlset>/i <url><loc>https://sairootmusic.com/music?song='$s'<\/loc><lastmod>'"$(date +%Y-%m-%d)"'<\/lastmod><priority>0.7<\/priority><\/url>' sitemap.xml
+            sed -i '/<\/urlset>/i <url><loc>https://sairootmusic.com/music?song='$s'<\/loc><lastmod>'"$(date +%Y-%m-%d)"'</lastmod><priority>0.7</priority></url>' sitemap.xml
           done
           
-          # 3. Commit dan Push
+      - name: Commit dan Push
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add sitemap.xml
           git diff --quiet && git diff --staged --quiet || (git commit -m "SEO: Update sitemap (28 songs added)" && git push)
+
+      - name: Ping Google Search Console
+        run: |
+          # Mengirim sinyal ke Google agar segera crawl sitemap baru
+          curl "https://www.google.com/ping?sitemap=https://sairootmusic.com/sitemap.xml"
