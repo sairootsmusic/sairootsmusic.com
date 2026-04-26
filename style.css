@@ -99,3 +99,35 @@ footer {
     .menu-toggle { display: block; }
     .search-bar { width: 120px; }
 }
+
+/* Card Postingan di Index */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    background: #181818;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
