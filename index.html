@@ -1,132 +1,183 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SAI Roots Music",
+      "url": "https://sairootsmusic.com"
+    }
+    </script>
+    
+    <link rel="canonical" href="https://sairootsmusic.com/" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="manifest" href="/site.webmanifest">
 
-<!-- ========== struktur lama (jangan dihapus) ========== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "SAI Roots Music",
-  "url": "https://sairootsmusic.com"
-}
-</script>
+    <title>SAI Roots Music | Official Website</title>
+    <meta name="description" content="Official Website SAI Roots Music. Dengarkan lagu reggae rap indie terbaru, baca lirik lengkap, dan streaming di Spotify, YouTube Music, SoundCloud, serta Amazon Music.">
+    
+    <meta property="og:title" content="SAI Roots Music - Home">
+    <meta property="og:site_name" content="SAI Roots Music">
+    <meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
+    <meta property="og:url" content="https://sairootsmusic.com/">
+    <meta property="og:type" content="website">
+    <style>
+        :root { --primary: #eab308; --dark: #121212; --light: #ffffff; --grey: #27272a; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--dark); color: var(--light); margin: 0; padding: 0; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* Header & Navigation */
+        header { background: rgba(0,0,0,0.9); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--grey); }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); letter-spacing: 2px; }
+        .search-box { flex-grow: 0.5; margin: 0 20px; position: relative; }
+        .search-box input { width: 100%; padding: 8px 15px; border-radius: 20px; border: none; background: var(--grey); color: white; }
+        
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
 
-<link rel="canonical" href="https://sairootsmusic.com/">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-<link rel="manifest" href="/site.webmanifest">
+        /* Content Section */
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg'); background-size: cover; background-position: center; }
+        .container { max-width: 1100px; mx-auto; padding: 40px 5%; margin: auto; }
+        .section-title { border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 30px; font-size: 1.8rem; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--grey); padding: 20px; border-radius: 8px; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); border: 1px solid var(--primary); }
+        .card h3 { margin-top: 0; color: var(--primary); }
+        
+        /* Footer */
+        footer { background: #000; padding: 50px 5% 20px; margin-top: 50px; border-top: 1px solid var(--grey); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .social-links { display: flex; flex-wrap: wrap; gap: 15px; }
+        .social-links img { width: 24px; height: 24px; filter: grayscale(1) invert(1); transition: 0.3s; }
+        .social-links a:hover img { filter: grayscale(0) invert(0); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--grey); padding-top: 20px; font-size: 0.9rem; color: #71717a; }
 
-<title>Beranda | SAI Roots Music</title>
-<meta name="description" content="Official Website SAI Roots Music. Dengarkan lagu reggae-rap indie terbaru, baca lirik lengkap, dan ikuti artikel terkini.">
-<meta property="og:title" content="SAI Roots Music">
-<meta property="og:site_name" content="SAI Roots Music">
-<meta property="og:image" content="https://raw.githubusercontent.com/pembri/SAI-Roots-Official/main/sairoots.jpg">
-<meta property="og:url" content="https://sairootsmusic.com/">
-<meta property="og:type" content="website">
-<!-- ========== akhir struktur lama ========== -->
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; right: 0; background: var(--dark); width: 200px; padding: 20px; border: 1px solid var(--grey); }
+            .nav-links.active { display: flex; }
+            .hamburger { display: block; }
+            .search-box { display: none; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- ========== Header ========== -->
 <header>
-  <a href="/" style="text-decoration:none">
-    <img src="https://raw.githubusercontent.com/sairootsmusic/sairootsmusic.com/refs/heads/main/android-chrome-192x192.png" alt="SAI Roots Logo" width="32" height="32">
-    SAI Roots
-  </a>
-
-  <!-- Form pencarian sederhana (GET ke /search) -->
-  <form action="/search" method="get" style="display:inline-block">
-    <input type="search" name="q" placeholder="Cari di SAI Roots" aria-label="Cari">
-    <button type="submit">🔍</button>
-  </form>
-
-  <!-- Hamburger dengan <details> agar tetap murni HTML -->
-  <details style="display:inline-block">
-    <summary>☰</summary>
-    <nav>
-      <a href="/discography">Discography</a><br>
-      <a href="/lyric">Koleksi Lirik</a><br>
-      <a href="/article">Artikel</a><br>
-      <a href="/video_cover">Video Cover</a><br>
-      <hr>
-      <a href="/about">About</a><br>
-      <a href="/contact">Contact</a><br>
-      <a href="/privacy">Privacy Policy</a>
+    <div class="logo">SAI ROOTS</div>
+    <div class="search-box">
+        <input type="text" id="siteSearch" placeholder="Cari lirik atau artikel...">
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <nav class="nav-links" id="navMenu">
+        <a href="/discography">Discography</a>
+        <a href="/lyric">Koleksi Lirik</a>
+        <a href="/article">Artikel</a>
+        <a href="/video_cover">Video Cover</a>
+        <hr style="width:100%; border-color: #333;">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy Policy</a>
     </nav>
-  </details>
 </header>
 
-<hr>
+<section class="hero">
+    <h1>SAI ROOTS MUSIC</h1>
+    <p>Reggae Roots & Hip-Hop Culture from Jombang</p>
+</section>
 
-<!-- ========== Konten Utama ========== -->
-<main>
+<div class="container">
+    <h2 class="section-title">5 Postingan Terbaru</h2>
+    <div class="grid" id="latest-posts">
+        <div class="card">
+            <h3>Membedah Makna "Critical Fire"</h3>
+            <p>Eksplorasi mendalam di balik album debut SAI Roots yang rilis Maret 2026...</p>
+            <a href="/article/critical-fire-meaning" style="color:var(--primary)">Baca Selengkapnya →</a>
+        </div>
+        <div class="card">
+            <h3>Lirik: Babylon Burn</h3>
+            <p>Dapatkan lirik resmi dan terverifikasi untuk track "Babylon Burn"...</p>
+            <a href="/lyric/babylon-burn" style="color:var(--primary)">Lihat Lirik →</a>
+        </div>
+        <div class="card">
+            <h3>Reborn Riddim Project</h3>
+            <p>Update terbaru mengenai proses produksi proyek musik Reborn Riddim...</p>
+            <a href="/article/reborn-riddim-update" style="color:var(--primary)">Baca Selengkapnya →</a>
+        </div>
+        <div class="card">
+            <h3>Lirik: Propaganda</h3>
+            <p>Kritik sosial tajam dalam balutan rima reggae rap yang lugas...</p>
+            <a href="/lyric/propaganda" style="color:var(--primary)">Lihat Lirik →</a>
+        </div>
+        <div class="card">
+            <h3>Aktivitas di Musixmatch Academy</h3>
+            <p>SAI Roots kini telah terverifikasi sebagai Curator di Musixmatch...</p>
+            <a href="/article/musixmatch-certified" style="color:var(--primary)">Baca Selengkapnya →</a>
+        </div>
+    </div>
+</div>
 
-  <!-- LIRIK TERBARU -->
-  <section id="latest-lyrics">
-    <h2>Lirik Terbaru</h2>
-    <ol reversed>
-      <!-- Contoh entri; akan digantikan otomatis oleh proses posting -->
-      <li><a href="/lyric/lagu-terbaru-1">Judul Lagu Terbaru 1</a></li>
-      <li><a href="/lyric/lagu-terbaru-2">Judul Lagu Terbaru 2</a></li>
-      <li><a href="/lyric/lagu-terbaru-3">Judul Lagu Terbaru 3</a></li>
-      <li><a href="/lyric/lagu-terbaru-4">Judul Lagu Terbaru 4</a></li>
-      <li><a href="/lyric/lagu-terbaru-5">Judul Lagu Terbaru 5</a></li>
-    </ol>
-  </section>
-
-  <hr>
-
-  <!-- ARTIKEL TERBARU -->
-  <section id="latest-articles">
-    <h2>Artikel Terbaru</h2>
-    <ol reversed>
-      <!-- Contoh entri; akan digantikan otomatis oleh proses posting -->
-      <li><a href="/article/artikel-terbaru-1">Judul Artikel 1</a></li>
-      <li><a href="/article/artikel-terbaru-2">Judul Artikel 2</a></li>
-      <li><a href="/article/artikel-terbaru-3">Judul Artikel 3</a></li>
-      <li><a href="/article/artikel-terbaru-4">Judul Artikel 4</a></li>
-      <li><a href="/article/artikel-terbaru-5">Judul Artikel 5</a></li>
-    </ol>
-  </section>
-
-</main>
-
-<hr>
-
-<!-- ========== Footer ========== -->
 <footer>
-
-  <!-- Sosial media (link SAI Roots) -->
-  <p>
-    <a href="https://www.youtube.com/@sairoots" target="_blank">YouTube</a> |
-    <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank">YouTube Music</a> |
-    <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank">Spotify</a> |
-    <a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id" target="_blank">Apple Music</a> |
-    <a href="https://m.soundcloud.com/sairoots" target="_blank">SoundCloud</a> |
-    <a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank">Deezer</a> |
-    <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank">Amazon Music</a> |
-    <a href="https://instagram.com/ahmadsupembri" target="_blank">Instagram</a> |
-    <a href="https://tiktok.com/@ahmadsupembri" target="_blank">TikTok</a> |
-    <a href="https://facebook.com/ahmadsupembri" target="_blank">Facebook</a>
-  </p>
-
-  <p>
-    <a href="/about">About</a> •
-    <a href="/contact">Contact</a> •
-    <a href="/privacy">Privacy Policy</a>
-  </p>
-
-  <p>© 2026 SAI Roots Music. All Rights Reserved</p>
+    <div class="footer-grid">
+        <div>
+            <h4 style="color:var(--primary)">Streaming & Social</h4>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@sairoots" target="_blank" title="YouTube"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YT"></a>
+                <a href="https://music.youtube.com/channel/UC2EfMkjDMG9LTWfc1llL4AQ" target="_blank" title="YouTube Music"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968852.png" alt="YTM"></a>
+                <a href="https://open.spotify.com/artist/0xOPCtZvhXVd9RTbU1aYTr" target="_blank" title="Spotify"><img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="SP"></a>
+                <a href="https://music.apple.com/id/artist/sai-roots/1892187423?l=id" target="_blank" title="Apple Music"><img src="https://cdn-icons-png.flaticon.com/512/831/831276.png" alt="AM"></a>
+                <a href="https://m.soundcloud.com/sairoots" target="_blank" title="SoundCloud"><img src="https://cdn-icons-png.flaticon.com/512/145/145809.png" alt="SC"></a>
+                <a href="https://link.deezer.com/s/3366qh6efN8QoSqSPCEsB" target="_blank" title="Deezer"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968803.png" alt="DZ"></a>
+                <a href="https://music.amazon.com/artists/B0GTFWNC32/sai-roots" target="_blank" title="Amazon Music"><img src="https://cdn-icons-png.flaticon.com/512/5969/5969112.png" alt="AZ"></a>
+                <a href="https://instagram.com/ahmadsupembri" target="_blank" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="IG"></a>
+                <a href="https://tiktok.com/@ahmadsupembri" target="_blank" title="TikTok"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TK"></a>
+                <a href="https://facebook.com/ahmadsupembri" target="_blank" title="Facebook"><img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="FB"></a>
+            </div>
+        </div>
+        <div>
+            <h4 style="color:var(--primary)">Quick Links</h4>
+            <nav style="display:flex; flex-direction:column; gap:10px;">
+                <a href="/about">About SAI Roots</a>
+                <a href="/contact">Hubungi Kami</a>
+                <a href="/privacy">Privacy Policy</a>
+            </nav>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 SAI Roots Music. All Rights Reserved
+    </div>
 </footer>
+
+<script>
+    // Toggle Menu Hamburger
+    function toggleMenu() {
+        document.getElementById('navMenu').classList.toggle('active');
+    }
+
+    // Clean URL logic (Simulasi - hanya berfungsi jika server mendukung)
+    if (window.location.pathname.endsWith('.html')) {
+        var cleanUrl = window.location.pathname.replace(/\.html$/, '');
+        window.history.replaceState(null, '', cleanUrl);
+    }
+
+    // Simple Smart Search
+    document.getElementById('siteSearch').addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+            alert('Mencari: ' + this.value + '... (Fitur ini akan aktif setelah database artikel siap)');
+        }
+    });
+</script>
 
 </body>
 </html>
