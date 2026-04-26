@@ -1,206 +1,434 @@
-/* Root Variables - Warna Tema SAI Roots */
+/* =========================================
+   1. VARIABEL & RESET
+========================================= */
 :root {
-    --bg-black: #000000;
-    --bg-dark: #121212;
-    --card-bg: #181818;
-    --primary-color: #1DB954; /* Hijau Musik */
-    --text-white: #ffffff;
-    --text-gray: #b3b3b3;
-    --transition: all 0.3s ease;
+    --bg-main: #0a0a0a;         /* Hitam pekat */
+    --bg-surface: #121212;      /* Hitam permukaan kartu/nav */
+    --bg-elevated: #1e1e1e;     /* Hitam untuk hover/popup */
+    --text-primary: #ffffff;    /* Putih bersih */
+    --text-secondary: #b3b3b3;  /* Abu-abu teks deskripsi */
+    --accent: #1db954;          /* Hijau khas musik */
+    --accent-hover: #1ed760;
+    --border: #282828;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-black);
-    color: var(--text-white);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Header & Navigation */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* =========================================
+   2. HEADER & SMART SEARCH
+========================================= */
 header {
-    background-color: rgba(0, 0, 0, 0.95);
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: rgba(18, 18, 18, 0.95);
+    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #282828;
+    backdrop-filter: blur(10px);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 800;
-    letter-spacing: 2px;
-    color: var(--primary-color);
+    letter-spacing: -0.5px;
+    color: var(--accent);
 }
 
-.nav-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.search-container {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 20px;
+    position: relative;
 }
 
-/* Pencarian Pintar */
 .search-bar {
-    background: var(--card-bg);
-    border: 1px solid #333;
-    padding: 8px 15px;
+    width: 100%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    padding: 8px 15px 8px 35px;
     border-radius: 20px;
     color: white;
-    width: 200px;
+    font-size: 0.9rem;
 }
 
-/* Hamburger Menu (Mobile) */
-.menu-toggle {
+.search-bar:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Hamburger Menu */
+.nav-toggle {
     display: none;
-    cursor: pointer;
     font-size: 1.5rem;
+    color: white;
 }
 
-/* Footer & Social Media */
-footer {
-    background-color: var(--bg-dark);
-    padding: 40px 5%;
-    margin-top: 50px;
-    border-top: 1px solid #282828;
-    text-align: center;
-}
-
-.social-icons {
+.nav-links {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.nav-sep {
+    color: var(--border);
+}
+
+/* =========================================
+   3. LAYOUT UTAMA & GRID
+========================================= */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 80vh;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title::after {
+    content: "";
+    height: 2px;
+    background: var(--accent);
+    flex: 1;
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: var(--bg-elevated);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.card-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   4. DISKOGRAFI & PEMUTAR MUSIK
+========================================= */
+.album-flex {
+    display: flex;
+    gap: 30px;
+    background: var(--bg-surface);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.album-art {
+    width: 250px;
+    height: 250px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    object-fit: cover;
+}
+
+.album-details {
+    flex: 1;
+}
+
+.player-embed {
+    margin-top: 20px;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* =========================================
+   5. LIRIK & ARTIKEL (Wiki Style)
+========================================= */
+.content-area {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.lyric-box {
+    white-space: pre-line;
+    font-size: 1.1rem;
+    line-height: 2;
+    text-align: center;
+    background: var(--bg-surface);
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.article-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.article-body h2, .article-body h3 {
+    color: white;
+    margin: 30px 0 15px;
+}
+
+.article-body img {
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* =========================================
+   6. VIDEO COVER (YouTube Grid)
+========================================= */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* =========================================
+   7. KONTAK & FORM ADMIN
+========================================= */
+.form-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--bg-surface);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+}
+
+.input-group {
     margin-bottom: 20px;
 }
 
-.social-icons a {
-    color: var(--text-gray);
-    text-decoration: none;
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
     font-size: 0.9rem;
-    transition: var(--transition);
+    color: var(--text-secondary);
 }
 
-.social-icons a:hover {
-    color: var(--primary-color);
-}
-
-/* Responsive Mobile */
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* Nanti pakai toggle JS */
-    .menu-toggle { display: block; }
-    .search-bar { width: 120px; }
-}
-
-/* Card Postingan di Index */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.nav-menu.active {
-    display: flex;
-    flex-direction: column;
-    background: #181818;
-    position: absolute;
-    top: 70px;
-    right: 5%;
-    width: 200px;
-    padding: 20px;
-    border: 1px solid #333;
-    border-radius: 8px;
-}
-
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 0;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.nav-menu a:hover {
-    color: var(--primary-color);
-}
-
-/* Spotify-like Player */
-.player-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+.form-control {
     width: 100%;
-    background: #181818;
-    border-top: 1px solid #282828;
-    padding: 15px 5%;
-    display: none; /* Muncul saat lagu diklik */
-    justify-content: space-between;
-    align-items: center;
-    z-index: 2000;
-}
-
-.play-circle {
-    background: var(--primary-color);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: black;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-.player-info { flex: 1; }
-.player-controls { flex: 1; text-align: center; }
-.player-extra { flex: 1; text-align: right; }
-
-.btn-filter {
-    background: #282828;
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    padding: 12px;
+    border-radius: 8px;
     color: white;
-    border: 1px solid #444;
-    padding: 8px 18px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.9rem;
+}
+
+.form-control:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    width: 100%;
     transition: 0.3s;
 }
 
-.btn-filter.active, .btn-filter:hover {
-    background: var(--primary-color);
-    color: black;
-    border-color: var(--primary-color);
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: scale(1.02);
 }
 
-/* Article Styling */
-#article-grid .article-item {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 4px; /* Lebih kotak agar formal */
-    border: 1px solid #282828;
-    transition: transform 0.2s;
+/* Pop-up Sukses */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
 }
 
-#article-grid .article-item:hover {
-    border-color: var(--primary-color);
+.popup-card {
+    background: var(--bg-surface);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--accent);
 }
 
-#article-grid h3 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-    text-transform: capitalize;
+/* =========================================
+   8. FOOTER GLOBAL
+========================================= */
+footer {
+    background: var(--bg-surface);
+    padding: 60px 20px 30px;
+    border-top: 1px solid var(--border);
+    margin-top: 50px;
+    text-align: center;
 }
 
-#article-grid p {
-    color: var(--text-gray);
-    font-size: 1rem;
-    line-height: 1.8;
+.social-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.social-link {
+    background: var(--bg-elevated);
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid transparent;
+}
+
+.social-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.footer-nav {
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.footer-nav a {
+    margin: 0 10px;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* =========================================
+   9. RESPONSIVE (MOBILE)
+========================================= */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none; /* Akan diaktifkan via JS */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-surface);
+        flex-direction: column;
+        padding: 20px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-sep {
+        display: none;
+    }
+
+    .album-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .album-art {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .search-container {
+        display: none; /* Opsional: sembunyikan di mobile jika sempit */
+    }
 }
